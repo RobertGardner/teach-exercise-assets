@@ -28,7 +28,7 @@ State is data that changes as the user interacts with your app. Here are some ru
 
 At the beginning of this phase, your code should be somewhat similar to the following:
 
-```js
+```jsx
 RotatingBanner.js
 ---
 export default function RotatingBanner({ items }) {
@@ -50,6 +50,7 @@ function Indicators({ count }) {...}
 ## Tips
 
 <details>
+
   <summary>Expand after completing your design</summary>
 
 - The Rotating Banner system can be completely controlled with one state variable that holds the index of the item currently being displayed.
@@ -80,4 +81,4 @@ When you are done with this phase, commit your code to the current branch.
 
 ## Continue to Phase 3 ➡️
 
-Your instructor will instruct you as to when you can proceed to [Phase 3](../phase3.md).
+Your instructor will instruct you as to when you can proceed to [Phase 3](../phase3/).

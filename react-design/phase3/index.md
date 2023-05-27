@@ -29,7 +29,7 @@ If time permits, examine your solution for clean up opportunities. For example, 
 
 At the beginning of this phase, your code should be somewhat similar to the following:
 
-```js
+```jsx
 RotatingBanner.js
 ---
 export default function RotatingBanner({ items }) {
@@ -57,6 +57,7 @@ function Indicators({ count, current }) {
 ## Tips
 
 <details>
+
   <summary>Expand after completing your design</summary>
 
 - The current index needs to be updated when the user clicks on the next button, the prev button, and an indicator button.

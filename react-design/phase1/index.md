@@ -24,15 +24,13 @@ In this phase, your goal is to identify your React components and implement stat
 
 Although other breakdowns are possible, a logical breakdown has 5 components:
 
-- The main component, `RotatingBanner`
-
-- The `Banner` component that displays the name of the current item
-
-- The `NextButton` component that renders a "Next" button for cycling to the next item
-
-- The `PrevButton` component that renders a "Prev" button for cycling to the previous item
-
-- The `Indicators` component that renders a list of buttons, each displaying an index, for cycling to a specific item; the current item will be highlighted
+<ul>
+  <li>The main component, <code class="language-plaintext highlighter-rouge">RotatingBanner</code></li>
+  <li>The <code class="language-plaintext highlighter-rouge">Banner</code> component that displays the name of the current item</li>
+  <li>The <code class="language-plaintext highlighter-rouge">NextButton</code> component that renders a "Next" button for cycling to the next item
+  <li>The <code class="language-plaintext highlighter-rouge">PrevButton</code> component that renders a "Prev" button for cycling to the previous item</li>
+  <li>The <code class="language-plaintext highlighter-rouge">Indicators</code> component that renders a list of buttons, each displaying an index, for cycling to a specific item; the current item will be highlighted</li>
+</ul>
 
 These components will be used in the remaining phases.
 
