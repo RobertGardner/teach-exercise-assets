@@ -25,9 +25,13 @@ In this phase, your goal is to identify your React components and implement stat
 Although other breakdowns are possible, a logical breakdown has 5 components:
 
 - The main component, `RotatingBanner`
+
 - The `Banner` component that displays the name of the current item
+
 - The `NextButton` component that renders a "Next" button for cycling to the next item
+
 - The `PrevButton` component that renders a "Prev" button for cycling to the previous item
+
 - The `Indicators` component that renders a list of buttons, each displaying an index, for cycling to a specific item; the current item will be highlighted
 
 These components will be used in the remaining phases.
@@ -42,4 +46,4 @@ When you are done with this phase, submit a Pull Request on GitHub. Detailed ins
 
 ## Continue to Phase 2 ➡️
 
-Your instructor will instruct you as to when you can proceed to [Phase 2](./phase2.md).
+Your instructor will instruct you as to when you can proceed to [Phase 2](../phase2/).

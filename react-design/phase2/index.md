@@ -53,14 +53,23 @@ function Indicators({ count }) {...}
   <summary>Expand after completing your design</summary>
 
 - The Rotating Banner system can be completely controlled with one state variable that holds the index of the item currently being displayed.
+
 - The components that use this state are `Banner` and `Indicators`.
+
   - The item that `Banner` displays depends on the current index.
+
   - `Indicators` needs to highlight the button corresponding to the current index.
+
   - `NextButton` and `PrevButton` do _not_ modify their visual display even if the current index changes, so they do not depend on the state.
+
 - Since `RotatingBanner` is the closest parent to those components that depend on the current index, that state should be owned by `RotatingBanner`.
+
 - Note that there are two choices with how `Banner` receives and uses the current index:
+
   - Pass `items` and `currentIndex` as props, and `Banner` determines which item to display
+
   - Pass `items[currentIndex]` as a prop, in which case `Banner` depends _indirectly_ on `currentIndex`
+
   - The second approach is the simplest and minimizes the knowledge that `Banner` has about its context
 
 </details>
@@ -71,4 +80,4 @@ When you are done with this phase, commit your code to the current branch.
 
 ## Continue to Phase 3 ➡️
 
-Your instructor will instruct you as to when you can proceed to [Phase 3](./phase3.md).
+Your instructor will instruct you as to when you can proceed to [Phase 3](../phase3.md).

@@ -60,16 +60,27 @@ function Indicators({ count, current }) {
   <summary>Expand after completing your design</summary>
 
 - The current index needs to be updated when the user clicks on the next button, the prev button, and an indicator button.
+
 - The click on the next button originates in the `NextButton` component.
+
 - The click on the prev button originates in the `PrevButton` component.
+
 - The click on an indicator button originates in the `Indicators` component.
+
 - In all of these cases, the `<button>` element will trigger the event, so the onClick event handler passed to those `<button>` elements must call the component's event handler prop.
+
 - The `RotatingBanner` component responds to the events from its children components and sets the current index according to the event:
+
   - `NextButton` click: add 1 to the current index, wrapping around to `0`
+
     - Hint: use `(activeIndex + 1) % items.length`
+
   - `PrevButton` click: subtract 1 from the current index, wrapping around to `length - 1`
+
     - Hint: use `(activeIndex - 1 + items.length) % items.length`
+
   - `Indicator` click: set current index to the index of the clicked button
+
     - Hint: pass the index of the clicked button to the event handler prop
 
 </details>
