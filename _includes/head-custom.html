@@ -90,6 +90,9 @@
       if ($anchor) $anchor.click();
     }
     var $title = document.querySelector("#project_title");
-    if ($title) $title.innerText = window.location.pathname;
+    if ($title) {
+      var ex = window.location.pathname.match(/\/exercise-assets\/(.*?)\//);
+      if (ex && ex.length === 2) $title.innerText = ex[1];
+    }
   });
 </script>
