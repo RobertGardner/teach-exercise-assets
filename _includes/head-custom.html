@@ -48,35 +48,48 @@
   }
 </style>
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.addEventListener('click', function (event) {
-      var $anchor = event.target.closest('a[href]')
-      if (!$anchor) return
-      var href = $anchor.getAttribute('href')
-      if (!href.trim().match(/^https?:\/\//)) return
+  document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("click", function (event) {
+      var $anchor = event.target.closest("a[href]");
+      if (!$anchor) return;
+      var href = $anchor.getAttribute("href");
+      if (!href.trim().match(/^https?:\/\//)) return;
       event.preventDefault();
       event.stopPropagation();
-      window.open(href, '_blank', 'noopener,noreferrer');
-    })
-    document.querySelectorAll('img[src]').forEach(function ($img) {
-      var $parent = $img.parentElement
-      var $anchor = document.createElement('a')
-      $anchor.setAttribute('href', $img.getAttribute('src'))
-      $parent.replaceChild($anchor, $img)
-      $anchor.appendChild($img)
-    })
-    document.querySelectorAll('#main_content h1, #main_content h2, #main_content h3, #main_content h4').forEach(function ($heading) {
-      var id = $heading.getAttribute('id') || $heading.innerText.toLowerCase().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '').replace(/ +/g, '-')
-      $heading.setAttribute('id', id)
-      var $anchor = document.createElement('a')
-      $anchor.href = '#' + id
-      $anchor.textContent = '#'
-      $anchor.className = 'heading-anchor'
-      $heading.appendChild($anchor)
-    })
+      window.open(href, "_blank", "noopener,noreferrer");
+    });
+    document.querySelectorAll("img[src]").forEach(function ($img) {
+      var $parent = $img.parentElement;
+      var $anchor = document.createElement("a");
+      $anchor.setAttribute("href", $img.getAttribute("src"));
+      $parent.replaceChild($anchor, $img);
+      $anchor.appendChild($img);
+    });
+    document
+      .querySelectorAll(
+        "#main_content h1, #main_content h2, #main_content h3, #main_content h4"
+      )
+      .forEach(function ($heading) {
+        var id =
+          $heading.getAttribute("id") ||
+          $heading.innerText
+            .toLowerCase()
+            .replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, "")
+            .replace(/ +/g, "-");
+        $heading.setAttribute("id", id);
+        var $anchor = document.createElement("a");
+        $anchor.href = "#" + id;
+        $anchor.textContent = "#";
+        $anchor.className = "heading-anchor";
+        $heading.appendChild($anchor);
+      });
     if (window.location.hash.length > 0) {
-      var $anchor = document.querySelector('a[href="' + window.location.hash + '"]')
-      if ($anchor) $anchor.click()
+      var $anchor = document.querySelector(
+        'a[href="' + window.location.hash + '"]'
+      );
+      if ($anchor) $anchor.click();
     }
-  })
+    var $title = document.querySelector("#project_title");
+    if ($title) $title.innerText = window.location.pathname;
+  });
 </script>
