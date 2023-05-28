@@ -62,15 +62,18 @@ function Indicators({ count, current }) {
     <li>The click on the next button originates in the <code class="language-plaintext highlighter-rouge">NextButton</code> component.</li>
     <li>The click on the prev button originates in the <code class="language-plaintext highlighter-rouge">PrevButton</code> component.</li>
     <li>The click on an indicator button originates in the <code class="language-plaintext highlighter-rouge">Indicators</code> component.</li>
-    <li>In all of these cases, the <code class="language-plaintext highlighter-rouge"><button></code> element will trigger the event, so the onClick event handler passed to those <code class="language-plaintext highlighter-rouge"><button></code> elements must call the component's event handler prop.</li>
+    <li>In all of these cases, the <code class="language-plaintext highlighter-rouge">&lt;button&gt;</code> element will trigger the event, so the onClick event handler passed to those <code class="language-plaintext highlighter-rouge">&lt;button&gt;</code> elements must call the component's event handler prop.</li>
     <li>The <code class="language-plaintext highlighter-rouge">RotatingBanner</code> component responds to the events from its children components and sets the current index according to the event:
       <ul>
         <li><code class="language-plaintext highlighter-rouge">NextButton</code> click: add 1 to the current index, wrapping around to <code class="language-plaintext highlighter-rouge">0</code>
-        <ul><li>Hint: use <code class="language-plaintext highlighter-rouge">(activeIndex + 1) % items.length</code></li></ul></li>
+          <ul><li>Hint: use <code class="language-plaintext highlighter-rouge">(activeIndex + 1) % items.length</code></li></ul>
+        </li>
         <li><code class="language-plaintext highlighter-rouge">PrevButton</code> click: subtract 1 from the current index, wrapping around to <code class="language-plaintext highlighter-rouge">length - 1</code>
-          <ul><li>Hint: use <code class="language-plaintext highlighter-rouge">(activeIndex - 1 + items.length) % items.length</code></li></ul></li>
+          <ul><li>Hint: use <code class="language-plaintext highlighter-rouge">(activeIndex - 1 + items.length) % items.length</code></li></ul>
+        </li>
         <li><code class="language-plaintext highlighter-rouge">Indicator</code> click: set current index to the index of the clicked button
-          <ul><li>Hint: pass the index of the clicked button to the event handler prop</li></ul></li>
+          <ul><li>Hint: pass the index of the clicked button to the event handler prop</li></ul>
+        </li>
       </ul>
     </li>
   </ul>

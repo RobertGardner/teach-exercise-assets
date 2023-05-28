@@ -57,13 +57,13 @@ function Indicators({ count }) {...}
     <li>The components that use this state are <code class="language-plaintext highlighter-rouge">Banner</code> and <code class="language-plaintext highlighter-rouge">Indicators</code>.</li>
     <li>The item that <code class="language-plaintext highlighter-rouge">Banner</code> displays depends on the current index.</li>
     <li><code class="language-plaintext highlighter-rouge">Indicators</code> needs to highlight the button corresponding to the current index.</li>
-    <li><code class="language-plaintext highlighter-rouge">NextButton</code> and <code class="language-plaintext highlighter-rouge">PrevButton</code> do <i>not</i> modify their visual display even if the current index changes, so they do not depend on the state.</li>
+    <li><code class="language-plaintext highlighter-rouge">NextButton</code> and <code class="language-plaintext highlighter-rouge">PrevButton</code> do <em>not</em> modify their visual display even if the current index changes, so they do not depend on the state.</li>
     <li>Since <code class="language-plaintext highlighter-rouge">RotatingBanner</code> is the closest parent to those components that depend on the current index, that state should be owned by <code class="language-plaintext highlighter-rouge">RotatingBanner</code>.
       <ul>
         <li>Note that there are two choices with how <code class="language-plaintext highlighter-rouge">Banner</code> receives and uses the current index:
           <ol>
             <li>Pass <code class="language-plaintext highlighter-rouge">items</code> and <code class="language-plaintext highlighter-rouge">currentIndex</code> as props, and <code class="language-plaintext highlighter-rouge">Banner</code> determines which item to display</li>
-            <li>Pass <code class="language-plaintext highlighter-rouge">items[currentIndex]</code> as a prop, in which case <code class="language-plaintext highlighter-rouge">Banner</code> depends <i>indirectly</i> on <code class="language-plaintext highlighter-rouge">currentIndex</code></li>
+            <li>Pass <code class="language-plaintext highlighter-rouge">items[currentIndex]</code> as a prop, in which case <code class="language-plaintext highlighter-rouge">Banner</code> depends <em>indirectly</em> on <code class="language-plaintext highlighter-rouge">currentIndex</code></li>
           </ol>
         </li>
         <li>The second approach is the simplest and minimizes the knowledge that <code class="language-plaintext highlighter-rouge">Banner</code> has about its context</li>
