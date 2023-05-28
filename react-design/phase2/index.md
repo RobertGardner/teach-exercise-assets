@@ -53,26 +53,22 @@ function Indicators({ count }) {...}
 
   <summary>Expand after completing your design</summary>
 
-- The Rotating Banner system can be completely controlled with one state variable that holds the index of the item currently being displayed.
+  <p>The Rotating Banner system can be completely controlled with one state variable that holds the index of the item currently being displayed.</p>
 
-- The components that use this state are `Banner` and `Indicators`.
-
-  - The item that `Banner` displays depends on the current index.
-
-  - `Indicators` needs to highlight the button corresponding to the current index.
-
-  - `NextButton` and `PrevButton` do _not_ modify their visual display even if the current index changes, so they do not depend on the state.
-
-- Since `RotatingBanner` is the closest parent to those components that depend on the current index, that state should be owned by `RotatingBanner`.
-
-- Note that there are two choices with how `Banner` receives and uses the current index:
-
-  - Pass `items` and `currentIndex` as props, and `Banner` determines which item to display
-
-  - Pass `items[currentIndex]` as a prop, in which case `Banner` depends _indirectly_ on `currentIndex`
-
-  - The second approach is the simplest and minimizes the knowledge that `Banner` has about its context
-
+  <ul>
+    <li>The components that use this state are <code class="language-plaintext highlighter-rouge">Banner</code>`Banner` and <code class="language-plaintext highlighter-rouge">Banner</code>`Indicators`.</li>
+    <li>The item that <code class="language-plaintext highlighter-rouge">Banner</code>`Banner` displays depends on the current index.</li>
+    <li><code class="language-plaintext highlighter-rouge">Banner</code>`Indicators` needs to highlight the button corresponding to the current index.</li>
+    <li><code class="language-plaintext highlighter-rouge">Banner</code>`NextButton` and <code class="language-plaintext highlighter-rouge">Banner</code>`PrevButton` do <i>not</i> modify their visual display even if the current index changes, so they do not depend on the state.</li>
+    <li>Since <code class="language-plaintext highlighter-rouge">Banner</code>`RotatingBanner` is the closest parent to those components that depend on the current index, that state should be owned by <code class="language-plaintext highlighter-rouge">Banner</code>`RotatingBanner`.
+      <ul>
+        <li>Note that there are two choices with how <code class="language-plaintext highlighter-rouge">Banner</code> receives and uses the current index:</li>
+        <li>Pass <code class="language-plaintext highlighter-rouge">items</code> and <code class="language-plaintext highlighter-rouge">currentIndex</code> as props, and <code class="language-plaintext highlighter-rouge">Banner</code> determines which item to display</li>
+        <li>Pass <code class="language-plaintext highlighter-rouge">items[currentIndex]</code> as a prop, in which case <code class="language-plaintext highlighter-rouge">Banner</code> depends <i>indirectly</i> on <code class="language-plaintext highlighter-rouge">currentIndex</code></li>
+        <li>The second approach is the simplest and minimizes the knowledge that <code class="language-plaintext highlighter-rouge">Banner</code> has about its context</li>
+      </ul>
+    </li>
+  </ul>
 </details>
 
 ## Submit the current code

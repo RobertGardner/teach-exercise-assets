@@ -20,19 +20,20 @@ In this phase, your goal is to identify your React components and implement stat
 ## Tips
 
 <details>
+
   <summary>Expand after completing your design</summary>
 
-Although other breakdowns are possible, a logical breakdown has 5 components:
+  <p>Although other breakdowns are possible, a logical breakdown has 5 components:</p>
 
-<ul>
-  <li>The main component, <code class="language-plaintext highlighter-rouge">RotatingBanner</code></li>
-  <li>The <code class="language-plaintext highlighter-rouge">Banner</code> component that displays the name of the current item</li>
-  <li>The <code class="language-plaintext highlighter-rouge">NextButton</code> component that renders a "Next" button for cycling to the next item
-  <li>The <code class="language-plaintext highlighter-rouge">PrevButton</code> component that renders a "Prev" button for cycling to the previous item</li>
-  <li>The <code class="language-plaintext highlighter-rouge">Indicators</code> component that renders a list of buttons, each displaying an index, for cycling to a specific item; the current item will be highlighted</li>
-</ul>
+  <ul>
+    <li>The main component, <code class="language-plaintext highlighter-rouge">RotatingBanner</code></li>
+    <li>The <code class="language-plaintext highlighter-rouge">Banner</code> component that displays the name of the current item</li>
+    <li>The <code class="language-plaintext highlighter-rouge">NextButton</code> component that renders a "Next" button for cycling to the next item</li>
+    <li>The <code class="language-plaintext highlighter-rouge">PrevButton</code> component that renders a "Prev" button for cycling to the previous item</li>
+    <li>The <code class="language-plaintext highlighter-rouge">Indicators</code> component that renders a list of buttons, each displaying an index, for cycling to a specific item; the current item will be highlighted</li>
+  </ul>
 
-These components will be used in the remaining phases.
+  <p>These components will be used in the remaining phases.</p>
 
 </details>
 
