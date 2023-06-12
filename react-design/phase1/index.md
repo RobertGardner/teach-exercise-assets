@@ -39,7 +39,7 @@ In this phase, your goal is to identify your React components and implement stat
 
 ## Submit the current code
 
-When you are done with this phase, submit a Pull Request on GitHub. Detailed instructions can be found [**here**](../../guides/submitting-your-solution).
+When you are done with this phase, submit a Pull Request on GitHub. Detailed instructions can be found [**here**](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/submitting-your-solution).
 
 **Note:** Do not merge this PR. You will continue to use this PR for subsequent phases.
 
