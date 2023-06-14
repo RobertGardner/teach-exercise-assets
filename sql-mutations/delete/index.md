@@ -1,4 +1,4 @@
-# SQL Update
+# SQL Delete
 
 <progress value="3" max="3"></progress>
 
