@@ -93,4 +93,4 @@ Create and implement the following `.sql` files.
 
 ## Continue to SQL Update ➡️
 
-For more practice using data structures, proceed to [SQL Update](../update/).
+To learn how to modify existing data, proceed to [SQL Update](../update/).

@@ -81,4 +81,4 @@ Create and implement the following `.sql` files.
 
 ## Continue to SQL Delete ➡️
 
-For more practice using data structures, proceed to [SQL Delete](../delete/).
+To learn how to delete existing data, proceed to [SQL Delete](../delete/).
