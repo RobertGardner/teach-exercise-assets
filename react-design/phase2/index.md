@@ -76,6 +76,12 @@ function Indicators({ count }) {...}
 
 When you are done with this phase, commit your code to the current branch.
 
+Note that you might have unused setter functions, which will cause lint errors that keep you from committing. There are several ways you can work around this:
+
+- Comment out the setter function (`const [currentIndex /*, setCurrentIndex */] = useState()`).
+- Disable the lint warning (with `// eslint-disable-next-line @typescript-eslint/no-unused-vars`). If you do this, remember to remove the comment once you start using the setter. Also note that the easiest way to get this inserted in your code is to click on the lint error in VS Code and then click the light bulb.
+- Commit with the `--no-verify` option. If you do this, _don't get used to it_! It is a dangerous option that side-steps protections lint provides.
+
 ## Continue to Phase 3 ➡️
 
 Your instructor will instruct you as to when you can proceed to [Phase 3](../phase3/).
