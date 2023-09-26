@@ -13,11 +13,11 @@ A stack is a list-type abstract data structure that limits interaction to one en
 Stacks have an interface with at least two methods:
 
 - `push(value)` - adds a `value` to the "top" of the stack
-- `pop()` - removes the top value from the stack and returns it
+- `pop()` - removes the top value from the stack and returns it, or `undefined` if the stack is empty
 
 Together, these facilitate last-in-first-out (LIFO) operations: the last thing `push`ed onto the stack is the first thing that can be `pop`ed out.
 
-Often, stacks include additional helper operations that make them a bit easier to use, such as `peek()`, which returns the "top" value of the stack without removing it.
+Often, stacks include additional helper operations that make them a bit easier to use, such as `peek()`, which returns the "top" value of the stack without removing it. If the stack is empty, `peek()` will return `undefined`.
 
 ## Exercise
 

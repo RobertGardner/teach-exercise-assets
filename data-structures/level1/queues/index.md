@@ -13,11 +13,11 @@ A queue is a list-type abstract data structure that limits interaction with its 
 Queues have an interface with at least two methods:
 
 - `enqueue(value)` - adds a `value` to the "back" of the queue
-- `dequeue()` - removes the "front" value from the queue and returns it
+- `dequeue()` - removes the "front" value from the queue and returns it, or `undefined` if the queue is empty
 
 Together, these facilitate first-in-first-out (FIFO) operations: the first thing `enqueue`d onto the queue is the first thing that can be `dequeue`d out.
 
-Often, queues include additional helper operations that make them a bit easier to use, such as `peek()`, which returns the "front" value of the queue without removing it.
+Often, queues include additional helper operations that make them a bit easier to use, such as `peek()`, which returns the "front" value of the queue without removing it. If the queue is empty, `peek()` will return `undefined`.
 
 ## Exercise
 

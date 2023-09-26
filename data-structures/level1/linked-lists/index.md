@@ -9,6 +9,8 @@ A linked list is a concrete data structure consisting of a bunch of value-contai
 - `.data` - contains the node's value.
 - `.next` a reference to the next node in the list, if there is one. If there is no "next" node in the list, this property is typically set to `null`.
 
+Note that in a linked list, every node is itself a linked list!
+
 <p align="middle">
   <img src="./linked-list.png">
 </p>
@@ -77,7 +79,7 @@ Remember to examine the code for the `LinkedList` class and to read all the test
 
    ##### Return Value
 
-   This function should create a new node with the supplied `value` and set that node as the `head` of the supplied list. The entire list should then be returned.
+   This function should create a new node with the supplied `value` and set that node as the `head` of the supplied list. The entire list should then be returned. Note that since a node _is a_ linked list, you can create the node with `new LinkedList(value)`.
 
 ## Submitting Your Solution
 
