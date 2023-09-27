@@ -16,15 +16,18 @@ Remember to examine the code for the `Queue` class and to read all the tests for
 
 ### Bonus Challenge Problems
 
-1. #### `take2nd(queue)`
+1. #### `takeValueAtIndex(queue, index)`
 
    ##### Parameters
 
    - `queue` - a `Queue` object containing zero or more values.
+   - `index` - a numeric value representing an index value.
 
    ##### Return Value
 
-   This function should remove and return the second value in the `queue` and move the first value to the back of the `queue`.
+   If the supplied `queue` is empty, the function should return undefined.
+
+   If the supplied `queue` is not empty, the function should remove and return the value at the front of the `queue` after the values have been cycled to the back of the `queue` the number of times specified in `index`.
 
 1. #### `takeSmaller(queue)`
 

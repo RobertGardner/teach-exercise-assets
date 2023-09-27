@@ -32,18 +32,15 @@ Remember to examine the code for the `Queue` class and to read all the tests for
 
    If the `queue` is not empty, the value at the front of the `queue` should be moved to the back of the `queue`.
 
-1. #### `takeValueAtIndex(queue, index)`
+1. #### `take2nd(queue)`
 
    ##### Parameters
 
    - `queue` - a `Queue` object containing zero or more values.
-   - `index` - a numeric value representing an index value.
 
    ##### Return Value
 
-   If the supplied `queue` is empty, the function should return undefined.
-
-   If the supplied `queue` is not empty, the function should remove and return the value at the front of the `queue` after the values have been cycled to the back of the `queue` the number of times specified in `index`.
+   This function should remove and return the second value in the `queue` and move the first value to the back of the `queue`.
 
 ## Continue to Level 2 - Linked Lists ➡️
 
