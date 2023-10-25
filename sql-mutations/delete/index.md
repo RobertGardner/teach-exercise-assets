@@ -72,7 +72,7 @@ You can use `and` just about anywhere that logically makes sense in SQL. If you 
 
 ## Exercise
 
-Create and implement the following `.sql` files.
+Create and implement the following `.sql` files. You should be able to determine which table to manipulate from the instruction description.
 
 1. `diplomat.sql`
 

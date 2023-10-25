@@ -86,10 +86,11 @@ Create and implement the following `.sql` files.
 1. `insert-actor.sql`
 
    Add an actor to the `"actors"` table. And retrieve the resulting row. The `"actorId"` and `"updatedAt"` are auto-generated.
+   **Tip:** Explore the `"actors"` table to find the columns you need to populate.
 
 1. `insert-languages.sql`
 
-   Add `'HTML'`, `'CSS'`, and `'JavaScript'` to the languages table using a single `Insert` statement and retrieve the resulting rows. The `"languageId"` and `"updatedAt"` are auto-generated.
+   Add `'HTML'`, `'CSS'`, and `'JavaScript'` to the `"languages"` table using a single `insert` statement and retrieve the resulting rows. The `"languageId"` and `"updatedAt"` are auto-generated.
 
 ## Continue to SQL Update ➡️
 
