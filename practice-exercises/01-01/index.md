@@ -37,14 +37,14 @@ Any constraints will be listed here. They will vary depending on the exercise.
 <details>
   <summary>Click For Solution</summary>
 
-```JS
-export function helloWorld(): string {
-  return 'Hello World!';
-}
-```
+  ```js
+  export function helloWorld(): string {
+    return "Hello World!";
+  }
+  ```
 
-### Explanation
+  ### Explanation
 
-An explanation of the solution will be here. The length and depth of the explanation will vary depending on the exercise.
+  An explanation of the solution will be here. The length and depth of the explanation will vary depending on the exercise.
 
 </details>
