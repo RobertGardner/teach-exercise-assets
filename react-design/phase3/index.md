@@ -69,7 +69,8 @@ function Indicators({ count, current }) {
     - Hint: use `(activeIndex + 1) % items.length`
 
   - `PrevButton` click: subtract 1 from the current index, wrapping around to `length - 1`
-    -Hint: use `(activeIndex - 1 + items.length) % items.length`
+
+    - Hint: use `(activeIndex - 1 + items.length) % items.length`
 
   - `Indicator` click: set current index to the index of the clicked button
     - Hint: pass the index of the clicked button to the event handler prop
