@@ -36,7 +36,7 @@ arrayIntersection([1, 2, 3, 4, 5], [5, 4, 3, 2, 1]); // should return [1, 2, 3, 
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 1</summary>
 
 ```js
@@ -63,7 +63,7 @@ export function arrayIntersection(arr1: unknown[], arr2: unknown[]): unknown[] {
 
 </details>
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 2</summary>
 
 In this solution, we will use a Set. A Set is a data structure that stores unique values. We will have a section on maps and sets later. If you are not familiar with sets, that is fine. You can still follow along with this solution.

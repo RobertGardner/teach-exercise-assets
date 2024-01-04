@@ -18,11 +18,11 @@ function reverseString(str: string): string;
 ## Examples
 
 ```js
-reverseString('hello'); // should return 'olleh'
-reverseString('world'); // should return 'dlrow'
-reverseString(''); // should return ''
-reverseString('a'); // should return 'a'
-reverseString('racecar'); // should return 'racecar'
+reverseString("hello"); // should return 'olleh'
+reverseString("world"); // should return 'dlrow'
+reverseString(""); // should return ''
+reverseString("a"); // should return 'a'
+reverseString("racecar"); // should return 'racecar'
 ```
 
 ### Hints
@@ -33,7 +33,7 @@ reverseString('racecar'); // should return 'racecar'
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

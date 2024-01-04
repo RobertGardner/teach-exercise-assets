@@ -39,7 +39,7 @@ console.log(twoSum([3, 3], 6));
 
 ### Solution
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

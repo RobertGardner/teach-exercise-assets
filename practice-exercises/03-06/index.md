@@ -39,7 +39,7 @@ generateHashtag(""); // undefined
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 1</summary>
 
 ```js
@@ -68,7 +68,7 @@ export function generateHashtag(str: string): string | undefined {
 
 </details>
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 2</summary>
 
 ```js

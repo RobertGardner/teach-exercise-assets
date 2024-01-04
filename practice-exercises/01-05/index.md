@@ -29,7 +29,7 @@ findMaxNumber([1, 2, 3, 4, 5, 10, 9, 8, 7, 6]); // 10
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 1</summary>
 
 Here is a solution using a `for` loop.
@@ -57,7 +57,7 @@ export function findMaxNumber(arr: number[]): number {
 
 </details>
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 2</summary>
 
 This is the easy way to do it. There is a method called `Math.max()` that will return the largest number in an array. This is not a good solution for practicing, but it is good to know that this method exists.

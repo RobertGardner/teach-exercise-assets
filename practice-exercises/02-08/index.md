@@ -51,7 +51,7 @@ console.log(diceGameSimulation(3));
 
 ## Solution
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

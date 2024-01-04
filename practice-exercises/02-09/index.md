@@ -35,7 +35,7 @@ formatPhoneNumber([3, 4, 5, 5, 0, 1, 2, 5, 2, 7]); // => "(345) 501-2527"
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 1</summary>
 
 ```js
@@ -56,7 +56,7 @@ export function formatPhoneNumber(numbers: number[]): string {
 
 </details>
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 2</summary>
 
 ```js
@@ -76,16 +76,16 @@ export function formatPhoneNumber(numbers: number[]): string {
 
 </details>
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 3</summary>
 
 One line arrow function:
 
 ```js
 const formatPhoneNumber = (numbers) =>
-  `(${numbers.slice(0, 3).join('')}) ${numbers.slice(3, 6).join('')}-${numbers
+  `(${numbers.slice(0, 3).join("")}) ${numbers.slice(3, 6).join("")}-${numbers
     .slice(6)
-    .join('')}`;
+    .join("")}`;
 ```
 
 ### Explanation

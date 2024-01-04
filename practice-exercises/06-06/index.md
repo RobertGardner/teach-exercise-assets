@@ -20,10 +20,10 @@ function anagramGrouping(words: string[]): string[][];
 ### Examples
 
 ```js
-anagramGrouping(['cat', 'act', 'dog', 'god', 'tac']);
+anagramGrouping(["cat", "act", "dog", "god", "tac"]);
 // Output: [['cat', 'act', 'tac'], ['dog', 'god']]
 
-anagramGrouping(['listen', 'silent', 'enlist', 'hello', 'world']);
+anagramGrouping(["listen", "silent", "enlist", "hello", "world"]);
 // Output: [['listen', 'silent', 'enlist'], ['hello'], ['world']]
 ```
 
@@ -39,7 +39,7 @@ anagramGrouping(['listen', 'silent', 'enlist', 'hello', 'world']);
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

@@ -34,7 +34,7 @@ reverseString('') // ''
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 1</summary>
 
 This solution uses a for loop to reverse the string.
@@ -60,7 +60,7 @@ export function reverseString(str: string): string {
 
 </details>
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 2</summary>
 
 This solution uses built-in methods to reverse the string.

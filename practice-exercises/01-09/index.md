@@ -18,9 +18,9 @@ function countVowels(str: string): number;
 ### Examples
 
 ```js
-countVowels('hello'); // 2
-countVowels('why'); // 0
-countVowels('mississippi'); // 4
+countVowels("hello"); // 2
+countVowels("why"); // 0
+countVowels("mississippi"); // 4
 ```
 
 ### Constraints
@@ -31,7 +31,7 @@ countVowels('mississippi'); // 4
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

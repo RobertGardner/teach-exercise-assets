@@ -35,7 +35,7 @@ longestConsecutiveSequence([0, 3, 7, 2, 5, 8, 4, 6, 9, 1]); // Output: 10 (The l
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

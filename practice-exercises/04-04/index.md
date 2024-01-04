@@ -59,7 +59,7 @@ fibonacci(10); // 55
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

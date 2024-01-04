@@ -31,23 +31,23 @@ function depthFirstTraversal(graph: Graph, startingVertex: string): string[];
 const graph = new Graph();
 
 // Add vertices
-graph.addVertex('A');
-graph.addVertex('B');
-graph.addVertex('C');
-graph.addVertex('D');
-graph.addVertex('E');
-graph.addVertex('F');
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addVertex("C");
+graph.addVertex("D");
+graph.addVertex("E");
+graph.addVertex("F");
 
 // Add edges
-graph.addEdge('A', 'B');
-graph.addEdge('A', 'C');
-graph.addEdge('B', 'D');
-graph.addEdge('C', 'D');
-graph.addEdge('C', 'E');
-graph.addEdge('D', 'F');
-graph.addEdge('E', 'F');
+graph.addEdge("A", "B");
+graph.addEdge("A", "C");
+graph.addEdge("B", "D");
+graph.addEdge("C", "D");
+graph.addEdge("C", "E");
+graph.addEdge("D", "F");
+graph.addEdge("E", "F");
 
-depthFirstTraversal(g, 'A');
+depthFirstTraversal(g, "A");
 // ['A', 'C', 'E', 'F', 'D', 'B'];
 ```
 
@@ -59,7 +59,7 @@ depthFirstTraversal(g, 'A');
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 #### Using an adjacency list:

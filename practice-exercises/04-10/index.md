@@ -18,8 +18,8 @@ function permutations(str: string): string[];
 ### Examples
 
 ```js
-permutations('abc'); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
-permutations('dog'); // ['dog', 'dgo', 'odg', 'ogd', 'gdo', 'god']
+permutations("abc"); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+permutations("dog"); // ['dog', 'dgo', 'odg', 'ogd', 'gdo', 'god']
 ```
 
 ### Constraints
@@ -36,7 +36,7 @@ permutations('dog'); // ['dog', 'dgo', 'odg', 'ogd', 'gdo', 'god']
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

@@ -25,10 +25,10 @@ function validatePassword(password: string): boolean;
 ### Examples
 
 ```js
-validatePassword('Abc12345'); // should return true
-validatePassword('password123'); // should return false (no uppercase letter)
-validatePassword('Pass'); // should return false (length less than 8 characters)
-validatePassword('HelloWorld'); // should return false (no digit)
+validatePassword("Abc12345"); // should return true
+validatePassword("password123"); // should return false (no uppercase letter)
+validatePassword("Pass"); // should return false (length less than 8 characters)
+validatePassword("HelloWorld"); // should return false (no digit)
 ```
 
 ### Constraints
@@ -42,7 +42,7 @@ validatePassword('HelloWorld'); // should return false (no digit)
 
 ## Solution
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

@@ -54,7 +54,7 @@ function Indicators({ count, current }) {
 
 ## Tips
 
-<details>
+<details markdown="1">
   <summary>Expand after completing your design</summary>
 
   <ul>

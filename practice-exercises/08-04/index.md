@@ -25,12 +25,12 @@ You can assume that the binary tree is not empty.
 ### Example
 
 ```js
-const root = new Node('a');
-root.left = new Node('b');
-root.right = new Node('c');
-root.left.left = new Node('d');
-root.left.right = new Node('e');
-root.right.left = new Node('f');
+const root = new Node("a");
+root.left = new Node("b");
+root.right = new Node("c");
+root.left.left = new Node("d");
+root.left.right = new Node("e");
+root.right.left = new Node("f");
 
 depthFirstTraversal(root); // should return ['a', 'b', 'd', 'e', 'c', 'f']
 ```
@@ -42,7 +42,7 @@ depthFirstTraversal(root); // should return ['a', 'b', 'd', 'e', 'c', 'f']
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

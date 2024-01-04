@@ -24,9 +24,9 @@ function highestScoringWord(str: string): string;
 ### Examples
 
 ```js
-highestScoringWord('man i need a taxi up to ubud'); // 'taxi'
-highestScoringWord('what time are we climbing up the volcano'); // 'volcano'
-highestScoringWord('take me to semynak'); // 'semynak'
+highestScoringWord("man i need a taxi up to ubud"); // 'taxi'
+highestScoringWord("what time are we climbing up the volcano"); // 'volcano'
+highestScoringWord("take me to semynak"); // 'semynak'
 ```
 
 ### Constraints
@@ -41,7 +41,7 @@ highestScoringWord('take me to semynak'); // 'semynak'
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 1</summary>
 
 ```js
@@ -78,7 +78,7 @@ export function highestScoringWord(str: string): string {
 
 </details>
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 2</summary>
 
 This solution looks a bit cleaner than the previous one, but it's not as efficient (difference is negligible). It uses the `reduce` method to calculate the score for each word, and the `Math.max` method to find the highest score.

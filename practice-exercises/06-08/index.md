@@ -39,7 +39,7 @@ symmetricDifference([1, 2, 3], [4, 5, 6]);
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

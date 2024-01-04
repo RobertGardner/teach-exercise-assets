@@ -18,11 +18,11 @@ function wordFrequencyCounter(str: string): Map<string, number>;
 ### Examples
 
 ```js
-wordFrequencyCounter('The quick brown fox jumps over the lazy dog.');
+wordFrequencyCounter("The quick brown fox jumps over the lazy dog.");
 // Output: Map { 'the' => 2, 'quick' => 1, 'brown' => 1, 'fox' => 1, 'jumps' => 1, 'over' => 1, 'lazy' => 1, 'dog' => 1 }
 
 wordFrequencyCounter(
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 );
 // Output: Map { 'lorem' => 1, 'ipsum' => 1, 'dolor' => 1, 'sit' => 1, 'amet' => 1, 'consectetur' => 1, 'adipiscing' => 1, 'elit' => 1 }
 ```
@@ -39,7 +39,7 @@ wordFrequencyCounter(
 
 ### Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

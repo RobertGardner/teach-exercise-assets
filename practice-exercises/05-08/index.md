@@ -40,7 +40,7 @@ console.log(maxSubarraySum(arr2, k2)); // Output: -9
 
 ### Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

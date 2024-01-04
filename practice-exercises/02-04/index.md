@@ -37,7 +37,7 @@ findMissingNumber([10, 5, 1, 2, 4, 6, 8, 3, 9]); // 7
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

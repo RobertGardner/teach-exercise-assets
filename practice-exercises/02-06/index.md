@@ -18,11 +18,11 @@ function areAllCharactersUnique(str: string): boolean;
 ### Examples
 
 ```js
-areAllCharactersUnique('abcdefg'); // true
-areAllCharactersUnique('abcdefgA'); // true
-areAllCharactersUnique('programming'); // false
-areAllCharactersUnique(''); // true
-areAllCharactersUnique('a'); // true
+areAllCharactersUnique("abcdefg"); // true
+areAllCharactersUnique("abcdefgA"); // true
+areAllCharactersUnique("programming"); // false
+areAllCharactersUnique(""); // true
+areAllCharactersUnique("a"); // true
 ```
 
 ### Constraints
@@ -36,7 +36,7 @@ areAllCharactersUnique('a'); // true
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 1</summary>
 
 Using an object:
@@ -67,7 +67,7 @@ If we make it through the entire string without returning `false`, we return `tr
 
 </details>
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 2</summary>
 
 Using a `Set`:

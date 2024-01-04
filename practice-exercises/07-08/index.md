@@ -22,9 +22,9 @@ function isPalindromeQueueStack(str: string): boolean;
 ### Examples
 
 ```js
-isPalindromeQueueStack('racecar'); // true
-isPalindromeQueueStack('hello'); // false
-isPalindromeQueueStack('A man, a plan, a canal: Panama'); // true
+isPalindromeQueueStack("racecar"); // true
+isPalindromeQueueStack("hello"); // false
+isPalindromeQueueStack("A man, a plan, a canal: Panama"); // true
 ```
 
 ### Hints
@@ -36,7 +36,7 @@ isPalindromeQueueStack('A man, a plan, a canal: Panama'); // true
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

@@ -22,9 +22,9 @@ function findFirstNonRepeatingCharacter(str: string): string | undefined;
 ### Examples
 
 ```js
-findFirstNonRepeatingCharacter('aabccdeff'); // should return 'b'
-findFirstNonRepeatingCharacter('aabbcc'); // should return undefined
-findFirstNonRepeatingCharacter('abcdef'); // should return 'a'
+findFirstNonRepeatingCharacter("aabccdeff"); // should return 'b'
+findFirstNonRepeatingCharacter("aabbcc"); // should return undefined
+findFirstNonRepeatingCharacter("abcdef"); // should return 'a'
 ```
 
 ### Constraints
@@ -38,7 +38,7 @@ findFirstNonRepeatingCharacter('abcdef'); // should return 'a'
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 1</summary>
 
 Using an object:
@@ -72,7 +72,7 @@ export function findFirstNonRepeatingCharacter(
 
 </details>
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 2</summary>
 
 Using a `Map`:

@@ -18,12 +18,12 @@ function isValidIPv4(input: string): boolean;
 ### Examples
 
 ```js
-isValidIPv4('1.2.3.4'); // true
-isValidIPv4('123.45.67.89'); // true
-isValidIPv4('1.2.3'); // false
-isValidIPv4('1.2.3.4.5'); // false
-isValidIPv4('123.456.78.90'); // false
-isValidIPv4('123.045.067.089'); // false
+isValidIPv4("1.2.3.4"); // true
+isValidIPv4("123.45.67.89"); // true
+isValidIPv4("1.2.3"); // false
+isValidIPv4("1.2.3.4.5"); // false
+isValidIPv4("123.456.78.90"); // false
+isValidIPv4("123.045.067.089"); // false
 ```
 
 ### Constraints
@@ -37,7 +37,7 @@ isValidIPv4('123.045.067.089'); // false
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

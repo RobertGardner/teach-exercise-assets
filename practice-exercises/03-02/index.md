@@ -31,7 +31,7 @@ sumOfEvenSquares([]); // 0
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

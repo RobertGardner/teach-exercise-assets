@@ -35,7 +35,7 @@ power(3, 4); // 81 (3^4 = 3 * 3 * 3 * 3 = 81)
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

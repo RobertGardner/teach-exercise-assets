@@ -18,9 +18,9 @@ function findMissingLetter(arr: string[]): string;
 ### Examples
 
 ```js
-findMissingLetter(['a', 'b', 'c', 'd', 'f']); // => "e"
-findMissingLetter(['O', 'Q', 'R', 'S']); // => "P"
-findMissingLetter(['t', 'u', 'v', 'w', 'x', 'z']); // => "y"
+findMissingLetter(["a", "b", "c", "d", "f"]); // => "e"
+findMissingLetter(["O", "Q", "R", "S"]); // => "P"
+findMissingLetter(["t", "u", "v", "w", "x", "z"]); // => "y"
 ```
 
 ### Constraints
@@ -35,7 +35,7 @@ findMissingLetter(['t', 'u', 'v', 'w', 'x', 'z']); // => "y"
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 1 </summary>
 
 ```js
@@ -63,7 +63,7 @@ export function findMissingLetter(arr: string[]): string | undefined {
 
 </details>
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 2 </summary>
 
 ```js

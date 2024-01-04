@@ -39,7 +39,7 @@ flattenArray([1, [2, [3, [4, [5]]]]]); // should return [1, 2, 3, 4, 5]
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

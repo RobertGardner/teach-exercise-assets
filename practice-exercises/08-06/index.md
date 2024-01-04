@@ -60,7 +60,7 @@ export class Node<T> {
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

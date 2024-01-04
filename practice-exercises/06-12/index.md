@@ -20,16 +20,16 @@ function wordInstanceCounter(str: string, word: string): number;
 
 ```js
 console.log(
-  wordInstanceCounter('The quick brown fox jumps over the lazy dog.', 'the')
+  wordInstanceCounter("The quick brown fox jumps over the lazy dog.", "the")
 ); // Output: 2
 console.log(
   wordInstanceCounter(
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    'ipsum'
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "ipsum"
   )
 ); // Output: 1
-console.log(wordInstanceCounter('Hello, world!', 'hello')); // Output: 1
-console.log(wordInstanceCounter('Hello, Hello, Hello!', 'hello')); // Output: 3
+console.log(wordInstanceCounter("Hello, world!", "hello")); // Output: 1
+console.log(wordInstanceCounter("Hello, Hello, Hello!", "hello")); // Output: 3
 ```
 
 ### Constraints
@@ -42,7 +42,7 @@ console.log(wordInstanceCounter('Hello, Hello, Hello!', 'hello')); // Output: 3
 
 ### Solution
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

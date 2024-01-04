@@ -19,9 +19,9 @@ function validAnagrams(str1: string, str2: string): boolean;
 ### Examples
 
 ```js
-validAnagrams('listen', 'silent'); // true
-validAnagrams('hello', 'world'); // false
-validAnagrams('astronomer', 'moonstarer'); // true
+validAnagrams("listen", "silent"); // true
+validAnagrams("hello", "world"); // false
+validAnagrams("astronomer", "moonstarer"); // true
 ```
 
 ### Hints
@@ -31,7 +31,7 @@ validAnagrams('astronomer', 'moonstarer'); // true
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

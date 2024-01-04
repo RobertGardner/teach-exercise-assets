@@ -32,7 +32,7 @@ console.log(pair); // Should print: [2, 10]
 
 ## Solution
 
-<details>
+<details markdown="1">
 <summary>Click For Solution</summary>
 
 ```js

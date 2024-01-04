@@ -39,7 +39,7 @@ console.log(insertionSort([64, 34, 25, 12, 22, 11, 90])); // Output: [11, 12, 22
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

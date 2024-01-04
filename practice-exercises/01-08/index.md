@@ -20,10 +20,10 @@ function isPalindrome(str: string): boolean;
 ### Examples
 
 ```js
-isPalindrome('madam'); // true
-isPalindrome('racecar'); // true
-isPalindrome('hello'); // false
-isPalindrome(''); // true
+isPalindrome("madam"); // true
+isPalindrome("racecar"); // true
+isPalindrome("hello"); // false
+isPalindrome(""); // true
 ```
 
 ### Constraints
@@ -38,7 +38,7 @@ isPalindrome(''); // true
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 1</summary>
 
 This solution does not use a regular express to strip out non-alphanumeric characters. There are a few ways to do this. We are going to create some helper functions to make it easier.
@@ -88,7 +88,7 @@ function reverseString(str: string): string {
 
 </details>
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 1</summary>
 
 Using `replace` with a regular expression is the easiest way to solve this challenge.

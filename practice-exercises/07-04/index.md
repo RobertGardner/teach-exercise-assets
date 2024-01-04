@@ -39,7 +39,7 @@ balancedParentheses(')('); // false
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```JS

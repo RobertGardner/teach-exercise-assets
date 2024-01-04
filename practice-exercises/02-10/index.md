@@ -18,8 +18,8 @@ function validateEmail(email: string): boolean;
 ### Examples
 
 ```js
-validateEmail('john@gmail.com'); // true
-validateEmail('john@gmail'); // false
+validateEmail("john@gmail.com"); // true
+validateEmail("john@gmail"); // false
 ```
 
 ### Hints
@@ -28,7 +28,7 @@ validateEmail('john@gmail'); // false
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 1</summary>
 
 Not using regular expression:
@@ -71,7 +71,7 @@ Finally, if none of the conditions are false, we return `true`.
 
 </details>
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 2</summary>
 
 Using a regular expression:

@@ -19,8 +19,8 @@ function countOccurrences(str: string, char: string): number;
 ### Examples
 
 ```js
-countOccurrences('hello', 'l'); // 2
-countOccurrences('hello', 'z'); // 0
+countOccurrences("hello", "l"); // 2
+countOccurrences("hello", "z"); // 0
 ```
 
 ### Constraints
@@ -35,7 +35,7 @@ countOccurrences('hello', 'z'); // 0
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 1</summary>
 
 ```js
@@ -80,7 +80,7 @@ export function countOccurrences(str: string, char: string): number {
 
 </details>
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 2</summary>
 
 ```JavaScript

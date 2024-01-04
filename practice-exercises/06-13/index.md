@@ -9,9 +9,9 @@ Create a new class named `ValuesHashTable` that extends the existing `HashTable`
 ```js
 const myHashTable = new ValuesHashTable();
 
-myHashTable.set('name', 'Alice');
-myHashTable.set('age', 30);
-myHashTable.set('city', 'New York');
+myHashTable.set("name", "Alice");
+myHashTable.set("age", 30);
+myHashTable.set("city", "New York");
 
 console.log(myHashTable.getValues()); // Expected output: ['Alice', 30, 'New York']
 ```
@@ -24,7 +24,7 @@ console.log(myHashTable.getValues()); // Expected output: ['Alice', 30, 'New Yor
 
 ### Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

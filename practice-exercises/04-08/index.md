@@ -30,7 +30,7 @@ numberRange(7, 7); // should return [7] (only one number)
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

@@ -39,7 +39,7 @@ arraySum([]); // should return 0 (empty array)
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

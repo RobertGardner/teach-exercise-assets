@@ -37,7 +37,7 @@ getSum(10, 5); // 15
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

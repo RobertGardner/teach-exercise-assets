@@ -24,9 +24,9 @@ function reverseStringStack(str: string): string;
 ### Examples
 
 ```js
-reverseStringStack('hello'); // olleh
-reverseStringStack('Howdy'); // ydwoH
-reverseStringStack('Greetings from Earth'); // htraE morf sgniteerG
+reverseStringStack("hello"); // olleh
+reverseStringStack("Howdy"); // ydwoH
+reverseStringStack("Greetings from Earth"); // htraE morf sgniteerG
 ```
 
 ### Hints
@@ -36,7 +36,7 @@ reverseStringStack('Greetings from Earth'); // htraE morf sgniteerG
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

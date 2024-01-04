@@ -52,7 +52,7 @@ findMiddle(list); // returns node with value 4
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

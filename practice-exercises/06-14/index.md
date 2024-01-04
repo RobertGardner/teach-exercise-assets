@@ -18,7 +18,7 @@ function anagramGrouping(words: string[]): string[][];
 ### Examples
 
 ```js
-anagramGrouping(['listen', 'silent', 'hello', 'world', 'act', 'cat']);
+anagramGrouping(["listen", "silent", "hello", "world", "act", "cat"]);
 // Output: [['listen', 'silent'], ['act', 'cat'], ['hello'], ['world']]
 ```
 
@@ -30,7 +30,7 @@ anagramGrouping(['listen', 'silent', 'hello', 'world', 'act', 'cat']);
 
 ## Solution
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js

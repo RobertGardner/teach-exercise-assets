@@ -37,7 +37,7 @@ calculator(10, 5, '/') // 2
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution 1</summary>
 
 #### Using a switch:
@@ -77,7 +77,7 @@ export function calculator(
 
 </details>
 
-<details>
+<details markdown="1">
  <summary>Click For Solution 2</summary>
 
 #### Using an if statement:

@@ -20,9 +20,9 @@ function phoneNumberDirectory(phoneNumbers: string[]): Map<string, string>;
 
 ```js
 const phoneNumbers = [
-  'John:123-456-7890',
-  'Jane:987-654-3210',
-  'Joe:555-555-5555',
+  "John:123-456-7890",
+  "Jane:987-654-3210",
+  "Joe:555-555-5555",
 ];
 
 console.log(phoneNumberDirectory(phoneNumbers));
@@ -39,7 +39,7 @@ console.log(phoneNumberDirectory(phoneNumbers));
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
 ```js
