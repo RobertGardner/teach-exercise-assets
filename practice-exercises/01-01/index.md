@@ -34,34 +34,37 @@ Any constraints will be listed here. They will vary depending on the exercise.
 
 ## Solutions
 
-<details>
+<details markdown="1">
   <summary>Click For Solution</summary>
 
-  ```js
-  export function helloWorld(): string {
-    return "Hello World!";
-  }
-  ```
+```js
+export function helloWorld(): string {
+  return "Hello World!";
+}
+```
 
-  ### Explanation
+### Explanation
 
-  An explanation of the solution will be here. The length and depth of the explanation will vary depending on the exercise.
+An explanation of the solution will be here. The length and depth of the explanation will vary depending on the exercise.
 
 </details>
 
 <details>
   <summary>Click me</summary>
-  
-  ### Heading
-  1. Foo
-  2. Bar
-     * Baz
-     * Qux
 
-  ### Some Javascript
-  ```js
-  function logSomething(something) {
-    console.log('Something', something);
-  }
-  ```
+### Heading
+
+1. Foo
+2. Bar
+   - Baz
+   - Qux
+
+### Some Javascript
+
+```js
+function logSomething(something) {
+  console.log("Something", something);
+}
+```
+
 </details>
