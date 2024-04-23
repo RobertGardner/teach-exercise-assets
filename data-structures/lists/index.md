@@ -4,7 +4,7 @@
 
 ## Exercise Overview
 
-A list is a concrete data structure that holds its data in a contiguous block of memory. Each element in a list is the same size, and they are accessed by index, with the first element being at index 0.
+A list is a data structure that holds its data in a contiguous block of memory. Each element in a list is the same size, and they are accessed by index, with the first element being at index 0.
 
 <p align="middle">
   <img src="./lists.gif">
@@ -16,9 +16,7 @@ Although access is fast, inserting an element into a list or removing an element
 
 Another downside of a list is the requirement that all the elements be in a contiguous block of memory. Unfortunately, contiguous memory is required to make it possible to find elements using the simple arithmetic formula.
 
-There are two problems with the requirement for contiguous memory as lists grow very large. The first is that it can be challenging to find enough contiguous memory in a computer's memory system. The second is that if the list needs to grow larger to accommodate more elements, the block must be grown. If it cannot grow in its current location because the surrounding memory isn't available, it must be moved to a location that has enough contiguous memory available.
-
-If a list is moved to a new location in memory, every element must be copied from the original location to the new location. This is a linear operation.
+There are two problems with the requirement for contiguous memory as lists grow very large. The first is that it can be challenging to find enough contiguous memory in a computer's memory system. The second is that if the list needs to grow larger to accommodate more elements, the block must be grown. If it cannot grow in its current location because the surrounding memory isn't available, it must be moved to a location that has enough contiguous memory available. If a list is moved to a new location in memory, every element must be copied from the original location to the new location. This is a linear operation.
 
 The net result of all this is that _reading_ an element in a list is a constant-time operation, while _inserting_ and _deleting_ an element are both linear operations.
 
@@ -43,7 +41,7 @@ The methods you will implement are:
 - To access the `nodes` class variable, use `this.nodes`.
 - You can create a new node with `new Node(value, priority)`.
 - Some useful Array methods for this exercise are `push`, `splice`, and `shift`.
-- Enqueueing an item onto an empty queue is easy. Enqueueing an item into an existing queue requires locating the element with a lower (or equal) priority than the new element and inserting the new node _after_ that element.
+- Enqueueing an item onto an empty queue is easy. Enqueueing an item into an existing queue requires locating the element with a lower (or equal) priority than the new element and inserting the new node into the array _after_ that element.
 
 ## Continue to Hash Tables ➡️
 

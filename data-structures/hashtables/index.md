@@ -4,7 +4,9 @@
 
 ## Exercise Overview
 
-A Hash Table is a data structure that stores data as key/value pairs. You look up an item in a Hash Table using the key, and the Hash Table returns the value. A Hash Table gets its name from the operation used to look up an item in the table. A Hash Table stores the keys in a simple list. To locate an item, the key is "hashed", which means that a calculation is performed on it that reduces the key to a number between 0 and the size of the list. This hash value is used as an index into the table to find the item.
+A Hash Table is a data structure that stores data as key/value pairs. You look up an item in a Hash Table using the key, and the Hash Table returns the value.
+
+A Hash Table gets its name from the operation used to look up an item in the table. A Hash Table stores the keys in a list. To locate an item, the key is "hashed", which means that a calculation is performed on it that reduces the key to a number between 0 and the size of the list. This hash value is used as an index into the list to find the item.
 
 <p>
   <div align="middle" style="border: thin solid">
@@ -29,21 +31,80 @@ For this exercise you will use a `Map` and `Set` to implement two steps similar 
 
 ### Google Indexing
 
-Google crawls the World Wide Web looking for HTML documents. It creates a huge database of these documents. It then creates a "document index", which is a hash table whose key is a word found in one or more documents, and whose value is the set of documents that word appears in.
+Google crawls the World Wide Web looking for HTML documents. It creates a huge database of these documents. It then creates a "Document Index", which is a hash table whose key is a word found in one or more documents, and whose value is the set of documents that word appears in.
 
 That is, the index is a Hash Table of:
 
-> word ➡️ set of documents; or, in TypeScript, `Map<string, Set<Document>>`
+> `word` maps to `set of documents`; or, in TypeScript, `Map<string, Set<Document>>`
+
+For example, if Google crawled 4 documents with these titles and content:
+
+| Title   | Contents                  |
+| ------- | ------------------------- |
+| Fish    | About fish.               |
+| Fishing | Fish effectively.         |
+| Naps    | Nap while fishing.        |
+| Supper  | Cook fish while grilling! |
+
+The resulting Document Index would look like:
+
+| Word        | Documents    |
+| ----------- | ------------ |
+| about       | Fish         |
+| cook        | Supper       |
+| effectively | Fishing      |
+| fish        | Fish, Supper |
+| fishing     | Naps         |
+| grilling    | Supper       |
+| nap         | Naps         |
+| while       | Naps, Supper |
+
+The actual Google Document index takes into account word endings (so "fish" and "fishing" would be combined), misspellings, synonyms, and so forth.
 
 ### Google Querying
 
-When a user enters a search in the Google website, Google looks up each word in the search query to see if it is found in the document index. This produces a list of all the documents in the World Wide Web that match the search.
+When a user enters a search in the Google website, Google looks up each word in the search query to see if it is found in the Document Index. This produces a list of all the documents in the World Wide Web that match the search.
+
+For example, given the above Document Index, the search query:
+
+> "fish while"
+
+results in the matching documents:
+
+> Fish, Fishing, Naps, Supper
 
 ### Google Ranking
 
 Finally, with the list of all the documents that match the search query, Google ranks the documents to find the ones it deems most relevant to the user and presents those as the search results.
 
+Ranking is where the bulk of Google's value is found and is beyond the scope of this exercise. Among other things, Google takes into account the following factors:
+
+- The number of words in the search query that are in the document
+- The prominence of words that match the search query
+- The document's "Page Rank" (which is a measure of how many other documents across the web have links back to this document)
+- The user's prior search history, demographic, interests, and other factors Google can learn about the user based on data the user has agreed to share with Google
+
 ## Exercise
+
+For this exercise, you will use a `Map` and a `Set` to implement a simplistic Document Index and Search Query.
+
+### Document Index
+
+The file `map-index.ts` defines `Document` and `DocumentIndex` types, along with a function skeleton for building a `DocumentIndex` given an array of `Document`s. Complete the implementation of `buildIndex()` to create the Document Index as described above.
+
+The file `map-index.test.ts` contains tests that will test your implementation.
+
+### Search Query
+
+The file `map-query.ts` has a function skeleton for searching a `DocumentIndex` to find `Document`s that match a query. Complete the implementation of `queryIndex()` to find matching `Document`s, as described above. You will need to split the query string into words and find the documents that contain one or more of the words.
+
+The file `map-index.test.ts` contains tests that will test your implementation.
+
+### Tips
+
+- You can split a string into words with `String.match(/\b(\w+)\b/g)`, which returns an array of words.
+- Remember to convert words to lower case before adding them to the index, or when looking up the search terms in the index.
+- You can create an empty `DocumentIndex` with `new Map<string, Set<Document>>()`.
 
 ## Continue to Binary Search Trees ➡️
 
