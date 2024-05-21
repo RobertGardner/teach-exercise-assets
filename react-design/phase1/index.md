@@ -33,14 +33,22 @@ Although other breakdowns are possible, a logical breakdown has 5 components:
 
 These components will be used in the remaining phases.
 
+Note that in your implementation of `Indicators`, a `for-loop` can work well for rendering the buttons. For example, it could look similar to:
+```js
+const buttons = [];
+for (let i = 0; i < count; i++) {
+  buttons.push(<button>Label</button>);
+}
+```
+
 </details>
 
-## Submit the current code
+## Commit the current code
 
-When you are done with this phase, submit a Pull Request on GitHub. Detailed instructions can be found [**here**](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/submitting-your-solution).
+When you are done with this phase, commit your changes to the branch you created for this exercise.
 
-**Note:** Do not merge this PR. You will continue to use this PR for subsequent phases.
+Do _not_ create a PR. You will create the PR when you are finished. However, it is a good habit to commit your work each time to finish a phase of the work. This makes it easy to revert back to a known, good state if things go haywire!
 
 ## Continue to Phase 2 ➡️
 
-Your instructor will instruct you as to when you can proceed to [Phase 2](../phase2/).
+Proceed to [Phase 2](../phase2/).

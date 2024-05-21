@@ -77,6 +77,8 @@ function Indicators({ count, current }) {
 
 </details>
 
-## Submit the current code
+## Submit your solution
 
-When you are done with this phase, commit your code to the current branch and inform your instructor that you are ready for review. After the instructor Approves the PR, merge it into `main`.
+When you are done with this phase, commit your code to the current branch and create a Pull Request for review.
+
+Detailed instructions can be found [**here**](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/submitting-your-solution).

@@ -68,9 +68,9 @@ The Rotating Banner system can be completely controlled with one state variable 
 
 </details>
 
-## Submit the current code
+## Commit the current code
 
-When you are done with this phase, commit your code to the current branch.
+When you are done with this phase, commit your code to the current branch, but do _not_ create a PR.
 
 Note that you might have unused setter functions, which will cause lint errors that keep you from committing. There are several ways you can work around this:
 
@@ -80,4 +80,4 @@ Note that you might have unused setter functions, which will cause lint errors t
 
 ## Continue to Phase 3 ➡️
 
-Your instructor will instruct you as to when you can proceed to [Phase 3](../phase3/).
+Proceed to [Phase 3](../phase3/).
