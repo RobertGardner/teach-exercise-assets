@@ -1,0 +1,23 @@
+version: 2.1
+
+orbs:
+  aws-s3: circleci/python@2.1.1
+
+jobs:
+  deploy-docs:
+    docker:
+      - image: 'cimg/python:3.12.3'
+    steps:
+      - checkout
+      - run: |
+          pip install mkdocs
+          mkdocs gh-deploy
+
+workflows:
+  main:
+    jobs:
+      - deploy-docs:
+          filters:
+            branches:
+              only:
+                - main
