@@ -1,5 +1,9 @@
 # LearningFuze Exercises
 
+This repo hosts additional curriculum assets. It is particularly useful for multi-step exercises.
+
+## Available exercises
+
 - [Data Structures](data-structures/index.md)
 - [React Design](react-design/index.md)
 - [SQL Mutations](sql-mutations/index.md)

@@ -19,6 +19,8 @@ The site is published to GitHub Pages using [CircleCI](https://circleci.com/).
 The published site is found at [Exercise Assets](https://learning-fuze.github.io/exercise-assets).
 
 1. Create a folder with the name of the exercise.
+1. Add the folder to `index.md`.
+   - Follow the pattern established there for best results.
 1. Within the folder, add additional assets. E.g.,
    - `index.md`, a markdown file with additional instructions
    - image files
