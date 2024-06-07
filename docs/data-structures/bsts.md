@@ -52,11 +52,32 @@ function findMaxRecursive(node: Node | undefined): number {
 
 ## Exercise
 
-For this exercise you will be implementing several functions that search a BST.
+For this exercise you will be implementing several functions that search a BST. A BST implementation is provided in `lib/bst.ts`. This file exports two classes, `BinarySearchTree` and `TreeNode`. A `TreeNode` represents a node in the tree, with a value and pointers to its left and right children. You do not need to modify this code, but you may want to look it over to see how it works.
 
 The files `bst-contains.ts`, `bst-smallest.ts`, and `bst-traverse.ts` have been provided, along with corresponding test files. Implement the functions according to the description in their JSDoc comments.
 
 Remember to run the tests (using `npm run test-bst`) to confirm that your solution is correct.
+
+### Tips
+
+- Each of the solutions will be recursive. Remember to create a recursive function, as described above. The algorithm for each recursive function is listed below.
+- The recursive algorithm for contains is:
+   - If the current node is undefined, return false since an undefined node doesn't contain a value
+   - If the current node's value matches the search value, return true
+   - Otherwise, if the right child contains the value, return true
+   - Finally, if the left child contains the value, return true
+- The recursive algorithm for smallest is:
+   - If the current node is undefined, return Infinity since an undefined node doesn't have a smallest value
+   - Find the smallest value in the node's left subtree
+   - Find the smallest value in the node's right subtree
+   - Return the smallest of the node's value, the left subtree's smallest value, and the right subtree's smallest value
+- The recursive algorithm for traverse is:
+   - Visit each of the nodes in the order left-center-right, as follows:
+   - Create an empty array to hold the node's values
+   - Push all the left subtree's values onto the array (`spread` might be useful)
+   - Push the node's value onto the array
+   - Push all the right subtree's values onto the array (`spread` might be useful)
+   - Return the array of values
 
 ## Submitting Your Solution
 

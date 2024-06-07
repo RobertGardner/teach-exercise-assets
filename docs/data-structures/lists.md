@@ -24,9 +24,11 @@ The net result of all this is that _reading_ an element in a list is a constant-
 
 For this exercise you will be implementing a [Priority Queue](https://en.wikipedia.org/wiki/Priority_queue). A Priority Queue is a list of elements where each element has a numeric "priority" associated with it and elements are retrieved from the list in priority order. That is, the element with the highest priority is retrieved first, second highest next, and so on.
 
-Each element in the queue is stored in a "node", which is an object that holds the element's value and priority. In the implementation for this exercise, the nodes are stored in a JavaScript array, sorted by priority, with the highest priority at the front (index `0`) and lowest priority at the end (index `nodes.length - 1`).
+Each element in the queue is stored in a "node", which is an object that holds the element's value and priority. In the implementation for this exercise, the nodes are stored in a JavaScript array, sorted by priority, with the node with the highest priority at the front (index `0`) and the node with the lowest priority at the end (index `nodes.length - 1`). For example:
 
-The file `queue.ts` and its associated `queue.test.ts` have been provided. In `queue.ts` is a class for holding the node and a skeleton for the `PriorityQueue` class. You must implement the methods in the `PriorityQueue` class, according to the JsDoc description, to fix all the failing tests.
+![Priority Queue](assets/PriorityQueue.png)
+
+The file `queue.ts` and its associated `queue.test.ts` have been provided. In `queue.ts` is a Node type and a skeleton for the `PriorityQueue` class. You must implement the methods in the `PriorityQueue` class, according to the JsDoc description, to fix all the failing tests.
 
 The methods you will implement are:
 
@@ -37,9 +39,10 @@ The methods you will implement are:
 **Tips:**
 
 - To access the `nodes` class variable, use `this.nodes`.
-- You can create a new node with `new Node(value, priority)`.
-- Some useful Array methods for this exercise are `push`, `splice`, and `shift`.
-- Enqueueing an item onto an empty queue is easy. Enqueueing an item into an existing queue requires locating the element with a lower (or equal) priority than the new element and inserting the new node into the array _after_ that element.
+- Enqueueing an item onto an empty queue is easy (with `Array.push`).
+- Enqueueing an item into an existing queue requires locating the element with a lower (or equal) priority than the new element and inserting the new node into the array _after_ that element (with `Array.splice`).
+- Dequeueing an element is done by simply removing the first element in the array and returning it (with `Array.shift`).
+- Peeking an element is the same as dequeuing, but without removing the element (by indexing the appropriate element of the array).
 
 ## Continue to Hash Tables ➡️
 
