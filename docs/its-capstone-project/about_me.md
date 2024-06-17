@@ -60,7 +60,7 @@ At this point, you are done with the About Me section! If all went according to 
   <img src="images/about-complete.png" alt="Portfolio About Me complete">
 </p>
 
-If so, you are ready to move on to the next section: [Technologies](<(https://learning-fuze.github.io/exercise-assets/its-capstone-project/tech).>). If anything differs from the example above, cross-check your completed code with the code I have provided below before moving on.
+If so, you are ready to move on to the next section: [Technologies](https://learning-fuze.github.io/exercise-assets/its-capstone-project/tech). If anything differs from the example above, cross-check your completed code with the code I have provided below before moving on.
 
 ## CODE QUALITY CHECK
 

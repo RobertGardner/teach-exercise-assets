@@ -88,7 +88,7 @@ Save and open your document, and you should now see this:
   <img src="images/hero-complete.png" alt="Portfolio hero image complete">
 </p>
 
-If so, you have completed this section, and you are ready to move on to the [ABOUT ME](<(https://learning-fuze.github.io/exercise-assets/its-capstone-project/about_me).>) section! If your version still does not match the above image, look back through your code and double check that you completed each step. Please feel free to use the completed code so far from below as a reference.
+If so, you have completed this section, and you are ready to move on to the [ABOUT ME](https://learning-fuze.github.io/exercise-assets/its-capstone-project/about_me). section! If your version still does not match the above image, look back through your code and double check that you completed each step. Please feel free to use the completed code so far from below as a reference.
 
 ## CODE QUALITY CHECK
 
