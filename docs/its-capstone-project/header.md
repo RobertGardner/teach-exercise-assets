@@ -141,7 +141,7 @@ And that's it!! So far, your document should look like this:
   <img src="images/finished-header.png" alt="Portfolio header completed">
 </p>
 
-If so, you are prepared to move on to the next section, the [Hero Image](https://learning-fuze.github.io/exercise-assets/its-capstone-project/hero).
+If so, you are prepared to move on to the next section, the [Hero Image](https://learning-fuze.github.io/exercise-assets/its-capstone-project/hero_img).
 
 ## CODE QUALITY CHECK
 
