@@ -87,10 +87,11 @@ Now, let's start integrating the form into your portfolio.
 2. **Add Form Validation Script**:
    - Start by getting the form element. Use `document.getElementById('contact-form')` to get the form element by its ID.
    - Add an event listener for the `submit` event on the form element. Use the `addEventListener` method and specify `submit` as the event and a function to handle the event.
-   - Inside the event handler function, get the values of the `name`, `email`, and `message` fields. Use `document.getElementById` to get each element by its ID and access the `value` property.
+   - Inside the event handler function, prevent the form from being submitted. Use `event.preventDefault()` to stop the form submission.
+   - Get the values of the `name`, `email`, and `message` fields. Use `document.getElementById` to get each element by its ID and access the `value` property.
    - Check if any of the fields are empty. Use an `if` statement to check if `name`, `email`, or `message` is empty.
    - If any field is empty, display an alert with the message "Please fill in all fields." Use the `alert` function to display the message.
-   - Prevent the form from being submitted if any field is empty. Use `event.preventDefault()` to stop the form submission.
+   - Be sure to `return` to exit the function if any of the fields are empty.
 
 ## Testing the Contact Form
 
@@ -117,6 +118,8 @@ Now, let's start integrating the form into your portfolio.
 - **Validation Issues**: If the form submits even when fields are empty, make sure the `script.js` file is correctly linked in your `index.html` and that there are no errors in the console.
 
 By following these steps, you can confirm that the contact form is working correctly and submissions are being sent to FormSpree.
+
+You are ready to move on to the next section: [Background Image](https://learning-fuze.github.io/exercise-assets/its-capstone-project/background). Cross-check your completed code with the code I have provided below before moving on.
 
 ## CODE QUALITY CHECK
 

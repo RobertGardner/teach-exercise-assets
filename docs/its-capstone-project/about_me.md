@@ -2,9 +2,7 @@
 
 For our next task, we will be working on building the "About Me" section of the portfolio page. This section will require a photo of you that you feel is a good representation of you and your personality. If it's going to be for a portfolio though, make sure it's professional! Let's take a look at the wireframe we created for the "About Me" section:
 
-<p align="center">
-  <img src="images/about-me-wireframe.png" alt="Portfolio About Me wireframe">
-</p>
+![Portfolio About Me wireframe](images/about-me-wireframe.png)
 
 Based on this, we can see that there is a header declaring the purpose of the section which should take up the full width of the available space (`col-12`), an image prominently displayed to the left that takes up about a fourth of the width of the section (col-3), and some text to the right that should be almost half of the available width (`col-5`). Given that there is only a total of 8 columns in the second row of this section, we will need to use that extra space to position the elements to have space evenly spread around them. Let's get started with the HTML necessary to complete this section!
 
@@ -56,9 +54,7 @@ That is all the CSS that is needed for this section, the last remaining step is 
 
 At this point, you are done with the About Me section! If all went according to plan, your document should now look like this:
 
-<p align="center">
-  <img src="images/about-complete.png" alt="Portfolio About Me complete">
-</p>
+![Portfolio About Me complete](images/about-complete.png)
 
 If so, you are ready to move on to the next section: [Technologies](https://learning-fuze.github.io/exercise-assets/its-capstone-project/tech). If anything differs from the example above, cross-check your completed code with the code I have provided below before moving on.
 

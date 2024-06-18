@@ -2,9 +2,7 @@
 
 For our next task, we will be working on building the [hero image](https://en.wikipedia.org/wiki/Hero_image) for the portfolio page. In the case of a portfolio, the central thing we want people to know is the name of the person whose portfolio they are looking at, so it will be placed prominently on the image that draws a user's attention when they first view the page. Let's take a look at the wireframe we constructed for this section:
 
-<p align="center">
-  <img src="images/hero-wireframe.png" alt="Portfolio hero image wireframe">
-</p>
+![Portfolio hero image wireframe](images/hero-wireframe.png)
 
 Given this wireframe, there are a few points we can make note of about what needs to be accomplished here:
 
@@ -32,16 +30,13 @@ There is still some styling that we need to apply to these elements, namely the 
 
 The first thing we need to do is add the background image to this section. In order to do that, we will need to set the value for a few properties that correlate with `background-image` to control the behavior of the image we are going to use as the background. Take a look now at the image we will be using as the background for this section:
 
-<p align="center">
-  <img src="images/lfz-logo.png" alt="Portfolio LFZ logo for background">
-</p>
+![Portfolio LFZ logo for background](images/lfz-logo.png)
+
 <p align="center"><code>lfz-logo.png</code> in the assets folder included with this project</p>
 
 The image has a transparent background, and is much larger than we want it to be given the example of our completed project we saw previously:
 
-<p align="center">
-  <img src="images/hero-example.png" alt="Portfolio hero image example">
-</p>
+![Portfolio hero image example](images/hero-example.png)
 
 Based on this, we know a couple things that we will need to do to this background image:
 
@@ -84,9 +79,7 @@ And that's all of the CSS necessary for the hero image! It's now time to apply t
 
 Save and open your document, and you should now see this:
 
-<p align="center">
-  <img src="images/hero-complete.png" alt="Portfolio hero image complete">
-</p>
+![Portfolio hero image complete](images/hero-complete.png)
 
 If so, you have completed this section, and you are ready to move on to the [ABOUT ME](https://learning-fuze.github.io/exercise-assets/its-capstone-project/about_me). section! If your version still does not match the above image, look back through your code and double check that you completed each step. Please feel free to use the completed code so far from below as a reference.
 
