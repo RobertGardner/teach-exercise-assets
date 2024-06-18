@@ -2,9 +2,7 @@
 
 For our final task of this project, we will be applying a background image to the portfolio page. Let's take a look at the image of the completed project to get an idea of how the background image for this section should behave:
 
-<p align="center">
-  <img src="images/complete-project.png" alt="Portfolio finished page">
-</p>
+![Portfolio finished page](images/complete-project.png)
 
 Functionally the image doesn't scroll with the page, it fills the entire available area, and is centered in the available area. With that, let's get started! This final section will not require any new HTML, so let's dive in to the necessary CSS:
 
@@ -33,7 +31,13 @@ And with that, the Portfolio project is complete! Congratulations!!!
   <img src="images/complete-project.gif" alt="Portfolio demo gif">
 </p>
 
+![Portfolio finished](images/complete-project.png)
+
 If your document's behavior differs in any way from the example gif provided above, please consult the completed code provided below to compare against your code.
+
+## Deployment
+
+Congratualtions! You have build a portfolio page and are ready to deploy. Please reach out to your instructor and they will guide you in the deployment process!
 
 ## CODE QUALITY CHECK
 

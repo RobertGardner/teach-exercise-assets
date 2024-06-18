@@ -2,9 +2,7 @@
 
 For our next task, we will be working on building the "Technologies" section of the portfolio page. This section will show off what technologies you have experience with that you want to show off to prospective employers. At this point in your development journey, those technologies are HTML, CSS, and JavaScript. Let's take a look at the wireframe we created for the "Technologies" section:
 
-<p align="center">
-  <img src="images/technologies-wireframe.png" alt="Portfolio Technologies wireframe">
-</p>
+![Portfolio Technologies wireframe](images/technologies-wireframe.png)
 
 Based on this, we can see that there is a header declaring the purpose of the section which should take up the full width of the available space (col-12), and three boxes which are meant to represent images of each technology logo. The logo for each technology has been provided for you in the assets for this project. The images are very large, but they should be reasonably small on the actual page. As can be seen on the wireframe above, a measurement of `col-1` will keep them at a reasonable size, and we can space them out evenly in the extra space using the utility classes we have created previously. In fact, there is only one new piece of CSS that needs to be written for this section, so let's finish that up first!
 
@@ -48,6 +46,8 @@ Believe it or not, that is all for this section! Open your document in the brows
 <p align="center">
   <img src="images/tech-complete.gif" alt="Technology section complete">
 </p>
+
+![Technology section complete](images/tech-complete.gif)
 
 If so, you are ready to move on to the next section: [Projects](https://learning-fuze.github.io/exercise-assets/its-capstone-project/projects). If anything differs from the example above, cross-check your completed code with the code I have provided below before moving on.
 

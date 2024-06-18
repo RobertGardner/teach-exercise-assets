@@ -2,9 +2,7 @@
 
 Now that we have narrowed the focus of the planning to individual sections, let's begin working on the first section of the application, the header:
 
-<p align="center">
-  <img src="images/header.png" alt="Portfolio header wireframe">
-</p>
+![Portfolio header wireframe](images/header.png)
 
 In the structure of the header, we have four text elements, with one placed against the left side of the row, and three placed against the right side of the row with a little space between them. There are multiple different ways we could accomplish this layout, but we want to find the [path of least resistance](https://en.wikipedia.org/wiki/Path_of_least_resistance).
 
@@ -12,15 +10,11 @@ Rather than trying to force this layout using margin, padding, positioning, or o
 
 Viewing the model for this section, we can see one distinct groupings of elements that would be a perfect use of a container to surround them:
 
-<p align="center">
-  <img src="images/nav-section.png" alt="Portfolio page navigation grouping">
-</p>
+![Portfolio page navigation grouping](images/nav-section.png)
 
 These nav elements are all going to be distinct elements, but they have all been moved as a group towards the right-hand side of the section. We could position each of these elements individually, but that would make this a much more intense task. If we consider the group of elements as one whole, however, we now have a situation where we need one element to sit against the left edge of the row, and one container to sit against the right edge of the section. This is much easier!
 
-<p align="center">
-  <img src="images/header-sizing.png" alt="Portfolio header sizing and placement">
-</p>
+![Portfolio header sizing and placement](images/header-sizing.png)
 
 For the sake of the application, we will be using a grid system with **12 columns**. As such, we can now start to consider the size the elements should take up. The "Student Name" headline and nav element container do not take up all of the available space on the row, so we should be leaving some extra space in their sizing. The nav container is taking up about half of the row, so it should take up **6 columns** of the total twelve columns. Finally, the headline with your name will take **4 columns**, which leaves us with **2 columns** left over to use as **space between** the elements. Now that we have a plan of action, we can begin coding this section out!!
 

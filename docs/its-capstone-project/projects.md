@@ -2,9 +2,7 @@
 
 For our next task, we will be working on building the "Projects" section of the portfolio page. This section will show off what projects you have created that you want to show off to potential employers. If you have any completed projects you want to show off, feel free to take a photo of them to use in this section, but a url leading to a filler image will be provided in case you don't have any projects you want to show off just yet. All that being said, let's take a look at the wireframe for this section:
 
-<p align="center">
-  <img src="images/projects-wireframe.png" alt="Portfolio Projects section wireframe">
-</p>
+![Portfolio Projects section wireframe](images/projects-wireframe.png)
 
 Based on this, we can see that there is a header declaring the purpose of the section which should take up the full width of the available space (col-12), and three boxes which are meant to represent images of each of your projects. Based on the ratio of the elements that can be seen on the wireframe above, a measurement of `col-2` seems like a reasonable size, and we can also space them out evenly in the extra space using the utility classes we have created previously. In fact, there is only one new piece of CSS that needs to be written for this section as well, so let's finish that up first!
 
@@ -38,9 +36,7 @@ And that's it! We really get to start seeing the magic of utility classes now, s
 
 Yet again, believe it or not, that is all for this section! You are hopefully now starting to see what an asset utility classes and a grid system are when developing an application. Initial setup can be intense, but the process gets easier and shorter over time if you stick to the system! Open your document in the browser, and you should see the following:
 
-<p align="center">
-  <img src="images/projects-complete.gif" alt="Projects section complete">
-</p>
+![Projects section complete](images/projects-complete.gif)
 
 If so, you are ready to move on to the next section: [Contact](https://learning-fuze.github.io/exercise-assets/its-capstone-project/contact). If anything differs from the example above, cross-check your completed code with the code I have provided below before moving on.
 
