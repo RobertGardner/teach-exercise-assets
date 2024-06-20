@@ -8,7 +8,7 @@ Based on this, we can see that there is a header declaring the purpose of the se
 
 ## About Me HTML
 
-1. Below the `div` element you created for the hero image, create another `div` element.
+1. Below the `div` element you created for the Hero Image, create another `div` element.
 1. Now that we have made our way into a section of the page that there is a link to in the header, we will need to supply an `id` for the element to correlate with the anchor tag in the nav. Add an `id` attribute with a value of "about" to the div element created in the step above.
 1. There are a few utility classes that we can apply to this element now, as well. Here is each class we will add to this element, along with the reason for it:
    1. `row`

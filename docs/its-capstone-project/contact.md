@@ -21,18 +21,17 @@ Now, let's start integrating the form into your portfolio.
 
 ### Adding the Contact Form
 
-1. **Open Your HTML File**: Open the `index.html` file in your code editor.
-2. **Locate the Contact Section**: Scroll to the end of the file, just before the closing `</body>` tag.
-3. **Add a Container for the Form**: Add a new `div` element with the following attributes and classes:
+1. Below the `div` element you created for the Technologies section, create another `div` element.
+2. Add the following attributes and classes to the `div` we just created above:
 
    - `id="contact"`
-   - `class="row justify-evenly align-center pb-50 contact-section"`
+   - `class="row justify-center align-center pb-50 contact-section"`
 
    This `div` will serve as the container for the contact form section.
 
-4. **Add a Header for the Contact Section**: Inside the new `div`, add an `h1` element with the class `col-12` and the text content "CONTACT".
+3. **Add a Header for the Contact Section**: Inside the new `div`, add an `h1` element with the class `col-12` and the text content "CONTACT".
 
-5. **Create the Form**: Below the `h1` element, add a `form` element with the following attributes:
+4. **Create the Form**: Below the `h1` element, add a `form` element with the following attributes:
 
    - `id="contact-form"`
    - `action="https://formspree.io/f/your-form-id"`
@@ -41,7 +40,7 @@ Now, let's start integrating the form into your portfolio.
 
    Remember to replace `"your-form-id"` with your actual FormSpree form ID.
 
-6. **Add Form Fields**: Inside the `form` element, add the following form fields:
+5. **Add Form Fields**: Inside the `form` element, add the following form fields:
 
    - **Label and Input for Name**:
      - Add a `label` element with `for="name"` and text content "Name:".
@@ -55,7 +54,7 @@ Now, let's start integrating the form into your portfolio.
    - **Submit Button**:
      - Add a `button` element with `type="submit"` and text content "Send".
 
-7. **Add the Script Tag**: At the end of your `index.html` file, just before the closing `</body>` tag, add a `script` element with `src="script.js"`.
+6. **Add the Script Tag**: At the end of your `index.html` file, just before the closing `</body>` tag, add a `script` element with `src="script.js"`.
 
 ### Updating Navigation
 
@@ -68,7 +67,7 @@ Now, let's start integrating the form into your portfolio.
 
 1. **Open Your CSS File**: Open the `styles.css` file in your code editor.
 2. **Add a CSS Rule for the Contact Section**:
-   - Create a new CSS rule-set for the `.contact-section` class. This class will style the background and padding of the contact section container. Set the `background-color` property to `lightgrey`, and `border-radius` to `10px`.
+   - Create a new CSS rule-set for the `.contact-section` class. This class will style the background and padding of the contact section container. Set the `background-color` property to `lightgrey`.
 3. **Style the Form**:
    - Create a new CSS rule-set for the `#contact-form` ID. This will ensure the form is displayed as a column. Set the `display` property to `flex` and `flex-direction` to `column`.
 4. **Style the Form Labels**:
@@ -91,7 +90,7 @@ Now, let's start integrating the form into your portfolio.
    - Get the values of the `name`, `email`, and `message` fields. Use `document.getElementById` to get each element by its ID and access the `value` property.
    - Check if any of the fields are empty. Use an `if` statement to check if `name`, `email`, or `message` is empty.
    - If any field is empty, display an alert with the message "Please fill in all fields." Use the `alert` function to display the message.
-   - Be sure to `return` to exit the function if any of the fields are empty.
+   - After testing that our validation works, move the `event.preventDefault()` into our `if` statement so that we only prevent the form submission if our values are empty.
 
 ## Testing the Contact Form
 
@@ -179,7 +178,7 @@ With every step of this project, I will provide the completed code for what we h
       <img src="assets/placeholder-project.png" alt="Placeholder image" class="col-2">
       <img src="assets/placeholder-project.png" alt="Placeholder image" class="col-2">
     </div>
-    <div id="contact" class="row justify-evenly align-center pb-50 contact-section">
+    <div id="contact" class="row justify-center align-center pb-50 contact-section">
       <h1 class="col-12">CONTACT</h1>
       <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST" class="col-6">
         <label for="name">Name:</label>

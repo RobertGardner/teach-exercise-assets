@@ -237,7 +237,6 @@ body {
 
 .contact-section {
   background-color: gainsboro;
-  /* padding: 20px; */
 }
 
 #contact-form {
