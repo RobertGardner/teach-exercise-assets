@@ -73,14 +73,13 @@ Content-Type: application/json; charset=utf-8
 
 It is convenient for users to be able to stay logged in to your site even after they close the browser window. This is usually accomplished by storing information in Local Storage that can be used to automatically log the user in.
 
-In our simple user management system, we can store the `user` and JWT token in Local Storage instead of Session Storage. Then when the application is first mounted, a `useEffect` can check to see if the `user` and token are in Local Storage. If so, we simply set the `user` and `token` state. It's that simple!
+In our simple user management system, we store the `user` and JWT token in Local Storage. To automatically log the user in, when the application is first mounted a `useEffect` can check to see if the `user` and token are in Local Storage. If so, it can simply set the `user` and `token` state. It's that simple!
 
 <details markdown="1">
 <summary>Detailed steps</summary>
 
 Complete automatic login with the following steps:
 
-1. In `lib/data.ts` change all uses of `sessionStorage` to `localStorage`.
 1. In `UserProvider` add a `useEffect` that runs on first mount and does the following:
    - Reads the user with `lib/readUser` and sets the `user` state to the returned value
    - Reads the token with `lib/readToken` and sets the `token` state to the returned value
