@@ -11,8 +11,11 @@ In this phase, your goal is to identify your React components and implement stat
    - There needs to be one main component that controls all the behavior. Name it `RotatingBanner`.
    - There are many ways this mockup can be broken into components.
      - At one extreme, there is just one component, which implements the entire mockup. However, this is not an effective use of the power of React, which works best when you have multiple, single-purpose, semantically rich components, all interacting with each other.
-     - At the other extreme, every element in the mockup could be a separate component: the item name, the next button, each of the indicator buttons, and the prev button. However, this is very fine-grained and forces the RotatingBanner to coordinate all the activity across all those components.
-     - Study the mockup and see if you can identify a better collection of components. Do this by asking which pieces of the UI are independent of the others and which have behavior that naturally groups together. Look at [Tips](#tips) after you have determined the set of components you think is best and compare it with the instructor set of components.
+     - At the other extreme, every element in the mockup could be a separate component: the item name, the next button, each of the 6 indicator buttons, and the prev button. However, this is very fine-grained and forces the RotatingBanner to coordinate all the activity across all those components.
+     - A good design balances these two extremes, grouping elements together whose activity needs to be coordinated, and creating reusable components where possible.
+       - Note that it is not always easy to identify which components might be reusable. If in doubt, create single purpose components and then later see if they can be combined.
+     - Study the mockup and see if you can identify a good collection of components. Do this by asking which pieces of the UI are independent of the others and which have behavior that naturally groups together. Look at [Tips](#tips) after you have determined the set of components you think is best and compare it with the instructor set of components.
+       - You are welcome to use any set of components you are happy with. However, for this exercise, to make sure you get practice working with multiple components on a page, the `RotatingBanner` is not allowed to directly use any HTML elements. It should only render other components in its JSX. This will also lead to a clean, reusable design and is a good way to approach building complex larger components.
 
 1. Create React components for each of the components you identified above and implement a static version of each of them. Use hard-coded data.
 1. Verify that your app looks similar to the mockup, though it will not have any behavior.
@@ -34,6 +37,7 @@ Although other breakdowns are possible, a logical breakdown has 5 components:
 These components will be used in the remaining phases.
 
 Note that in your implementation of `Indicators`, a `for-loop` can work well for rendering the buttons. For example, it could look similar to:
+
 ```js
 const buttons = [];
 for (let i = 0; i < count; i++) {
