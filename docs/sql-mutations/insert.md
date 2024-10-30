@@ -79,6 +79,12 @@ And because of the `returning` clause, they'd both be included in the statement'
 | 102       | Ostrich Pillow | Feel comfy and cozy! | 99    | self care |
 | 103       | Tater Mitts    | Scrub some taters!   | 6     | cooking   |
 
+### Using the `retuning *` clause
+
+The `returning *` clause is a very useful PostgreSQL innovation. It will return all the rows that were affected by a mutation query. When used in an `insert` query, `returning *` will return the new row as it was written into the database. When used in an `update` query, it will return the updated row as it was written into the database. When use in a `delete` query, it will return the row as it was _before_ the deletion. This will let you, for example, determine if a row was actually deleted.
+
+You should get in the habit of adding `returning *` to _all_ your mutation queries so that you can get access to the modified data. When writing a backend API that queries a database, you will almost always need the data returned by `returning *`.
+
 ## Exercise
 
 Create and implement the following `.sql` files.

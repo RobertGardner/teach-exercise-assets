@@ -61,6 +61,19 @@ update "products"
 | 24        | Super ShakeWeight | Makes you ULTRA strong!    | 200   | fitness  |
 | 91        | OxyClean          | A versatile stain remover! | 10    | cleaning |
 
+## Returning Auto-Generated Attributes
+
+As with `insert`, you can also use `returning *` to get the values that were updated in the row, which may include auto-generated or auto-modified attributes. As with `insert`, you should get in the habit of adding `returning *` to your queries. For example,
+
+```sql
+update "products"
+   set "price"       = 200,
+       "name"        = 'Super ShakeWeight',
+       "description" = 'Makes you ULTRA strong!'
+ where "productId" = 24
+ returning *;
+```
+
 ## Exercise
 
 Create and implement the following `.sql` files.
