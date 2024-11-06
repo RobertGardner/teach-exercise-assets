@@ -91,16 +91,6 @@ This simple approach works well for practice projects. However, in a real projec
 - Add an expiration date to the JWT token
 - Encrypt the user and token before storing them in Local Storage
 
-## Finish
-
-**For `git` to work properly, your terminal needs to be within the root of your local repository.** You have been executing commands in your exercise directory, but it's time to return "up" one level. In your terminal, change directories with the `cd` command as shown in the example below. This will change which directory your future commands are executed in.
-
-**`..` means "parent directory".**
-
-```bash
-cd ..
-```
-
 ## Submitting Your Solution
 
 When your solution is complete, submit a Pull Request on GitHub.

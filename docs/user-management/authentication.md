@@ -20,7 +20,7 @@ In our simple security system, the server accepts credentials (a username and pa
 
 1. Complete the implementation of the `POST /api/auth/sign-in` route in `server.ts` according to the provided pseudo-code.
 1. In your browser, navigate to the client. Click the Sign In button to view the sign-in form and sign in with the user you created above.
-1. Upon successful sign-in the Sign In form will store the returned user and the returned JWT token in Context, and also store the token in Session Storage using the key `'um.token'`. The app will also display the signed-in username and userId.
+1. Upon successful sign-in the Sign In form will store the returned user and the returned JWT token in Context, and also store the token in Local Storage using the key `'um.token'`. The app will also display the signed-in username and userId.
 1. Be sure to thoroughly test your server to ensure that anything except a correct username and password results in a `401` response with the error message`'invalid login'`.
 
 ### Example Authentication Request
