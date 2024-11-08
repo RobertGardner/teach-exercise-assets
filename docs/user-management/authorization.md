@@ -16,23 +16,29 @@ Authorization is performed in `authorization-middleware.ts`, which exports the f
 
 1. Note that the middleware function defined in `lib/error-middleware.ts` now handles errors caused by attempting to verify invalid JSON Web Tokens.
 1. Complete the implementation of `lib/authorization-middleware.ts` according to the provided pseudo-code.
+   - You will not (yet) be able to test this in the frontend. To test it you will need to use HttpIE. You can send the Authorization header with HttpIE using `:` to indicate a header. For example,
+     ```sh
+     http :8080/api/todos Authorization:"Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+     ```
+     - Tip: You can find a valid token by first making a sign-in request. Copy and paste the token into your HttpIE authorization requests.
+     - Tip: You should test error handling by sending no Authorization header, a misspelled 'Bearer' value, or an arbitrary token.
 1. In `server.ts`, notice that each route that requires authorization (the URLs starting with `/api/todos`) expects there to be a `user` property on the `req` object.
 1. Add the authorization middleware to each of the `todos` endpoints by passing it as the second argument to the routing function. For example:
    ```js
    app.get('/api/todos', authMiddleware, async (req, res, next) => {...});
    ```
-1. Update the client `fetch` requests in `client/src/lib/data.ts` to send the JWT Token in the `Authorization` header:
+1. Update the client `fetch` requests in `client/src/lib/data.ts` to send the JWT Token in the `Authorization` header. It should look something like the following, with the actual token replacing `[TOKEN]`:
 
    ```js
    const req = {
      headers: {
-       Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+       Authorization: "Bearer [TOKEN]",
      },
    };
    fetch("url", req);
    ```
 
-   - Tip: Use the `readToken` function to get the token.
+   - Tip: Call the `readToken()` function to get the token.
 
 1. In your browser, navigate to the app. Make sure you can only see the Todos that you have created. Try signing in as a different user and verify that only that user's Todos are visible.
 
