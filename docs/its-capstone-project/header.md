@@ -132,7 +132,7 @@ Now that we have the classes we needed to make to complete this section, let's g
 And that's it!! So far, your document should look like this:
 
 <p align="center">
-  <img src="images/finished-header.png" alt="Portfolio header completed">
+  <img src="../images/finished-header.png" alt="Portfolio header completed">
 </p>
 
 If so, you are prepared to move on to the next section, the [Hero Image](https://learning-fuze.github.io/exercise-assets/its-capstone-project/hero_img).
