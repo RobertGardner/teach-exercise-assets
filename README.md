@@ -1,7 +1,7 @@
 # Exercise Assets
 
 <p align="middle">
-  <img width="200" src="assets/lfz.png" alt="LearningFuze Logo">
+  <img width="200" src="docs/assets/lfz.png" alt="LearningFuze Logo">
 </p>
 
 This repo is deployed on GitHub Pages and holds assets for curriculum exercises.
