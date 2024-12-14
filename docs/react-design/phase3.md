@@ -30,7 +30,7 @@ If time permits, examine your solution for clean up opportunities. For example, 
 At the beginning of this phase, your code should be somewhat similar to the following:
 
 ```jsx
-export default function RotatingBanner({ items }) {
+export function RotatingBanner({ items }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   return (
     <>

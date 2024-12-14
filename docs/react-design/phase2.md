@@ -29,7 +29,7 @@ State is data that changes as the user interacts with your app. Here are some ru
 At the beginning of this phase, your code should be somewhat similar to the following:
 
 ```jsx
-export default function RotatingBanner({ items }) {
+export function RotatingBanner({ items }) {
   return (
     <div>
       <Banner item={items[0]} />
