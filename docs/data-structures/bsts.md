@@ -46,7 +46,11 @@ export function findMax(bst: BinarySearchTree | undefined): number {
 
 function findMaxRecursive(node: Node | undefined): number {
   if (!node) return -Infinity;
-  return Math.max(node.value, findMaxRecursive(node.left), findMaxRecursive(node.right));
+  return Math.max(
+    node.value,
+    findMaxRecursive(node.left),
+    findMaxRecursive(node.right)
+  );
 }
 ```
 
@@ -62,25 +66,25 @@ Remember to run the tests (using `npm run test-bst`) to confirm that your soluti
 
 - Each of the solutions will be recursive. Remember to create a recursive function, as described above. The algorithm for each recursive function is listed below.
 - The recursive algorithm for contains is:
-   - If the current node is undefined, return false since an undefined node doesn't contain a value
-   - If the current node's value matches the search value, return true
-   - Otherwise, if the right child contains the value, return true
-   - Finally, if the left child contains the value, return true
+  - If the current node is undefined, return false since an undefined node doesn't contain a value
+  - If the current node's value matches the search value, return true
+  - Otherwise, if the right child contains the value, return true
+  - Finally, if the left child contains the value, return true
 - The recursive algorithm for smallest is:
-   - If the current node is undefined, return Infinity since an undefined node doesn't have a smallest value
-   - Find the smallest value in the node's left subtree
-   - Find the smallest value in the node's right subtree
-   - Return the smallest of the node's value, the left subtree's smallest value, and the right subtree's smallest value
+  - If the current node is undefined, return Infinity since an undefined node doesn't have a smallest value
+  - Find the smallest value in the node's left subtree
+  - Find the smallest value in the node's right subtree
+  - Return the smallest of the node's value, the left subtree's smallest value, and the right subtree's smallest value
 - The recursive algorithm for traverse is:
-   - Visit each of the nodes in the order left-center-right, as follows:
-   - Create an empty array to hold the node's values
-   - Push all the left subtree's values onto the array (`spread` might be useful)
-   - Push the node's value onto the array
-   - Push all the right subtree's values onto the array (`spread` might be useful)
-   - Return the array of values
+  - Visit each of the nodes in the order left-center-right, as follows:
+  - Create an empty array to hold the node's values
+  - Push all the left subtree's values onto the array (`spread` might be useful)
+  - Push the node's value onto the array
+  - Push all the right subtree's values onto the array (`spread` might be useful)
+  - Return the array of values
 
 ## Submitting Your Solution
 
 When your solution is complete, submit a Pull Request on GitHub.
 
-Detailed instructions can be found [**here**](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/submitting-your-solution).
+Detailed instructions can be found [**here**](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/Exercise-Workflow_Submitting-Your-Solution).

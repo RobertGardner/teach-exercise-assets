@@ -81,7 +81,7 @@ Remember to examine the code for the `LinkedList` class and to read all the test
 
 ## Submitting Your Solution
 
-When your solution is complete you have finished Level 1! Submit a Pull Request on GitHub. Detailed instructions can be found [**here**](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/submitting-your-solution).
+When your solution is complete you have finished Level 1! Submit a Pull Request on GitHub. Detailed instructions can be found [**here**](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/Exercise-Workflow_Submitting-Your-Solution).
 
 ## Continue to Level 2 - Stacks ➡️
 

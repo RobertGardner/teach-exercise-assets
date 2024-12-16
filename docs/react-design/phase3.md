@@ -81,4 +81,4 @@ function Indicators({ count, current }) {
 
 When you are done with this phase, commit your code to the current branch and create a Pull Request for review.
 
-Detailed instructions can be found [**here**](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/submitting-your-solution).
+Detailed instructions can be found [**here**](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/Exercise-Workflow_Submitting-Your-Solution).

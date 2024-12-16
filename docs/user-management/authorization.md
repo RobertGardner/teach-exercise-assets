@@ -101,4 +101,4 @@ This simple approach works well for practice projects. However, in a real projec
 
 When your solution is complete, submit a Pull Request on GitHub.
 
-Detailed instructions can be found [**here**](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/submitting-your-solution).
+Detailed instructions can be found [**here**](https://lms.learningfuze.com/code-guides/Learning-Fuze/curriculum/Exercise-Workflow_Submitting-Your-Solution).
