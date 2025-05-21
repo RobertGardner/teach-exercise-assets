@@ -30,11 +30,8 @@ Configuration for mkdocs is in `mkdocs.yml`.
 
 ## GitHub Pages
 
-CircleCI configuration is in `.circleci/config.yml`.
+This repo is published to GitHub Pages using GitHub Actions.
 
-The CircleCI implementation:
+The configuration for the GitHub Action is in `.github/workflows/deploy-gh.yml`.
 
-- Installs `mkdocs` (a Python application)
-- Publishes to the `gh-pages` branch of the `lfz-onboarding` repo
-
-Since the `exercise-assets` repo is configured to host the `gh-pages` branch on GitHub Pages, that's all there is to it!
+The action first builds the site with `mkdocs`, then deploys the site to GitHub Pages.
