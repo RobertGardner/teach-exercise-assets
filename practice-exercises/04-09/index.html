@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Flatten Array - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Flatten Array";
+      var mkdocs_page_input_path = "practice-exercises/04-09/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-flatten-array">Challenge: Flatten Array</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>flattenArray</code> that takes in an array containing nested arrays of integers and returns a new array with all the integers from the nested arrays flattened into a single level.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns a flattened array.
+ * @param arr The array containing nested arrays.
+ * @returns The flattened array.
+ */
+function flattenArray(arr: number[]): number[];
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">flattenArray([1, [2, 3], [4, 5, [6]]]); // should return [1, 2, 3, 4, 5, 6]
+flattenArray([
+  [1, 2],
+  [3, [4, 5]],
+  [6, [7]],
+]); // should return [1, 2, 3, 4, 5, 6, 7]
+flattenArray([1, [2, [3, [4, [5]]]]]); // should return [1, 2, 3, 4, 5]
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input array can contain nested arrays of any depth</li>
+<li>The input array can contain any number of nested arrays</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can use recursion to traverse the nested arrays and flatten them.</li>
+<li>If the current element is an array, you can recursively call the <code>flattenArray</code> function on that element to flatten it further.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function flattenArray(arr: unknown[]): unknown[] {
+  let result: unknown[] = [];
+
+  for (const item of arr) {
+    if (Array.isArray(item)) {
+      result = result.concat(flattenArray(item));
+    } else {
+      result.push(item);
+    }
+  }
+
+  return result;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Create a variable <code>result</code> to store the flattened array.</li>
+<li>Loop through the input array using a <code>for...of</code> loop.</li>
+<li>If the current element is an array, recursively call the <code>flattenArray</code> function on that element to flatten it further, and then concatenate the result to the <code>result</code> array.</li>
+<li>If the current element is not an array, push it to the <code>result</code> array.</li>
+<li>Return the <code>result</code> array.</li>
+</ul>
+<p>The base case is implicitly handled within the loop structure. As the loop iterates through each element of the input array arr, the recursion eventually reaches the point where there are no more elements left to process.</p>
+<p>When the input array arr is empty, the loop will not execute, and the function will directly return the empty result array.</p>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

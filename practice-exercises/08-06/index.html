@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Binary Tree Maximum Depth - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Binary Tree Maximum Depth";
+      var mkdocs_page_input_path = "practice-exercises/08-06/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-binary-tree-maximum-depth">Challenge: Binary Tree Maximum Depth</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>maxDepth</code> that takes the root of a binary tree as input and returns the maximum depth of the tree. The maximum depth is defined as the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns the maximum depth of the binary tree.
+ * @param root The root node of the binary tree.
+ * @returns The maximum depth of the binary tree.
+ */
+function maxDepth(root: Node): number;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">// Explanation: The binary tree is as follows:
+//     3
+//    / \
+//   9  20
+//     /  \
+//    15   7
+// The maximum depth is 3, which is the path 3 -&gt; 20 -&gt; 7.
+
+// Explanation: The binary tree is as follows:
+//     1
+//      \
+//       2
+// The maximum depth is 2, which is the path 1 -&gt; 2.
+
+// Input: root = []
+// Output: 0
+// Explanation: An empty tree has a maximum depth of 0.
+</code></pre>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can solve this problem using a depth-first traversal approach.</li>
+<li>Use recursion to explore the left and right subtrees of each node and return the maximum depth between them.</li>
+</ul>
+<h3 id="binary-tree-node">Binary Tree Node</h3>
+<p>Here's the definition of the binary tree node:</p>
+<pre><code class="language-js">export class Node&lt;T&gt; {
+  data: T;
+  left: Node&lt;T&gt; | undefined = undefined;
+  right: Node&lt;T&gt; | undefined = undefined;
+
+  constructor(data: T) {
+    this.data = data;
+  }
+}
+</code></pre>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export class Node&lt;T&gt; {
+  data: T;
+  left: Node&lt;T&gt; | undefined = undefined;
+  right: Node&lt;T&gt; | undefined = undefined;
+
+  constructor(data: T) {
+    this.data = data;
+  }
+}
+
+export function maxDepth(root: Node&lt;unknown&gt; | undefined): number {
+  if (!root) {
+    return 0;
+  }
+
+  const leftDepth = maxDepth(root.left);
+  const rightDepth = maxDepth(root.right);
+
+  return Math.max(leftDepth, rightDepth) + 1;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Check if the root node is <code>undefined</code>. If it is, return <code>0</code> since the tree is empty.</li>
+<li>Recursively calculate the maximum depth of the left and right subtrees of the current node.</li>
+<li>Return the maximum depth between the left and right subtrees plus <code>1</code> to account for the current node.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

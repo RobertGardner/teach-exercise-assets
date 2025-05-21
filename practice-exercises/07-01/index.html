@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Stack - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Stack";
+      var mkdocs_page_input_path = "practice-exercises/07-01/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="stack">Stack</h1>
+<p>A <code>stack</code> is a linear data structure that works in a specific way and that is <code>Last In, First Out</code> or <code>LIFO</code>. This means that the last element added to the stack will be the first element removed from the stack. Think of a stack of plates. The last plate added to the stack will be the first plate removed from the stack.</p>
+<p>To give you a better idea, we can look at this image:</p>
+<p><img src="../images/stack1.png" alt="" width="500" /></p>
+<p>In this case, each element is just a number, but it could be anything. We start with a stack with 1 element, we push another one on labeled 2. After that, another one labeled 3, and so on. In this case, the last element added to the stack is 5. We use the term <code>push</code> when we add on top of the stack.</p>
+<p>If we want to remove an element from the stack, we remove the last one added, which is 5. We can't remove 3 or 2 or 1. We can only remove 5. Once we remove 5, we can then remove 4, 3, 2, and 1. The term for removing from the top of the stack is <code>pop</code>.</p>
+<p>We know that in TypeScript, Arrays have a <code>push</code> and <code>pop</code> method. We can use an array as a stack. We can also create our own stack class that only exposes the <code>push</code> and <code>pop</code> methods or we can create our own <code>push</code> and <code>pop</code> methods via a class.</p>
+<h2 id="call-stack">Call Stack</h2>
+<p>A great example of a stack is the call stack. The call stack is a fundamental concept in programming and serves as an execution context for function calls.</p>
+<p>The JavaScript engine in the browser has a call stack. In fact, you can view it in your browser dev tools. It is a stack data structure that keeps track of function calls in the order they are made and allows for their orderly execution and return.</p>
+<p>When a function is called, a new frame is added to the top of the call stack. This frame contains information such as the function's arguments, local variables, and the position in the code where the function was called from. The function's execution begins, and if it calls other functions, their frames are added on top of the stack, forming a stack of nested function calls as you can see here. The call stack can be used to debug code and find issues.</p>
+<p>In the next lesson, we will create our own stack class.</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

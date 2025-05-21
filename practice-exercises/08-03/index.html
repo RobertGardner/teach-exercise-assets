@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Depth First Traversal - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Depth First Traversal";
+      var mkdocs_page_input_path = "practice-exercises/08-03/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="depth-first-traversal">Depth First Traversal</h1>
+<p>Now we are going to get into some algorithms that involve binary trees. This one is called <code>Depth First Traversal</code>. This is a traversal algorithm where the algorithm starts at a <code>root</code> node, which we know is the one at the top of the tree with no parent, and explores as far as possible along each branch before backtracking.</p>
+<p>So if we look at the following tree:</p>
+<p><img src="../images/depth-first.png" width="500" alt="" /></p>
+<p>We would start at <code>a</code> and then go to <code>b</code>. From here, we would go to <code>d</code> because we are going as far as possible along each branch before backtracking. <code>d</code> is as far as we can go on this path because it is a <code>leaf node</code>, which means it has no children. So now we can move over to <code>e</code>. If <code>e</code> had a child, we would move down, but since it doesn't, we're going to move over to <code>c</code>. From <code>c</code>, we can move down in depth to <code>f</code>.</p>
+<p>So this pattern would be <code>a</code>, <code>b</code>, <code>d</code>, <code>e</code>, <code>c</code>, <code>f</code>.</p>
+<p>Now we want to implement this algorithm. We are going to use a <code>stack</code> to implement this algorithm because we want to keep track of the nodes we have visited. Remember a stack is a <code>LIFO</code> data structure, which means <code>Last In First Out</code>. So the last node we visit will be the first node we pop off the stack. When a node is popped off or removed from the stack, we can say that node has been <code>visited</code>. When a node is popped off the stack, it will be put in a variable called <code>current</code>. We will then check if <code>current</code> has a right child. If it does, we will add it to the stack. If it doesn't, we will check if it has a left child. If it does, we will add it to the stack. If it doesn't, we will pop the next node off the stack and repeat the process.</p>
+<p>Let's implement this in TypeScript. We will use the same <code>Node</code> class we used in the previous lesson. We will first use a standard array as our stack, but then use the <code>Stack</code> class that we created a few lessons ago.</p>
+<pre><code class="language-js">export class Node&lt;T&gt; {
+  data: T;
+  left: Node&lt;T&gt; | undefined = undefined;
+  right: Node&lt;T&gt; | undefined = undefined;
+
+  constructor(data: T) {
+    this.data = data;
+  }
+}
+
+export function depthFirstTraversal(
+  root: Node&lt;unknown&gt; | undefined
+): unknown[] {
+  if (!root) {
+    return [];
+  }
+
+  const result: unknown[] = [];
+  const stack: Node&lt;unknown&gt;[] = [];
+
+  stack.push(root);
+
+  while (stack.length &gt; 0) {
+    const current = stack.pop();
+    current &amp;&amp; result.push(current.data);
+
+    if (current?.right) {
+      stack.push(current.right);
+    }
+
+    if (current?.left) {
+      stack.push(current.left);
+    }
+  }
+
+  return result;
+}
+</code></pre>
+<p>We did exactly what I described above. We first check if the <code>root</code> node exists. If it doesn't, we return an empty array.</p>
+<p>We then create a <code>result</code> array and a <code>stack</code> array. We then push the <code>root</code> node onto the stack.</p>
+<p>We then start a <code>while</code> loop that will run as long as the <code>stack</code> array has a length greater than <code>0</code>. Inside the <code>while</code> loop, we pop the last node off the stack and add it to the <code>result</code> array.</p>
+<p>We then check if the <code>current</code> node has a right child. If it does, we add it to the stack. We then check if the <code>current</code> node has a left child. If it does, we add it to the stack.</p>
+<p>We then repeat the process until the <code>stack</code> array has a length of <code>0</code>. We then return the <code>result</code> array.</p>
+<h2 id="using-the-stack-class">Using the Stack Class</h2>
+<p>Now, let's refactor this code to use the <code>Stack</code> class we created a few lessons ago. You can do this as an exercise, or you can look at the code below.</p>
+<pre><code class="language-js">export class Node&lt;T&gt; {
+  data: T;
+  left: Node&lt;T&gt; | undefined = undefined;
+  right: Node&lt;T&gt; | undefined = undefined;
+
+  constructor(data: T) {
+    this.data = data;
+  }
+}
+
+export function depthFirstTraversal(
+  root: Node&lt;unknown&gt; | undefined
+): unknown[] {
+  if (!root) {
+    return [];
+  }
+
+  const result: unknown[] = [];
+  const stack = new Stack();
+
+  stack.push(root);
+
+  while (!stack.isEmpty()) {
+    const current = stack.pop();
+    result.push(current.data);
+
+    if (current.right) {
+      stack.push(current.right);
+    }
+
+    if (current.left) {
+      stack.push(current.left);
+    }
+  }
+
+  return result;
+}
+</code></pre>
+<p>This code is very similar, except we used a pre-defined <code>Stack</code> class instead of a standard array. We also used the <code>isEmpty()</code> method instead of checking the length of the array.</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Doubly Linked List Implementation - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Doubly Linked List Implementation";
+      var mkdocs_page_input_path = "practice-exercises/07-15/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="doubly-linked-list-implementation">Doubly Linked List Implementation</h1>
+<p>In this lesson, we will create a doubly linked list class in TypeScript. If you want to try this on your own, going on the knowledge that you have of a linked list and what was explained about a doubly linked list, go ahead and try to implement this on your own. If you get stuck, you can always come back to this lesson.</p>
+<h2 id="node-class"><code>Node</code> Class</h2>
+<p>We will first create a <code>Node</code> class that will be used to create nodes for our doubly linked list. The <code>Node</code> class will take in a value and set the <code>value</code> property to the value that is passed in. It will also set the <code>next</code> and <code>prev</code> properties to <code>undefined</code>.</p>
+<pre><code class="language-js">class Node&lt;T&gt; {
+  data: T;
+  next: Node&lt;T&gt; | undefined = undefined;
+  prev: Node&lt;T&gt; | undefined = undefined;
+  constructor(data: T) {
+    this.data = data;
+  }
+}
+</code></pre>
+<h2 id="doublylinkedlist-class"><code>DoublyLinkedList</code> Class</h2>
+<p>Next, we will create a <code>DoublyLinkedList</code> class that will be used to create doubly linked lists. The <code>DoublyLinkedList</code> class will set the <code>head</code> and <code>tail</code> properties to <code>undefined</code> and the <code>length</code> property to <code>0</code>.</p>
+<pre><code class="language-js">export class DoublyLinkedList&lt;T&gt; {
+  head: Node&lt;T&gt; | undefined = undefined;
+  tail: Node&lt;T&gt; | undefined = undefined;
+  length = 0;
+}
+</code></pre>
+<h2 id="append-method"><code>append</code> Method</h2>
+<p>We will add a method called <code>append</code> to the <code>DoublyLinkedList</code> class. This method will add a node to the end of the doubly linked list.</p>
+<pre><code class="language-js">  append(data: T): void {
+    const newNode = new Node(data);
+
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.prev = this.tail;
+      this.tail &amp;&amp; (this.tail.next = newNode);
+      this.tail = newNode;
+    }
+
+    this.length++;
+  }
+</code></pre>
+<p>We create a new node with the data that is passed in. If the <code>head</code> property is <code>undefined</code>, then we set the <code>head</code> and <code>tail</code> properties to the new node. Otherwise, we set the <code>prev</code> property of the new node to the current <code>tail</code> node. We then set the <code>next</code> property of the current <code>tail</code> node to the new node. Finally, we set the <code>tail</code> property to the new node.</p>
+<p>Let's try out what we have so far.</p>
+<pre><code class="language-js">const list = new DoublyLinkedList();
+
+list.append(1);
+list.append(2);
+list.append(3);
+
+console.log(list);
+</code></pre>
+<p>You should see something like this:</p>
+<pre><code class="language-text">DoublyLinkedList {
+  head: &lt;ref *1&gt; Node {
+    data: 1,
+    next: Node { data: 2, next: [Node], prev: [Circular *1] },
+    prev: null
+  },
+  tail: &lt;ref *2&gt; Node {
+    data: 3,
+    next: null,
+    prev: Node { data: 2, next: [Circular *2], prev: [Node] }
+  },
+  length: 3
+}
+</code></pre>
+<p>This shows us that we have a doubly linked list with a <code>head</code> and <code>tail</code> node. The <code>head</code> node has a <code>next</code> node and the <code>tail</code> node has a <code>prev</code> node. The <code>prev</code> of the first node and the <code>next</code> of the last node are both <code>undefined</code>.</p>
+<h2 id="printall-method"><code>printAll</code> Method</h2>
+<p>Let's create a method to print out all of the data in the list. We will add a method called <code>printAll</code> to the <code>DoublyLinkedList</code> class.</p>
+<pre><code class="language-js">  printAll(): void {
+    let current = this.head;
+
+    while (current) {
+      console.log(current.data);
+      current = current.next;
+    }
+  }
+</code></pre>
+<p>You can test this with the following:</p>
+<pre><code class="language-js">const list = new DoublyLinkedList();
+
+list.append(1);
+list.append(2);
+list.append(3);
+
+list.printAll();
+</code></pre>
+<p>You should see something like this:</p>
+<pre><code class="language-text">1
+2
+3
+</code></pre>
+<h2 id="prepend-method"><code>prepend</code> Method</h2>
+<p>Let's add a method to add a node to the beginning of the list. We will call this method <code>prepend</code>. It will take in a value and add a node to the beginning of the list.</p>
+<pre><code class="language-js">  prepend(data: T): void {
+    const newNode = new Node(data);
+
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head.prev = newNode;
+      this.head = newNode;
+    }
+
+    this.length++;
+  }
+</code></pre>
+<p>We create a new node with the data that is passed in. If the <code>head</code> property is <code>undefined</code>, then we set the <code>head</code> and <code>tail</code> properties to the new node. Otherwise, we set the <code>next</code> property of the new node to the current <code>head</code> node. We then set the <code>prev</code> property of the current <code>head</code> node to the new node. Finally, we set the <code>head</code> property to the new node.</p>
+<p>You can try with:</p>
+<pre><code class="language-js">const list = new DoublyLinkedList();
+
+list.append(1);
+list.append(2);
+list.append(3);
+list.prepend('Hello');
+
+list.printAll();
+</code></pre>
+<p>You should see something like this:</p>
+<pre><code class="language-text">Hello
+1
+2
+3
+</code></pre>
+<h2 id="insertat-method"><code>insertAt</code> Method</h2>
+<p>Let's add a method to insert a node at a specific index. We will call this method <code>insertAt</code>. It will take in an index and a value and insert a node at that index.</p>
+<pre><code class="language-js">  insertAt(index: number, data: T): void {
+    if (index &lt; 0 || index &gt; this.length) {
+      return;
+    }
+
+    if (index === 0) {
+      this.prepend(data);
+      return;
+    }
+
+    if (index === this.length) {
+      this.append(data);
+      return;
+    }
+
+    const newNode = new Node(data);
+    let currentNode = this.head;
+
+    for (let i = 0; i &lt; index - 1; i++) {
+      currentNode = currentNode?.next;
+    }
+
+    newNode.next = currentNode?.next;
+    newNode.prev = currentNode;
+    currentNode?.next &amp;&amp; (currentNode.next.prev = newNode);
+    currentNode &amp;&amp; (currentNode.next = newNode);
+
+    this.length++;
+  }
+</code></pre>
+<p>We first check if the index is valid. If it is, we check if the index is <code>0</code>. If it is, we call the <code>prepend</code> method. We then check if the index is the same as the length of the list. If it is, we call the <code>append</code> method. Otherwise, we create a new node with the data that is passed in.</p>
+<p>We then loop through the list until we get to the node before the index. We set the <code>next</code> property of the new node to the <code>next</code> property of the current node. We set the <code>prev</code> property of the new node to the current node. We set the <code>prev</code> property of the node after the new node to the new node. We set the <code>next</code> property of the current node to the new node.</p>
+<p>You can try with:</p>
+<pre><code class="language-js">const list = new DoublyLinkedList();
+
+list.append(1);
+list.append(2);
+list.append(3);
+list.prepend('Hello');
+list.insertAt(2, 'World');
+
+list.printAll();
+</code></pre>
+<p>You should see something like this:</p>
+<pre><code class="language-text">Hello
+1
+World
+2
+3
+</code></pre>
+<h2 id="get-method"><code>get</code> Method</h2>
+<p>Let's add a method to get a node at a specific index. We will call this method <code>get</code>. It will take in an index and return the node at that index.</p>
+<pre><code class="language-js">  get(index: number): Node&lt;T&gt; | undefined {
+    if (index &lt; 0 || index &gt;= this.length) {
+      return undefined;
+    }
+
+    let currentNode = this.head;
+    for (let i = 0; i &lt; index; i++) {
+      currentNode = currentNode?.next;
+    }
+
+    return currentNode;
+  }
+</code></pre>
+<p>We first check if the index is valid. If it is, we loop through the list until we get to the node at the index and return it.</p>
+<p>You can try with:</p>
+<pre><code class="language-js">console.log(list.get(0));
+</code></pre>
+<p>You should see something like this:</p>
+<pre><code>&lt;ref *2&gt; Node {
+  data: 'Hello',
+  next: &lt;ref *1&gt; Node {
+    data: 1,
+    next: Node { data: 'World', next: [Node], prev: [Circular *1] },
+    prev: [Circular *2]
+  },
+  prev: undefined
+}
+</code></pre>
+<h2 id="remove-method"><code>remove</code> Method</h2>
+<p>Let's add a method to remove a node at a specific index. We will call this method <code>remove</code>. It will take in an index and remove the node at that index.</p>
+<pre><code class="language-js">  remove(index: number): void {
+    if (index &lt; 0 || index &gt;= this.length) {
+      return;
+    }
+
+    if (index === 0) {
+      this.head = this.head?.next;
+      if (this.head) {
+        this.head.prev = undefined;
+      } else {
+        this.tail = undefined;
+      }
+    } else if (index === this.length - 1) {
+      this.tail = this.tail?.prev;
+      if (this.tail) {
+        this.tail.next = undefined;
+      } else {
+        this.head = undefined;
+      }
+    } else {
+      let currentNode = this.head;
+
+      for (let i = 0; i &lt; index; i++) {
+        currentNode = currentNode?.next;
+      }
+
+      currentNode?.prev &amp;&amp; (currentNode.prev.next = currentNode?.next);
+      currentNode?.next &amp;&amp; (currentNode.next.prev = currentNode?.prev);
+    }
+
+    this.length--;
+  }
+</code></pre>
+<p>We first check if the list is empty by checking if the <code>head</code> is <code>undefined</code>. If it is, we return.</p>
+<p>If it is not empty, we continue and set the <code>currentNode</code> to the <code>head</code>.</p>
+<p>We then loop through the list until we find the node with the data that we want to remove. If we find it, we check if it is the <code>head</code> node. If it is, we set the <code>head</code> to the <code>next</code> node. We also check if the <code>head</code> is not <code>undefined</code>. If it is not, we set the <code>prev</code> of the <code>head</code> to <code>undefined</code> because it is now the first node.</p>
+<p>If the node is not the <code>head</code>, we check if it is the <code>tail</code> node. If it is, we set the <code>tail</code> to the <code>prev</code> node. We also set the <code>next</code> of the <code>tail</code> to <code>undefined</code> because it is now the last node.</p>
+<p>If the node is neither the <code>head</code> nor the <code>tail</code>, we set the <code>next</code> of the <code>prev</code> node to the <code>next</code> node. We also set the <code>prev</code> of the <code>next</code> node to the <code>prev</code> node.</p>
+<p>We then decrement the <code>length</code> and return <code>true</code>.</p>
+<p>If we do not find the node, we return <code>false</code>.</p>
+<p>You can test this out with the following code:</p>
+<pre><code class="language-js">const list = new DoublyLinkedList();
+
+list.append(1);
+list.append(2);
+list.append(3);
+list.prepend('Hello');
+list.insert(2, 'World');
+list.remove(4);
+
+list.printAll();
+</code></pre>
+<p>You should now see something like this:</p>
+<pre><code class="language-text">Hello
+1
+World
+2
+3
+</code></pre> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

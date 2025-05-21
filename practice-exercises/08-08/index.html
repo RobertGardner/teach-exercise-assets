@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Binary Search Tree Implementation - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Binary Search Tree Implementation";
+      var mkdocs_page_input_path = "practice-exercises/08-08/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="binary-search-tree-implementation">Binary Search Tree Implementation</h1>
+<p>In this lesson, we will implement a binary search tree in TypeScript. We will start by creating a <code>Node</code> class, which will represent each node in the tree. Each node will have a <code>value</code>, a <code>left</code> property, and a <code>right</code> property. The <code>left</code> and <code>right</code> properties will point to other nodes, or be <code>undefined</code> if there is no left or right child.</p>
+<pre><code class="language-js">export class Node {
+  value: number;
+  left: Node | undefined = undefined;
+  right: Node | undefined = undefined;
+
+  constructor(value: number) {
+    this.value = value;
+  }
+}
+</code></pre>
+<p>Next, we will create a <code>BinarySearchTree</code> class. This class will have a <code>root</code> property, which will point to the root node of the tree. Initially, the root node will be <code>undefined</code>.</p>
+<pre><code class="language-js">export class BinarySearchTree {
+  root: Node | undefined = undefined;
+}
+</code></pre>
+<h2 id="insert-method"><code>insert</code> Method</h2>
+<p>Next, we will implement the <code>insert</code> method. This method will take a value as an argument, and insert a new node with that value into the tree.</p>
+<pre><code class="language-js">  insert(value: number): void {
+    const newNode = new Node(value);
+
+    if (this.root === undefined) {
+      this.root = newNode;
+    } else {
+      let currentNode = this.root;
+
+      while (true) {
+        if (value &lt; currentNode.value) {
+          if (!currentNode.left) {
+            currentNode.left = newNode;
+            return;
+          }
+          currentNode = currentNode.left;
+        } else {
+          if (!currentNode.right) {
+            currentNode.right = newNode;
+            return;
+          }
+          currentNode = currentNode.right;
+        }
+      }
+    }
+  }
+</code></pre>
+<p>We start by creating a new node with the given value.</p>
+<p>If the tree is empty, we set the root node to be the new node. Otherwise, we start at the root node, and traverse the tree until we find a node without a left or right child.</p>
+<p>If the new value is less than the current node's value, we move on to the left child. If the new value is greater than or equal to the current node's value, we move on to the right child.</p>
+<p>We continue this process until we find a node without a left or right child, and then we insert the new node at that location.</p>
+<h2 id="lookup-method"><code>lookup</code> Method</h2>
+<p>Next, we will implement the <code>lookup</code> method. This method will take a value as an argument, and return the node with that value if it exists in the tree. If the value does not exist in the tree, we will return <code>undefined</code>.</p>
+<pre><code class="language-js">  lookup(value: number): Node | undefined {
+    let currentNode = this.root;
+
+    if (!currentNode) {
+      return undefined;
+    }
+
+    while (currentNode) {
+      if (value &lt; currentNode.value) {
+        currentNode = currentNode.left;
+      }
+      else if (value &gt; currentNode.value) {
+        currentNode = currentNode.right;
+      }
+      else if (value === currentNode.value) {
+        return currentNode;
+      }
+    }
+
+    return undefined;
+  }
+</code></pre>
+<p>We set the current node to be the root node.</p>
+<p>If the tree is empty, we return <code>undefined</code>. Otherwise, we traverse the tree until we find a node with the given value.</p>
+<p>If the value is less than the current node's value, we move on to the left child. If the value is greater than the current node's value, we move on to the right child. If the value is equal to the current node's value, we return the current node.</p>
+<p>If we reach a node that does not have a left or right child, we return <code>undefined</code>.</p>
+<h2 id="remove-method"><code>remove</code> Method</h2>
+<p>Next, we will implement the <code>remove</code> method. This method will take a value as an argument, and remove the node with that value from the tree.</p>
+<pre><code class="language-js">  remove(value: number): void {
+    function removeNode(
+      node: Node | undefined,
+      value: number
+    ): Node | undefined {
+      if (node === undefined) {
+        return undefined;
+      }
+
+      if (value &lt; node.value) {
+        node.left = removeNode(node.left, value);
+        return node;
+      }
+      else if (value &gt; node.value) {
+        node.right = removeNode(node.right, value);
+        return node;
+      }
+      else {
+        if (node.left === undefined) {
+          return node.right;
+        } else if (node.right === undefined) {
+          return node.left;
+        }
+
+        let tempNode = node.right;
+        while (tempNode.left !== undefined) {
+          tempNode = tempNode.left;
+        }
+        node.value = tempNode.value;
+        node.right = removeNode(node.right, tempNode.value);
+        return node;
+      }
+    }
+
+    this.root = removeNode(this.root, value);
+  }
+</code></pre>
+<p>This one is pretty tough. We start by creating a helper function called <code>removeNode</code>. This function will take a node and a value as arguments, and return the node with the given value removed from the tree.</p>
+<p>If the node is <code>undefined</code>, we return <code>undefined</code>. Otherwise, we traverse the tree until we find the node with the given value.</p>
+<p>If the value is less than the current node's value, we move on to the left child. If the value is greater than the current node's value, we move on to the right child. If the value is equal to the current node's value, we have found the node we want to remove.</p>
+<p>There are three cases we need to consider:</p>
+<ol>
+<li>The node has no children or only one child</li>
+<li>The node has two children</li>
+<li>The node is the root node</li>
+</ol>
+<h3 id="case-1-node-with-no-child-or-only-one-child">Case 1: Node with no child or only one child</h3>
+<p>If the node has no children or only one child, we can simply return the node's left or right child. This will remove the node from the tree.</p>
+<h3 id="case-2-node-with-two-children">Case 2: Node with two children</h3>
+<p>If the node has two children, we need to find the smallest value in the right subtree. This value will be the node's successor. We will replace the node's value with the successor's value, and then remove the successor from the tree.</p>
+<h3 id="case-3-node-is-the-root-node">Case 3: Node is the root node</h3>
+<p>If the node is the root node, we need to replace the root node with the successor. We will replace the root node's value with the successor's value, and then remove the successor from the tree.</p>
+<h2 id="printtree-method"><code>printTree</code> Method</h2>
+<p>Finally, we will implement the <code>printTree</code> method. This method will print the tree in a human-readable format.</p>
+<pre><code class="language-js">  printTree(): void {
+    function printNode(node: Node | undefined): void {
+      if (node === undefined) {
+        return;
+      }
+      node.left &amp;&amp; printNode(node.left);
+      console.log(node.value);
+      node.right &amp;&amp; printNode(node.right);
+    }
+
+    printNode(this.root);
+  }
+</code></pre>
+<h2 id="binary-search-tree-runtime-analysis">Binary Search Tree Runtime Analysis</h2>
+<p>BST's are very efficient data structures. They are very fast at inserting, looking up, and deleting values and have a runtime of O(log n) for each of these operations except for printing the tree, which has a runtime of O(n). This is because we have to visit every node in the tree to print it.</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Runtime</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Insert</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td>Lookup</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td>Delete</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td>Print</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="binary-search-tree-example">Binary Search Tree Example</h2>
+<p><img src="../images/binary-search-tree1.png" width="600" /></p>
+<pre><code class="language-js">const bst = new BinarySearchTree();
+bst.insert(9);
+bst.insert(4);
+bst.insert(11);
+bst.insert(2);
+bst.insert(7);
+bst.insert(15);
+bst.insert(5);
+bst.insert(8);
+</code></pre>
+<p>This will create the tree.</p>
+<p>We can use the <code>lookup</code> method to find a node in the tree. Let's find the node with the value 4 and log it.</p>
+<pre><code class="language-js">console.log(bst.lookup(4));
+</code></pre>
+<p>This will log the following:</p>
+<pre><code class="language-text">{
+  value: 4,
+  left: { value: 2, left: undefined, right: undefined },
+  right: { value: 7, left: [Node], right: [Node] }
+}
+</code></pre>
+<p>You can see that the node with the value 4 has a left child with the value 2, and a right child with the value 7.</p>
+<p>Let's remove the node with the value 7 from the tree.</p>
+<pre><code class="language-js">bst.remove(7);
+</code></pre>
+<p>Now lookup 4 again:</p>
+<pre><code class="language-js">console.log(bst.lookup(4));
+</code></pre>
+<p>This will log the following:</p>
+<pre><code class="language-text">{
+  value: 4,
+  left: { value: 2, left: undefined, right: undefined },
+  right: { value: 8, left: [Node], right: undefined }
+}
+</code></pre>
+<p>You can see that the node with the value 4 now has a right child with the value 8 instead of 7. So it essentially replaced the node with the one that was to the right of it.</p>
+<p>Let's print the tree to make sure it looks like the one we created.</p>
+<pre><code class="language-js">bst.printTree();
+</code></pre>
+<p>This will print it in order minus the node with the value 7, which we removed.</p>
+<pre><code class="language-text">2
+4
+5
+8
+9
+11
+15
+</code></pre>
+<p>This may have seemed overwhelming. Don't expect to master this in a day. It takes time and practice. Go through this article again and try to understand it better. You might also try to implement this data structure yourself as well as others without looking at the exercises.</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

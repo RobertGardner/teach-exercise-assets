@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Index - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Index";
+      var mkdocs_page_input_path = "practice-exercises/09-10/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h2 id="quick-sort-algorithm">Quick Sort Algorithm</h2>
+<p>The Quick Sort algorithm is a highly efficient divide-and-conquer sorting algorithm. It works by selecting a "pivot" element from the array and partitioning the other elements into two subarrays according to whether they are less than or greater than the pivot. The subarrays are then sorted recursively.</p>
+<p>Quick Sort offers an average time complexity of O(n log n), making it one of the fastest sorting algorithms available. It's especially efficient for larger datasets. Quick Sort has a better space complexity than a merge sort because merge sort requires additional memory space to create temporary arrays during the merging process. When merging two subarrays, a temporary array is needed to hold the merged elements before they are placed back into the original array. This additional memory usage can be a drawback for Merge Sort, especially when dealing with very large arrays.</p>
+<h3 id="example">Example</h3>
+<p>Let's walk through an example using the array <code>[20, 13, 3, 2, 10, 1, 5, 6]</code> and choosing the pivot as <code>6</code>.</p>
+<p><img src="../images/quicksort.png" width="600" /></p>
+<ul>
+<li>Choose the pivot element (6) and partition the array:</li>
+</ul>
+<p><code>text
+  Pivot: 6
+  [20, 13, 3, 2, 10, 12, 1, 5, | 6]</code></p>
+<ul>
+<li>Partition the array into two subarrays:</li>
+</ul>
+<p>```text
+  [3, 2, 1, 5] | [6, 20, 13, 10]</p>
+<p>```</p>
+<ul>
+<li>Left: Choose (3) pivot</li>
+</ul>
+<pre><code class="language-text">  [2, 1] [3 5]
+
+</code></pre>
+<ul>
+<li>Right: Choose (10) pivot</li>
+</ul>
+<pre><code class="language-text">  [6] [10, 20, 13]
+
+</code></pre>
+<p>At this point, 6 is done as there is only one element. This is our recursive case.</p>
+<ul>
+<li>Left: Choose (2) pivot and (5) pivot</li>
+</ul>
+<pre><code class="language-text">  [1] [2] [3] [5]
+
+</code></pre>
+<p>These are all done.</p>
+<ul>
+<li>Right: choose (13) pivot</li>
+</ul>
+<pre><code class="language-text">  [10] [13, 20]
+
+</code></pre>
+<p>10 is done. Now, (20) as pivot</p>
+<pre><code class="language-text"> [13] [20]
+
+</code></pre>
+<p>Now there is no more than 1 value per array element and we can combine into one array: <code>[1,2,3,5,6,10,13,20]</code></p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

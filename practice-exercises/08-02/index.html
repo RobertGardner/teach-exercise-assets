@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      TreeNode Class &amp; Manual Tree Creation - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "TreeNode Class \u0026amp; Manual Tree Creation";
+      var mkdocs_page_input_path = "practice-exercises/08-02/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="treenode-class-manual-tree-creation">TreeNode Class &amp; Manual Tree Creation</h1>
+<p>In this lesson, we will create a <code>TreeNode</code> class that will allow us to create a binary tree in TypeScript. We will create our tree manually for now by creating instances of the <code>TreeNode</code> class and assigning them to the <code>left</code> and <code>right</code> properties of other nodes. Later, we will create a <code>BinaryTree</code> class that will allow us to create a binary tree by passing in values.</p>
+<p>Although this is an exercise, if you just want to follow along without trying it yourself, that is fine. You know what a binary tree is and you know how to create a class. If you want to try it yourself, here are the instructions.</p>
+<h2 id="instructions">Instructions</h2>
+<p>Create a class called <code>TreeNode</code>. This will represent a node in the tree. It will have a <code>value</code> property and a <code>left</code> and <code>right</code> property that will point to the left and right child nodes respectively. They will be initialized to <code>undefined</code> when the node is created.</p>
+<p>Then use that class to create the following binary tree:</p>
+<p><img src="../images/tree5.png" width="500" alt="" /></p>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>The constructor will take a <code>value</code> parameter.</li>
+<li>Initialize the <code>left</code> and <code>right</code> properties to <code>undefined</code> in the constructor.</li>
+<li>Create an instance for each node in the tree and assign the appropriate values to the <code>left</code> and <code>right</code> properties.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export class TreeNode&lt;T&gt; {
+  value: T;
+  left: TreeNode&lt;T&gt; | undefined = undefined;
+  right: TreeNode&lt;T&gt; | undefined = undefined;
+
+  constructor(value: T) {
+    this.value = value;
+  }
+}
+
+const a = new TreeNode(&quot;a&quot;);
+const b = new TreeNode(&quot;b&quot;);
+const c = new TreeNode(&quot;c&quot;);
+const d = new TreeNode(&quot;d&quot;);
+const e = new TreeNode(&quot;e&quot;);
+const f = new TreeNode(&quot;f&quot;);
+
+a.left = b;
+a.right = c;
+b.left = d;
+b.right = e;
+c.right = f;
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Create the <code>TreeNode</code> class with a constructor that takes a <code>value</code> parameter.</li>
+<li>Initialize the <code>left</code> and <code>right</code> properties to <code>undefined</code>. This is because we don't know what the left and right children will be when we create the node. We will assign them later.</li>
+<li>Create an instance of the <code>TreeNode</code> class for each node in the tree.</li>
+<li>Assign the appropriate values to the <code>left</code> and <code>right</code> properties.</li>
+</ul>
+<p>The code above implements exactly what we see in the diagram.</p>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

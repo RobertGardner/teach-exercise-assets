@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      What Is Space Complexity? - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "What Is Space Complexity?";
+      var mkdocs_page_input_path = "practice-exercises/05-07/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="what-is-space-complexity">What Is Space Complexity?</h1>
+<p>Space complexity refers to the amount of memory or storage space that an algorithm or function consumes based on the size of its input. It measures how the memory usage of an algorithm scales with the size of the input data. The goal is to optimize memory usage and minimize the additional memory required during the execution of an algorithm or program.</p>
+<p>There are a lot of similarities between time and space complexity. We can use the same Big O notation to describe space complexity. We have constant, linear, quadratic, logarithmic, exponential, and factorial space complexity.</p>
+<p>In many cases, the space complexity of a function will be the same as the time complexity. If a function takes <code>O(n)</code> time, it will also take <code>O(n)</code> space. If a function takes <code>O(n^2)</code> time, it will also take <code>O(n^2)</code> space. This is because the amount of memory used by a function is often directly related to the number of operations it performs. However, this is not always the case. Sometimes a function will take up more memory than time, or vice versa.</p>
+<h2 id="rules-for-calculating-space-complexity">Rules for Calculating Space Complexity</h2>
+<ol>
+<li>
+<p><strong>Variables and data structures take up space:</strong> When you declare variables or use data structures (arrays, objects, etc.) in your code, they occupy memory space based on their size and data type. The space complexity increases with the number and size of variables and data structures used in your program.</p>
+</li>
+<li>
+<p><strong>Function calls take up space:</strong> Whenever you call a function, the program needs to allocate memory for the function call stack, which includes function arguments, local variables, return addresses, and other bookkeeping information. Each function call adds to the space complexity, and if you have nested function calls or recursive functions, it can lead to a significant increase in space usage.</p>
+</li>
+<li>
+<p><strong>The space complexity of a function is the sum of the space complexities of all the variables, data structures, and function calls inside the function:</strong> This means that to calculate the space complexity of a function, you need to consider all the variables and data structures used within the function and their space requirements. Additionally, if the function makes any recursive or nested function calls, you need to account for the space used by those function calls as well.</p>
+</li>
+</ol>
+<h2 id="examples-of-space-complexity">Examples of Space Complexity</h2>
+<p>Let's take a look at some examples:</p>
+<h2 id="constant-space-o1">Constant Space <code>O(1)</code></h2>
+<pre><code class="language-js">function add(num1: number, num2: number): number {
+  return num1 + num2;
+}
+</code></pre>
+<p>The space complexity of this function is <code>constant</code>. The function does not create any additional data structures or variables that depend on the input size. It simply returns the result of the addition, so the amount of memory used by the function does not change with the input size.</p>
+<p>We can describe this function as <code>O(1)</code> in Big O notation.</p>
+<h2 id="linear-space-on">Linear Space <code>O(n)</code></h2>
+<pre><code class="language-js">function createArray(num: number): number[] {
+  const arr = [];
+
+  for (let i = 0; i &lt; num; i++) {
+    arr.push(i);
+  }
+
+  return arr;
+}
+</code></pre>
+<p>The space complexity of the function <code>createArray(num)</code> is <code>linear</code>. This is because the function creates an array and pushes elements into it using the for-loop. As the input <code>num</code> increases, the size of the array also increases proportionally. Therefore, the space complexity of the function grows linearly with the input.</p>
+<p>We can describe this function as <code>O(n)</code> in Big O notation.</p>
+<h2 id="quadratic-space-on2">Quadratic Space <code>O(n^2)</code></h2>
+<pre><code class="language-js">function createMatrix(num: number): number[][] {
+  const matrix = [];
+
+  for (let i = 0; i &lt; num; i++) {
+    matrix[i] = [];
+
+    for (let j = 0; j &lt; num; j++) {
+      matrix[i][j] = i + j;
+    }
+  }
+
+  return matrix;
+}
+</code></pre>
+<p>The space complexity of the function <code>createMatrix(num)</code> is <code>quadratic</code>. This is because the function creates a two-dimensional array and fills it with values using the nested for-loops. As the input <code>num</code> increases, the size of the matrix also increases proportionally. Therefore, the space complexity of the function grows quadratically with the input.</p>
+<p>We can describe this function as <code>O(n^2)</code> in Big O notation.</p>
+<h2 id="logarithmic-space-olog-n">Logarithmic Space <code>O(log n)</code></h2>
+<pre><code class="language-js">function findPower(base: number, exponent: number): number {
+  if (exponent === 0) {
+    return 1;
+  }
+
+  if (exponent % 2 === 0) {
+    const halfPower = findPower(base, exponent / 2);
+    return halfPower * halfPower;
+  } else {
+    const halfPower = findPower(base, (exponent - 1) / 2);
+    return base * halfPower * halfPower;
+  }
+}
+</code></pre>
+<p>The space complexity of the function <code>findPower(base, exponent)</code> is <code>logarithmic</code>. This is because the function uses recursion to calculate the power of a number. As the input <code>exponent</code> increases, the number of recursive calls increases logarithmically. Therefore, the space complexity of the function grows logarithmically with the input.</p>
+<p>We can describe this function as <code>O(log n)</code> in Big O notation.</p>
+<p>In these examples, the time and space complexity are the same. However, this is not always the case. Let's look at an example where the space complexity is different from the time complexity.</p>
+<h2 id="constant-time-o1-and-linear-space-on">Constant Time <code>O(1)</code> and Linear Space <code>O(n)</code></h2>
+<pre><code class="language-js">function findSum(arr: number[]): number {
+  let sum = 0;
+
+  for (let i = 0; i &lt; arr.length; i++) {
+    sum += arr[i];
+  }
+
+  return sum;
+}
+</code></pre>
+<p>The time complexity of the function <code>findSum(arr)</code> is <code>linear</code> or <code>O(n)</code>, where <code>n</code> is the length of the input array <code>arr</code>. This is because the function uses a loop to iterate through each element of the array and perform a constant-time operation (adding the element to the sum). The number of iterations is directly proportional to the size of the array.</p>
+<p>The space complexity of the function is <code>O(1)</code>, which is <code>constant</code>. This is because the function only uses a single variable sum to store the result. The space used by the variable does not depend on the size of the input array, so it remains constant regardless of the input size.</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

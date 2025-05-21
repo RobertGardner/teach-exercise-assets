@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Linked List Implementation - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Linked List Implementation";
+      var mkdocs_page_input_path = "practice-exercises/07-10/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="linked-list-implementation">Linked List Implementation</h1>
+<p>In the last lesson, we talked about what a linked list is and how it works. In this lesson, we'll implement one in TypeScript.</p>
+<h2 id="node-class-constructor"><code>Node</code> Class &amp; Constructor</h2>
+<p>Before we create the linked list class, we need to create a node class. The node class will be used to create the nodes that make up the linked list. Each node will have a <code>data</code> property and a <code>next</code> property. The <code>data</code> property will store the data that the node holds. The <code>next</code> property will point to the next node in the linked list.</p>
+<pre><code class="language-js">class Node&lt;T&gt; {
+  data: T;
+  next: Node&lt;T&gt; | undefined = undefined;
+
+  constructor(data: T) {
+    this.data = data;
+  }
+}
+</code></pre>
+<h2 id="linkedlist-class-constructor"><code>LinkedList</code> Class &amp; Constructor</h2>
+<p>Now that we have a node class, we can create the linked list class. The linked list class will have a head property and a tail property. The head property will point to the first node in the linked list. The tail property will point to the last node in the linked list. When we start out, the head and tail properties will both be <code>undefined</code>.</p>
+<pre><code class="language-js">export class LinkedList&lt;T&gt; {
+  head: Node&lt;T&gt; | undefined = undefined;
+  tail: Node&lt;T&gt; | undefined = undefined;
+}
+</code></pre>
+<h2 id="add-method"><code>add</code> Method</h2>
+<p>The <code>add</code> method will add a new node to the end of the linked list. It takes in a <code>data</code> value which will get passed into the node constructor. It then checks to see if the head property is <code>undefined</code>. If it is, it sets the head property to the new node. If it isn't, it sets the next property of the tail node to the new node. It then sets the tail property to the new node.</p>
+<p>The time complexity of this method is O(1) because it doesn't have to loop through the linked list to add the new node. It just has to set the next property of the tail node to the new node and then set the tail property to the new node.</p>
+<pre><code class="language-js">  add(data: T): void {
+    const node = new Node&lt;T&gt;(data);
+
+    if (this.head === undefined) {
+      this.head = node;
+    } else if (this.tail) {
+      this.tail.next = node;
+    }
+
+    this.tail = node;
+  }
+</code></pre>
+<h2 id="printall-method"><code>printAll</code> Method</h2>
+<p>We want to be able to test this out, so let's add a method that will print out all of the nodes in the linked list. The <code>printAll</code> method will start at the head node and loop through each node until it reaches the tail node. It will print out the data of each node as it loops through.</p>
+<pre><code class="language-js">  printAll(): void {
+    let current = this.head;
+
+    while (current !== undefined) {
+      console.log(current.data);
+      current = current.next;
+    }
+  }
+</code></pre>
+<p>We can now test this by creating a new linked list and adding some nodes to it.</p>
+<pre><code class="language-js">const list = new LinkedList();
+
+list.add(1);
+list.add(2);
+list.add(3);
+list.add(4);
+
+list.printAll();
+</code></pre>
+<h2 id="get-method"><code>get</code> Method</h2>
+<p>The <code>get</code> method will return the data of the node at the specified index. It takes in an <code>index</code> value and loops through the linked list until it reaches the node at the specified index. It then returns the data of that node. The time complexity of this method is O(n) because it has to loop through the linked list to find the node at the specified index. Arrays are better for this because they have constant time access. The time complexity of accessing an element in an array is O(1).</p>
+<pre><code class="language-js">  get(index: number): T | undefined {
+    let current = this.head;
+    if (!current) return undefined;
+    let i = 0;
+
+    while (i &lt; index &amp;&amp; current) {
+      current = current.next;
+      i++;
+    }
+
+    return current?.data;
+  }
+</code></pre>
+<h2 id="insertat-method"><code>insertAt</code> Method</h2>
+<p>The <code>insertAt</code> method will insert a new node at the specified index. It takes in an <code>index</code> value and a <code>data</code> value. It then checks to see if the index is 0. If it is, it creates a new node and sets the next property of the new node to the head node. It then sets the head property to the new node. If the index is not 0, it loops through the linked list until it reaches the node at the specified index. It then creates a new node and sets the next property of the new node to the node at the specified index. It then sets the next property of the previous node to the new node. The time complexity of this method is O(n) because it has to loop through the linked list to find the node at the specified index. Arrays also have linear time complexity for inserting a value because they have to push all elements to the right of the index back one value.</p>
+<pre><code class="language-js">  insertAt(index: number, data: T): void {
+    if (index === 0) {
+      const node = new Node(data);
+      node.next = this.head;
+      this.head = node;
+    } else {
+      let current = this.head;
+      let previous;
+      let i = 0;
+
+      while (i &lt; index &amp;&amp; current) {
+        previous = current;
+        current = current.next;
+        i++;
+      }
+
+      const node = new Node(data);
+      node.next = current;
+      previous &amp;&amp; (previous.next = node);
+    }
+  }
+</code></pre>
+<h2 id="removefrom-method"><code>removeFrom</code> Method</h2>
+<p>The <code>removeFrom</code> method will remove the node at the specified index. It takes in an <code>index</code> value and checks to see if the index is 0. If it is, it sets the head property to the next property of the head node. If it isn't, it loops through the linked list until it reaches the node at the specified index. It then sets the next property of the previous node to the next property of the current node.</p>
+<pre><code class="language-js">  removeFrom(index: number): void {
+    if (index === 0) {
+      this.head = this.head?.next;
+    } else {
+      let current = this.head;
+      let previous;
+      let i = 0;
+
+      while (i &lt; index) {
+        previous = current;
+        current = current?.next;
+        i++;
+      }
+
+      previous &amp;&amp; (previous.next = current?.next);
+    }
+  }
+</code></pre> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

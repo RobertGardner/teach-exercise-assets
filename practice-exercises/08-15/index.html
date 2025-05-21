@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Graph Breadth First Traversal - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Graph Breadth First Traversal";
+      var mkdocs_page_input_path = "practice-exercises/08-15/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-graph-breadth-first-traversal">Challenge: Graph Breadth First Traversal</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>breadthFirstTraversal</code> that performs a Breadth First Traversal of a graph starting from a specified vertex and returns an array containing the vertices visited in the order they were traversed. Use the <code>Queue</code> class from the previous lessons.</p>
+<h2 id="function-signature">Function Signature</h2>
+<pre><code class="language-js">/**
+ * Performs a Breadth First Traversal of a graph.
+ * @param graph The graph to traverse.
+ * @param startingVertex The vertex to start the traversal from.
+ * @returns The vertices visited in the order they were traversed.
+ */
+function breadthFirstTraversal(graph: Graph, startingVertex: string): string[];
+</code></pre>
+<h2 id="example">Example</h2>
+<pre><code class="language-js">// Example Graph
+// A --- B
+// |     |
+// |     |
+// C --- D
+// |     |
+// |     |
+// E --- F
+
+const graph = new Graph();
+
+graph.addVertex(&quot;A&quot;);
+graph.addVertex(&quot;B&quot;);
+graph.addVertex(&quot;C&quot;);
+graph.addVertex(&quot;D&quot;);
+graph.addVertex(&quot;E&quot;);
+graph.addVertex(&quot;F&quot;);
+
+graph.addEdge(&quot;A&quot;, &quot;B&quot;);
+graph.addEdge(&quot;A&quot;, &quot;C&quot;);
+graph.addEdge(&quot;B&quot;, &quot;D&quot;);
+graph.addEdge(&quot;C&quot;, &quot;D&quot;);
+graph.addEdge(&quot;C&quot;, &quot;E&quot;);
+graph.addEdge(&quot;D&quot;, &quot;F&quot;);
+graph.addEdge(&quot;E&quot;, &quot;F&quot;);
+
+const result = breadthFirstTraversal(graph, &quot;A&quot;);
+
+console.log(result);
+// [ 'A', 'B', 'C', 'D', 'E', 'F' ]
+</code></pre>
+<h2 id="hints">Hints</h2>
+<ul>
+<li>You can use the provided <code>Queue</code> class to keep track of the vertices to be visited in a breadth-first order.</li>
+<li>Start by enqueuing the <code>startingVertex</code> onto the queue and mark it as visited.</li>
+<li>Use a visited set to keep track of the visited vertices to avoid enqueuing the same vertex multiple times.</li>
+<li>In the traversal loop, dequeue a vertex from the queue, add it to the result array, and enqueue all its neighbors that have not been visited yet.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function breadthFirstTraversal(
+  graph: Graph,
+  startingVertex: string
+): string[] {
+  const visited = new Set&lt;string&gt;();
+  const result = [];
+  const queue = new Queue&lt;string&gt;();
+
+  queue.enqueue(startingVertex);
+  visited.add(startingVertex);
+
+  while (!queue.isEmpty()) {
+    const currentVertex = queue.dequeue();
+    result.push(currentVertex);
+
+    for (const neighbor of graph.adjacencyList[currentVertex]) {
+      if (!visited.has(neighbor)) {
+        queue.enqueue(neighbor);
+        visited.add(neighbor);
+      }
+    }
+  }
+
+  return result;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Create a <code>visited</code> set to keep track of the visited vertices, a <code>result</code> array to store the vertices visited in the order they were traversed, and a <code>queue</code> to keep track of the vertices to be visited in a breadth-first order.</li>
+<li>Enqueue the <code>startingVertex</code> onto the queue and mark it as visited.</li>
+<li>In a loop, dequeue a vertex from the queue, add it to the result array, and enqueue all its neighbors that have not been visited yet.</li>
+<li>Continue this process until the queue becomes empty.</li>
+<li>Return the result array.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

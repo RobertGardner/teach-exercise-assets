@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Index - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Index";
+      var mkdocs_page_input_path = "practice-exercises/07-16/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h2 id="challenge-find-pair-sum">Challenge: Find Pair Sum</h2>
+<p>You are given an array of integers and a target sum. Implement a function called <code>findPairSum</code> that finds and returns a pair of distinct elements from the array whose sum is equal to the target sum. If no such pair exists, return <code>undefined</code>. You should use the <code>DoublyLinkedList</code> class/constructor to efficiently implement this function.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Finds a pair of distinct elements from the array whose sum is equal to the target sum.
+ * @param nums The array of integers.
+ * @param targetSum The target sum to find.
+ * @returns An array containing the pair of elements whose sum is the target sum, or undefined if no such pair exists.
+ */
+function findPairSum(nums: number[], targetSum: number): number[] | undefined;
+</code></pre>
+<h3 id="example">Example</h3>
+<pre><code class="language-js">const nums = [2, 6, 3, 8, 10, 5];
+const targetSum = 12;
+
+const pair = findPairSum(nums, targetSum);
+console.log(pair); // Should print: [2, 10]
+</code></pre>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Create a <code>DoublyLinkedList</code> to store the encountered numbers.</li>
+<li>For each number in the array, calculate the difference between the target sum and the current number.</li>
+<li>Check if the calculated difference exists in the <code>DoublyLinkedList</code>. If it does, you found a pair.</li>
+</ul>
+<h2 id="solution">Solution</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function findPairSum(
+  nums: number[],
+  targetSum: number
+): [number, number] | undefined {
+  const seen = new DoublyLinkedList();
+
+  for (const num of nums) {
+    const difference = targetSum - num;
+    if (seen.contains(difference)) {
+      return [difference, num];
+    }
+    seen.append(num);
+  }
+
+  return undefined;
+}
+</code></pre>
+<ul>
+<li>Instantiate a new <code>DoublyLinkedList</code> called <code>seen</code> to store the encountered numbers.</li>
+<li>Iterate through the input array <code>nums</code> using a <code>for...of</code> loop.</li>
+<li>For each number <code>num</code> in the array, calculate the difference between the target sum and the current number. Store the difference in a variable called <code>difference</code>.</li>
+<li>Check if the <code>seen</code> list contains the <code>difference</code>. If it does, return an array containing the <code>difference</code> and <code>num</code>.</li>
+<li>Otherwise, append the <code>num</code> to the <code>seen</code> list.</li>
+<li>If no such pair exists, return <code>undefined</code>.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

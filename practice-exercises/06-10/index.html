@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Longest Consecutive Sequence - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Longest Consecutive Sequence";
+      var mkdocs_page_input_path = "practice-exercises/06-10/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-longest-consecutive-sequence">Challenge: Longest Consecutive Sequence</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>longestConsecutiveSequence</code> that takes an array of integers as input and returns the length of the longest consecutive sequence of integers in the array.</p>
+<p>A consecutive sequence is a sequence of consecutive integers, meaning each integer in the sequence is exactly one more than the previous integer.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns the length of the longest consecutive sequence in the array.
+ * @param nums An array of integers.
+ * @returns The length of the longest consecutive sequence.
+ */
+function longestConsecutiveSequence(nums: number[]): number;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">longestConsecutiveSequence([100, 4, 200, 1, 3, 2]); // Output: 4 (The longest consecutive sequence is [1, 2, 3, 4])
+longestConsecutiveSequence([0, 3, 7, 2, 5, 8, 4, 6, 9, 1]); // Output: 10 (The longest consecutive sequence is [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input array will contain only integers</li>
+<li>The input array may contain duplicate integers</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can use a Set to efficiently find consecutive sequences in the array.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function longestConsecutiveSequence(nums: number[]): number {
+  const numSet = new Set(nums);
+  let longestSequence = 0;
+
+  for (const num of numSet) {
+    if (!numSet.has(num - 1)) {
+      let currentNum = num;
+      let currentSequence = 1;
+
+      while (numSet.has(currentNum + 1)) {
+        currentNum++;
+        currentSequence++;
+      }
+
+      longestSequence = Math.max(longestSequence, currentSequence);
+    }
+  }
+
+  return longestSequence;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Create a Set called <code>numSet</code> from the input array <code>nums</code>. The Set will allow us to efficiently check if an integer exists in the array in constant time.</li>
+<li>Initialize a variable <code>longestSequence</code> to 0, which will store the length of the longest consecutive sequence found so far.</li>
+<li>Iterate through each integer <code>num</code> in the <code>numSet</code> using a <code>for...of</code> loop. For each integer, check if its previous integer <code>num - 1</code> exists in the <code>numSet</code>. If <code>num - 1</code> is not present, it means that <code>num</code> is the starting element of a consecutive sequence.</li>
+<li>Initialize two variables <code>currentNum</code> and <code>currentSequence</code>. <code>currentNum</code> is set to the current integer <code>num</code>, and <code>currentSequence</code> is set to 1, as we have found the first element of a consecutive sequence.</li>
+<li>Use a <code>while</code> loop to iterate as long as the next integer <code>currentNum + 1</code> exists in the <code>numSet</code>. For each iteration, increment <code>currentNum</code> and <code>currentSequence</code> to extend the consecutive sequence.</li>
+<li>After the <code>while</code> loop ends, update <code>longestSequence</code> to the maximum value between the current <code>longestSequence</code> and <code>currentSequence</code>. This way, we keep track of the longest consecutive sequence found so far.</li>
+<li>After the loop finishes, return <code>longestSequence</code> as the final output, which represents the length of the longest consecutive sequence in the input array.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

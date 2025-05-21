@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Unwinding - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Unwinding";
+      var mkdocs_page_input_path = "practice-exercises/04-02/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="unwinding">Unwinding</h1>
+<p>We talked about the basics of recursion and looked at a simple example in the last lesson. In this lesson, we will look at a key concept in recursion called "unwinding".</p>
+<p>We know that when we run a function recursively, it calls itself until it reaches a base case. After it reaches that base it then starts returning values as it "unwinds" the recursion. The order in which the function calls are returned is the reverse order of the function calls. This is because the function calls are added to the call stack, which is a LIFO (last in, first out) data structure.</p>
+<p>We're actually going to look at stacks and other data structures later. In fact we will create our own implementation of a stack. We explain the basics now though so that you can understand how recursion and unwinding work.</p>
+<p>Let's look at an example of this. Consider the following function:</p>
+<pre><code class="language-js">function sumUpTo(n: number): number {
+  if (n === 0 || n === 1) {
+    return n;
+  }
+
+  return n + sumUpTo(n - 1);
+}
+</code></pre>
+<p>This function uses recursion to calculate the sum of positive integers up to <code>n</code>. For example, if the input is 5, the function should return 15 (1 + 2 + 3 + 4 + 5).</p>
+<p>Let's see how this function works. When we call <code>sumUpTo(5)</code>, it executes <code>sumUpTo(4) + 5</code>. Now, <code>sumUpTo(4)</code> calls <code>sumUpTo(3) + 4</code>. Continuing, <code>sumUpTo(3)</code> calls <code>sumUpTo(2) + 3</code>. In the next call, <code>sumUpTo(2)</code> calls <code>sumUpTo(1) + 2</code>. Finally, <code>sumUpTo(1)</code> returns 1.</p>
+<p>Now, we can start "unwinding" the recursion and adding the numbers to form the sum:</p>
+<pre><code class="language-js">sumUpTo(1) returns 1
+sumUpTo(2) returns 1 + 2 = 3
+sumUpTo(3) returns 1 + 2 + 3 = 6
+sumUpTo(4) returns 1 + 2 + 3 + 4 = 10
+sumUpTo(5) returns 1 + 2 + 3 + 4 + 5 = 15
+</code></pre>
+<p>As you can see, the function starts returning values as it "unwinds" the recursion. It returns in the reverse order of the function calls, which is why it's called "unwinding".</p>
+<h2 id="a-look-at-the-call-stack">A Look At The Call Stack</h2>
+<p>As mentioned above, the call stack is a LIFO (last in, first out) data structure, which means that the last function that was added to the call stack is the first one to be removed. This is why the function calls are returned in the reverse order of the function calls.</p>
+<p>When we first call <code>sumUpTo(5)</code>, it is added to the call stack. Then, <code>sumUpTo(4)</code> is added to the call stack and so on...</p>
+<p><img src="../images/recursion-stack-1.png" width="500" /></p>
+<p>Once <code>sumUpTo(1)</code> is called, it returns 1 and is removed from the call stack. Then, <code>sumUpTo(2)</code> returns 3 and is removed from the call stack. This continues until <code>sumUpTo(5)</code> returns 15 and is removed from the call stack.</p>
+<p><img src="../images/recursion-stack-2.png" width="500" /></p>
+<p>We can see this by logging the function calls and the return values:</p>
+<pre><code class="language-js">function sumUpTo(n: number): number {
+  if (n === 0 || n === 1) {
+    console.log(`sumUpTo(${n}) returns ${n}`);
+    return n;
+  }
+
+  console.log(`sumUpTo(${n}) calls sumUpTo(${n - 1}) + ${n}`);
+  const result = n + sumUpTo(n - 1);
+  console.log(`sumUpTo(${n}) returns ${result}`);
+  return result;
+}
+</code></pre> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

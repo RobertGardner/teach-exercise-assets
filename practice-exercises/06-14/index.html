@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Anagram Grouping - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Anagram Grouping";
+      var mkdocs_page_input_path = "practice-exercises/06-14/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-anagram-grouping">Challenge: Anagram Grouping</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Create a function called <code>anagramGrouping</code> to use the <code>HashTable</code> class that we created. The function should take an array of words as input and return an array of arrays, where each inner array represents a group of anagrams.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Groups anagrams from the input array of words using a HashTable.
+ * @param words An array of words.
+ * @returns An array of arrays, each representing a group of anagrams.
+ */
+function anagramGrouping(words: string[]): string[][];
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">anagramGrouping([&quot;listen&quot;, &quot;silent&quot;, &quot;hello&quot;, &quot;world&quot;, &quot;act&quot;, &quot;cat&quot;]);
+// Output: [['listen', 'silent'], ['act', 'cat'], ['hello'], ['world']]
+</code></pre>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can use the provided <code>HashTable</code> class to implement efficient anagram grouping. Note that the provided class includes the <code>getValues</code> method, which might be useful.</li>
+<li>Convert each word to a sorted string of characters to identify anagrams.</li>
+<li>For each sorted string, store anagrams in the HashTable with the sorted string as the key.</li>
+</ul>
+<h2 id="solution">Solution</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function anagramGrouping(words: string[]): string[][] {
+  const anagramGroups = new HashTable&lt;string[]&gt;();
+
+  for (const word of words) {
+    const sortedChars = word.split('').sort().join('');
+    if (anagramGroups.get(sortedChars)) {
+      anagramGroups.get(sortedChars)?.push(word);
+    } else {
+      anagramGroups.set(sortedChars, [word]);
+    }
+  }
+
+  return anagramGroups.getValues();
+}
+
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<p>This is very similar to the anagram grouping where we used maps.</p>
+<ul>
+<li>Replace the <code>Map</code> with a <code>HashTable</code> to efficiently group anagrams.</li>
+<li>Iterate through each word in the input array and create a sorted version of the word's characters.</li>
+<li>This sorted string is used as a key in the <code>HashTable</code>. If the key already exists in the <code>HashTable</code>, we append the current word to the list of anagrams. If the key does not exist, we create a new entry in the <code>HashTable</code> with the key and an array containing the current word.</li>
+<li>After iterating through all the words, use the <code>getValues</code> method of the <code>HashTable</code> to obtain an array of arrays, where each inner array represents a group of anagrams.</li>
+<li>Return the array of anagram groups.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

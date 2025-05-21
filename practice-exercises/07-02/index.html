@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Stack Implementation - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Stack Implementation";
+      var mkdocs_page_input_path = "practice-exercises/07-02/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="stack-implementation">Stack Implementation</h1>
+<p>Now that we know the fundamentals of a stack, we can implement one in TypeScript. We will create a <code>Stack</code> class that has methods such as <code>push</code>, <code>pop</code> and <code>peek</code>.</p>
+<h2 id="stack-class-constructor">Stack Class &amp; Constructor</h2>
+<p>Let's start by creating a class named <code>Stack</code>. We'll add a property called <code>maxSize</code> and set it to 100. This is the maximum number of elements that can be in the stack. We'll also add a property called <code>stack</code> and set it to an empty array. This is where we'll store the elements in the stack. Finally, we'll add a property called <code>top</code> and set it to <code>-1</code>. This is the index of the top element in the stack. We are using -1 because the stack is empty. The first element will be at index 0.</p>
+<pre><code class="language-js">export class Stack&lt;T&gt; {
+  readonly maxSize = 100;
+  private stack: T[] = [];
+  private top = -1;
+}
+</code></pre>
+<h2 id="push-method"><code>push</code> Method</h2>
+<p>Create the <code>push</code> method to add to the stack. It will take in a <code>value</code> (or element). First, check if the stack is full. If it is, return <code>false</code>. Increment the top index by <code>1</code>. Set the element at the top index of the stack to the value. Return <code>true</code>.</p>
+<pre><code class="language-js">  push(value: T): boolean {
+    if (this.isFull()) {
+      return false;
+    }
+    this.top++;
+    this.stack[this.top] = value;
+    return true;
+  }
+</code></pre>
+<h2 id="isfull-method"><code>isFull</code> Method</h2>
+<p>Of course we need to add the method to check if the stack is full. It will return <code>true</code> if the top index is equal to the maximum size minus 1. Otherwise, it will return <code>false</code>.</p>
+<pre><code class="language-js">  isFull(): boolean {
+    return this.top === this.maxSize - 1;
+  }
+</code></pre>
+<p>Let's also add a method to check if the stack is empty. It will return <code>true</code> if the top index is equal to <code>-1</code>. Otherwise, it will return <code>false</code>.</p>
+<pre><code class="language-js">  isEmpty(): boolean {
+    return this.top === -1;
+  }
+</code></pre>
+<p>Now we can test it out a little bit. Create a new instance of the <code>Stack</code> class. Push a few elements to the stack. Then, log the stack to the console.</p>
+<pre><code class="language-js">const stack = new Stack();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+console.log(stack);
+</code></pre>
+<p>You should see something like this:</p>
+<pre><code class="language-text">Stack {
+  maxSize: 100,
+  stack: [ 1, 2, 3 ],
+  top: 2
+}
+</code></pre>
+<h2 id="pop-method"><code>pop</code> Method</h2>
+<p>Now let's create the <code>pop</code> method. It will remove the top element from the stack. It is important to know that <code>pop</code> and just about any method of any structure can be implemented in many ways. Sometimes the actual data will not be removed from the array (this.stack). It will just go by what is in the top of the stack. I want the actual data to be removed, so I will use the built in <code>pop</code> method on the array.</p>
+<p>First, check if the stack is empty. If it is, return <code>undefined</code>. Then decrement the top by 1 and then return the result from <code>this.stack.pop()</code>.</p>
+<pre><code class="language-js">  pop(): T | undefined {
+    if (this.isEmpty()) {
+      return undefined;
+    }
+    this.top--;
+
+    return this.stack.pop();
+  }
+</code></pre>
+<h2 id="peek-method"><code>peek</code> Method</h2>
+<p>Finally, let's create the <code>peek</code> method. It will return the top element of the stack. First, check if the stack is empty. If it is, return <code>undefined</code>. Return the element at the top index of the stack.</p>
+<pre><code class="language-js">  peek(): T | undefined {
+    if (this.isEmpty()) {
+      return undefined;
+    }
+    return this.stack[this.top];
+  }
+</code></pre>
+<p>Now let's test some more.</p>
+<pre><code class="language-js">const stack = new Stack();
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+
+console.log(stack);
+
+console.log(stack.pop());
+console.peek();
+console.log(stack.pop());
+console.peek();
+console.log(stack.pop());
+</code></pre> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

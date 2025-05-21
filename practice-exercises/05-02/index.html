@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Big O Notation - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Big O Notation";
+      var mkdocs_page_input_path = "practice-exercises/05-02/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="big-o-notation">Big O Notation</h1>
+<p>We talked about time complexity in the last lesson. Time complexity represents how the runtime changes as the input grows.</p>
+<p><code>Big O notation</code> is a way to describe the time complexity of an algorithm. More specifically, it is a way to describe the upper bound or worst-case scenario of how the runtime or space requirements of an algorithm grow in relation to the size of its input.</p>
+<p>Big O uses mathematical expressions to represent the relationship between the input size (often denoted as "n") and the algorithm's performance. The "O" in Big O stands for "order of" and indicates the rate at which the algorithm's performance grows relative to the input size. We talked about this in the last lesson.</p>
+<p>We won't get deep into the math here. We will just point out how to recognize the different types of time complexity and how to describe them in Big O notation.</p>
+<h3 id="constant-time-complexity-o1">Constant Time Complexity — O(1)</h3>
+<p>Constant time is when the runtime is always the same, no matter how big the input is.</p>
+<p><code>0(1)</code> is the notation for constant time. It's pronounced "O of 1" or "big O of 1".</p>
+<h3 id="linear-time-complexity-on">Linear Time Complexity — O(n)</h3>
+<p>Linear time is when the runtime scales linearly as the input grows.</p>
+<p><code>O(n)</code> is the notation for linear time. It's pronounced "O of n" or "big O of n".</p>
+<h3 id="quadratic-time-complexity-on2">Quadratic Time Complexity — O(n^2)</h3>
+<p>Quadratic time is when the runtime scales quadratically as the input grows.</p>
+<p><code>O(n^2)</code> is the notation for quadratic time. It's pronounced "O of n squared" or "big O of n squared".</p>
+<h3 id="logarithmic-time-complexity-olog-n">Logarithmic Time Complexity — O(log n)</h3>
+<p>Logarithmic time is when the runtime scales logarithmically as the input grows.</p>
+<p><code>O(log n)</code> is the notation for logarithmic time. It's pronounced "O of log n" or "big O of log n".</p>
+<h3 id="exponential-time-complexity-o2n">Exponential Time Complexity — O(2^n)</h3>
+<p>Exponential time is when the runtime scales exponentially as the input grows.</p>
+<p><code>O(2^n)</code> is the notation for exponential time. It's pronounced "O of 2 to the n" or "big O of 2 to the n".</p>
+<h3 id="factorial-time-complexity-on">Factorial Time Complexity — O(n!)</h3>
+<p>Factorial time is when the runtime scales factorially as the input grows.</p>
+<p><code>O(n!)</code> is the notation for factorial time. It's pronounced "O of n factorial" or "big O of n factorial".</p>
+<h2 id="array-operations-and-time-complexity">Array operations and time complexity</h2>
+<p>Just about every operation in your code has some kind of time complexity, not just entire functions or algorithms. Time complexity refers to how the execution time of an operation scales as the size of the data it operates on increases. This concept doesn't only apply to complete functions with input parameters but also to the individual actions performed on data structures like arrays. So let's go over the different operations of an array and their time complexity.</p>
+<ul>
+<li>
+<p>Accessing elements by index (read): O(1) - Accessing an element by its index is a constant-time operation because arrays use contiguous memory blocks, allowing direct access to elements. So no matter how big the array is, it will always take the same amount of time to access an element by its index. The input doesn't always have to be just a function argument. In this case, the input is the index.</p>
+</li>
+<li>
+<p>Insertion and deletion at the end: O(1) - If you add or remove elements at the end of the array, it is usually a constant-time operation because there is no need to shift or reorganize other elements. in this case the input is the array size and the specific element being inserted or deleted.</p>
+</li>
+<li>
+<p>Insertion and deletion at the beginning: O(n) - Adding or removing elements at the beginning of the array requires shifting all existing elements to make space for the new element, which takes linear time.</p>
+</li>
+<li>
+<p>Insertion and deletion in the middle: O(n) - Similarly, adding or removing elements in the middle of the array requires shifting elements, resulting in a linear time complexity.</p>
+</li>
+<li>
+<p>Searching for an element: O(n) - In the worst case, searching for an element in an unsorted array requires checking each element, which takes linear time. You basically are searching one by one.</p>
+</li>
+<li>
+<p>Searching for an element with binary search (only applicable to sorted arrays): O(log n) - If the array is sorted, you can perform binary search, which has a logarithmic time complexity. This is very efficient. We'll talk more about binary search in a later lesson. You basically split the sorted array in half and eliminate the half that doesn't include the element you're looking for. Then you split in half again and eliminate until you find the element. Again, the array has to be sorted for this.</p>
+</li>
+</ul>
+<p>So now that you know about the main time complexities and Big O notation, in the next lesson, we'll give you can example of <code>constant</code> time.</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Balanced Parentheses - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Balanced Parentheses";
+      var mkdocs_page_input_path = "practice-exercises/07-04/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-balanced-parentheses">Challenge: Balanced Parentheses</h1>
+<h2 id="instructions">Instructions</h2>
+<p>We are going to try one more Stack challenge. Write a function called <code>balancedParentheses</code> that takes in a string and checks if the parentheses are balanced.</p>
+<p>The function should return true if the parentheses are balanced and false if they are not. Use the stack implementation you created in the earlier exercise.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns true if the parentheses in a string are balanced.
+ * @param str The string to check.
+ * @returns Whether the parentheses in the string are balanced.
+ */
+function balancedParentheses(str: string): boolean;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-JS">balancedParentheses('()'); // true
+balancedParentheses('()()'); // true
+balancedParentheses('(()())'); // true
+balancedParentheses('(()'); // false
+balancedParentheses(')('); // false
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The string will only contain parentheses and no other characters</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Push each opening parenthesis onto the stack</li>
+<li>Pop the stack when a closing parenthesis is encountered</li>
+<li>If the stack is empty when a closing parenthesis is encountered, the parentheses are unbalanced</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-JS">export function balancedParentheses(str: string): boolean {
+  const stack = new Stack&lt;string&gt;();
+
+  for (let i = 0; i &lt; str.length; i++) {
+    if (str[i] === '(') {
+      stack.push(str[i]);
+    } else if (str[i] === ')') {
+      if (stack.isEmpty()) {
+        return false;
+      }
+      stack.pop();
+    }
+  }
+
+  return stack.isEmpty();
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Bring in our Stack implementation and initialize a new stack.</li>
+<li>Iterate over each character of the input string <code>str</code> and check if the current character <code>str[i]</code> is an opening parenthesis (i.e., '('). If it is, the opening parenthesis is pushed onto the stack using <code>stack.push(str[i])</code>.</li>
+<li>If the current character is a closing parenthesis (i.e., ')'), check if the stack is empty using stack.<code>isEmpty()</code>. If the stack is empty at this point, it means there is a closing parenthesis without a corresponding opening parenthesis, so return false indicating that the parentheses are unbalanced.</li>
+<li>If the stack is not empty, it means there is a matching opening parenthesis for the current closing parentheses. Therefore, remove the top element using <code>stack.pop()</code>, which represents the successful pairing of opening and closing parentheses.</li>
+<li>After iterating over all the characters in the string, check if the stack is empty using <code>stack.isEmpty()</code>. If the stack is empty, it means all opening parentheses have been matched and popped from the stack, indicating balanced parentheses. In this case, return true.</li>
+<li>If the stack is not empty after the iteration, it means there are unmatched opening parentheses remaining, indicating unbalanced parentheses. In this case, return <code>false</code>.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

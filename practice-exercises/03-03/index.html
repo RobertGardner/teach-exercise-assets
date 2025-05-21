@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Calculate Total Sales - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Calculate Total Sales";
+      var mkdocs_page_input_path = "practice-exercises/03-03/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-calculate-total-sales">Challenge: Calculate Total Sales</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Use the given array of product objects below, each with their name, price, and quantity sold. Additionally, you are given a tax rate as a percentage. Write a function called <code>calculateTotalSalesWithTax</code> that takes in an array of product objects, along with the tax rate, and returns the total sales amount including tax.</p>
+<pre><code class="language-js">const products = [
+  { name: &quot;Apple&quot;, price: 0.5, quantity: 10 },
+  { name: &quot;Banana&quot;, price: 0.3, quantity: 20 },
+  { name: &quot;Orange&quot;, price: 0.6, quantity: 15 },
+];
+</code></pre>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">type Product = {
+  name: string,
+  price: number,
+  quantity: number,
+};
+
+/**
+ * Calculates and returns the total sales amount including tax from the input array of products and tax rate.
+ * @param products The array of product objects.
+ * @param taxRate The tax rate as a percentage.
+ * @returns The total sales amount including tax.
+ */
+function calculateTotalSalesWithTax(products: Product[], taxRate: number): number;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">calculateTotalSalesWithTax(
+  [
+    { name: &quot;Apple&quot;, price: 0.5, quantity: 10 },
+    { name: &quot;Banana&quot;, price: 0.3, quantity: 20 },
+    { name: &quot;Orange&quot;, price: 0.6, quantity: 15 },
+  ],
+  8
+); // 21.6 (20 + 8% tax)
+
+calculateTotalSalesWithTax(
+  [
+    { name: &quot;Chocolate&quot;, price: 2.5, quantity: 5 },
+    { name: &quot;Chips&quot;, price: 1.2, quantity: 10 },
+    { name: &quot;Soda&quot;, price: 1.0, quantity: 8 },
+    { name: &quot;Candy&quot;, price: 0.5, quantity: 15 },
+  ],
+  5
+); // 42 (40 + 5% tax)
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input array will contain at least one product object.</li>
+<li>The price and quantity values will be positive numbers.</li>
+<li>The tax rate will be a positive number less than 100.</li>
+<li>Round to 2 decimal places.</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Calculate the total sales amount before applying the tax, and then add the tax amount to it.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<p>This solution calculates the total sales amount including tax by iterating through the products, summing up the product of price and quantity for each product, and then adding the tax amount.</p>
+<pre><code class="language-js">type Product = {
+  name: string,
+  price: number,
+  quantity: number,
+};
+
+export function calculateTotalSalesWithTax(
+  products: Product[],
+  taxRate: number
+): number {
+  const totalSales = products.reduce(
+    (sum, product) =&gt; sum + product.price * product.quantity,
+    0
+  );
+  const taxAmount = (totalSales * taxRate) / 100;
+  const totalSalesWithTax = totalSales + taxAmount;
+  return parseFloat(totalSalesWithTax.toFixed(2));
+}
+</code></pre>
+<h2 id="explanation">Explanation</h2>
+<ul>
+<li>Calculate the total sales by using the <code>reduce</code> method to iterate through the products array, summing up the product of price and quantity for each product.</li>
+<li>Calculate the tax amount by multiplying the total sales by the tax rate and dividing by 100.</li>
+<li>Calculate the total sales including tax by adding the total sales and tax amount together.</li>
+<li>Return the total sales including tax.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

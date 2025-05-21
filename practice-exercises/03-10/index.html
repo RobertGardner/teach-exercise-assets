@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Find Missing Letter Refactor - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Find Missing Letter Refactor";
+      var mkdocs_page_input_path = "practice-exercises/03-10/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-find-missing-letter-refactor">Challenge: Find Missing Letter Refactor</h1>
+<h2 id="instructions">Instructions</h2>
+<p>In the last section, we created a function called<code>findMissingLetter</code> that takes in an array of consecutive (increasing) letters as input and returns the missing letter in the array.</p>
+<p>I want to do that same thing using high order array methods. It is possible to do it using <code>map</code>, <code>filter</code>, <code>reduce</code>, or <code>forEach</code>.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns the missing letter in an array of consecutive letters.
+ * @param arr An array of consecutive letters.
+ * @returns The missing letter.
+ */
+function findMissingLetter(arr: string[]): string;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">findMissingLetter([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;f&quot;]); // =&gt; &quot;e&quot;
+findMissingLetter([&quot;O&quot;, &quot;Q&quot;, &quot;R&quot;, &quot;S&quot;]); // =&gt; &quot;P&quot;
+findMissingLetter([&quot;t&quot;, &quot;u&quot;, &quot;v&quot;, &quot;w&quot;, &quot;x&quot;, &quot;z&quot;]); // =&gt; &quot;y&quot;
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input array will always contain at least two letters</li>
+<li>The input array will only contain letters in one case (lower or upper)</li>
+<li>Use only high order array methods. No for loops allowed.</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can use <code>map</code> to get an array of the unicode numbers (using charCodeAt) of the letters in the input array and then use <code>find</code> to find the missing character code.</li>
+<li>You can also use <code>filter</code> as well as <code>reduce</code></li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution 1 </summary>
+<p>This solution uses the <code>map</code> and <code>find</code> methods.</p>
+<pre><code class="language-js">export function findMissingLetter(arr: string[]): string {
+  let start = arr[0].charCodeAt(0);
+  const missingCharCode = arr
+    .map((char) =&gt; char.charCodeAt(0))
+    .find((current) =&gt; {
+      if (current - start &gt; 1) {
+        return true;
+      }
+      start = current;
+      return false;
+    });
+  return missingCharCode ? String.fromCharCode(missingCharCode - 1) : '';
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Declare a variable <code>start</code> and assigned it the character code of the first letter of the input array.</li>
+<li>Declare a variable <code>missingCharCode</code> and assigned it the result of calling the <code>map</code> method on the input array. The callback function passed to the <code>map</code> method takes in a letter and returns the character code of that letter.</li>
+<li>Call the <code>find</code> method on the result of the <code>map</code> method. The callback function passed to the <code>find</code> method takes in the current character code and checks if the current character code minus the previous character code is greater than 1. If it is, it returns <code>true</code>. If it is not, it returns <code>false</code>.</li>
+<li>If the <code>find</code> method returns a truthy value, we return the letter that is one less than the current letter.</li>
+<li>If the <code>find</code> method returns a falsy value, we return an empty string.</li>
+</ul>
+</details>
+<details>
+<summary>Click For Solution 2 </summary>
+<p>This solution uses the <code>filter</code> method.</p>
+<pre><code class="language-js">export function findMissingLetter(arr: string[]): string {
+  const missingCharCode = arr.filter((char, index) =&gt; {
+    if (index === 0) return false;
+    const prevCharCode = arr[index - 1].charCodeAt(0);
+    const currentCharCode = char.charCodeAt(0);
+    return currentCharCode - prevCharCode &gt; 1;
+  })[0];
+
+  return missingCharCode
+    ? String.fromCharCode(missingCharCode.charCodeAt(0) - 1)
+    : '';
+}
+</code></pre>
+<h3 id="explanation_1">Explanation</h3>
+<ul>
+<li>Declare a variable <code>missingCharCode</code> and assign it the result of calling the <code>filter</code> method on the input array.</li>
+<li>The callback function passed to the <code>filter</code> method takes in a letter and its index and checks if the current letter is the first letter in the array. If it is, it returns <code>false</code>. If it is not, it checks if the current letter's character code minus the previous letter's character code is greater than 1. If it is, it returns <code>true</code>. If it is not, it returns <code>false</code>.</li>
+<li>If the <code>filter</code> method returns an array with a length greater than 0, we return the letter that is one less than the current letter.</li>
+<li>If the <code>filter</code> method returns an array with a length of 0, we return an empty string.</li>
+</ul>
+</details>
+<details>
+<summary>Click For Solution 3</summary>
+<p>This solution uses the <code>reduce</code> method.</p>
+<pre><code class="language-js">export function findMissingLetter(arr: string[]): string {
+  let start = arr[0].charCodeAt(0);
+  const missingCharCode = arr.reduce((missing, char) =&gt; {
+    const current = char.charCodeAt(0);
+    if (current - start &gt; 1 &amp;&amp; missing === null) {
+      missing = start + 1;
+    }
+    start = current;
+    return missing;
+  }, null);
+  return missingCharCode ? String.fromCharCode(missingCharCode) : '';
+}
+</code></pre>
+<h3 id="explanation_2">Explanation</h3>
+<ul>
+<li>Declare a variable <code>start</code> and assigned it the character code of the first letter of the input array.</li>
+<li>Declare a variable <code>missingCharCode</code> and assigned it the result of calling the <code>reduce</code> method on the input array. The callback function passed to the <code>reduce</code> method takes in an accumulator and a letter. The accumulator is the missing character code. The callback function checks if the current character code minus the previous character code is greater than 1 and if the accumulator is <code>null</code>. If it is, it assigns the missing character code to the accumulator. It then assigns the current character code to the <code>start</code> variable. It then returns the accumulator.</li>
+<li>If the <code>reduce</code> method returns a truthy value, we return the letter that is one less than the current letter.</li>
+<li>If the <code>reduce</code> method returns a falsy value, we return an empty string.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

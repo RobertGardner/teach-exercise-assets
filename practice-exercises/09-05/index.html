@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Insertion Sort Implementation - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Insertion Sort Implementation";
+      var mkdocs_page_input_path = "practice-exercises/09-05/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-insertion-sort-implementation">Challenge: Insertion Sort Implementation</h1>
+<p>Now that you've learned about the Insertion Sort algorithm, let's put your knowledge to the test and implement the Insertion Sort algorithm in JavaScript.</p>
+<h2 id="instructions">Instructions</h2>
+<p>Implement a function called <code>insertionSort</code> that takes an array of numbers as an argument and returns a sorted array using the Insertion Sort algorithm.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Sorts an array using the Insertion Sort algorithm.
+ * @param array The array to be sorted.
+ * @returns The sorted array.
+ */
+function insertionSort(arr: number[]): number[];
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">console.log(insertionSort([5, 4, 3, 2, 1])); // Output: [1, 2, 3, 4, 5]
+console.log(insertionSort([64, 34, 25, 12, 22, 11, 90])); // Output: [11, 12, 22, 25, 34, 64, 90]
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input array can contain any number of elements.</li>
+<li>The elements in the input array are unique and positive integers.</li>
+</ul>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>The Insertion Sort algorithm builds the final sorted array one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Divide &amp; conquer: The main idea of this algorithm is to divide the array into a "sorted" and an "unsorted" part. Initially, the first element is considered as the "sorted" part. Then, one by one, elements from the "unsorted" part are moved to the "sorted" part while keeping the "sorted" part sorted.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function insertionSort(arr: number[]): number[] {
+  for (let i = 1; i &lt; arr.length; i++) {
+    const currentElement = arr[i];
+    let j = i - 1;
+
+    while (j &gt;= 0 &amp;&amp; arr[j] &gt; currentElement) {
+      arr[j + 1] = arr[j];
+      j--;
+    }
+
+    arr[j + 1] = currentElement;
+  }
+
+  return arr;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Start a <code>for-loop</code>. The condition of the <code>for-loop</code> is <code>i &lt; arr.length</code>. This will loop through the entire array, starting from the second element.</li>
+<li>Inside the <code>for-loop</code>, declare a variable called <code>currentElement</code> and set it to the element at index <code>i</code>. This is the element that we want to insert into the correct position.</li>
+<li>Declare a variable called <code>j</code> and set it to <code>i - 1</code>. This is the index of the last element in the "sorted" part of the array.</li>
+<li>Start a <code>while</code> loop. The condition of the <code>while</code> loop is <code>j &gt;= 0</code> (making sure we're not going out of bounds) and <code>arr[j] &gt; currentElement</code> (checking if the current element is greater than the element at index <code>j</code>).</li>
+<li>Inside the <code>while</code> loop, shift the element at index <code>j</code> one position to the right (by assigning <code>arr[j]</code> to <code>arr[j + 1]</code>).</li>
+<li>Decrement <code>j</code> by 1 to move to the previous element in the "sorted" part.</li>
+<li>After the <code>while</code> loop, insert the <code>currentElement</code> at the correct position in the "sorted" part of the array (by assigning <code>currentElement</code> to <code>arr[j + 1]</code>).</li>
+<li>Outside of the <code>for-loop</code>, return the sorted array.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

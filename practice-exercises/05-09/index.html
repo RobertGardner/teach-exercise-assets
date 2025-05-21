@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Sliding Window Technique - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Sliding Window Technique";
+      var mkdocs_page_input_path = "practice-exercises/05-09/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="sliding-window-technique">Sliding Window Technique</h1>
+<p>The sliding window technique is a powerful algorithmic approach used to solve various array or string-related problems efficiently. It involves maintaining a "window" that slides through an array or string, allowing you to track and process a subset of elements without the need for nested loops.</p>
+<p>This technique can be used to maximize the time complexity of your algorithms. In the last exercise, we did a subarray sum algorithm that used nested for loops and had a time and space complexity of O(n^2), which is not very efficient. In the next exercise, we're going to refactor that solution and make it linear O(n) by using this sliding window technique. This technique provides an example of doing the same thing but improving efficiency and complexity.</p>
+<h2 id="how-it-works">How it Works</h2>
+<p>Let's explore how this works:</p>
+<ol>
+<li>
+<p><strong>Initialize Variables:</strong> Set up two pointers, usually named <code>left</code> and <code>right</code>, to define the boundaries of the sliding window. Additionally, you might need variables to store the current state, like sums or frequencies. For our example, we'll need a <code>currentSum</code> and <code>maxSum</code></p>
+</li>
+<li>
+<p><strong>Initial Window:</strong> We start by positioning the window at the beginning of the array or string and calculate the initial state or value based on the elements within the window. Since we're getting the sum of <code>k</code> elements, we'll start with a window of <code>k</code> elements. In this example <code>k</code>, or the window size, is <code>3</code>.</p>
+</li>
+<li>
+<p><strong>Slide the Window:</strong> We'll move the <code>right</code> pointer to the right, expanding the window by one element. Update the state or value based on the newly added element. In our case, we would calculate the new sum with the new element.</p>
+</li>
+<li>
+<p><strong>Adjust the Window:</strong> Depending on specific conditions or constraints, you might need to shrink or adjust the window by moving the <code>left</code> pointer to the right, thus excluding an element from the window. Again, update the state accordingly.</p>
+</li>
+<li>
+<p><strong>Repeat:</strong> Continue sliding and adjusting the window until the <code>right</code> pointer reaches the end of the array or string. During this process, keep track of the desired information (maximum/minimum, frequency, substring, etc.).</p>
+</li>
+</ol>
+<h2 id="advantages">Advantages</h2>
+<ul>
+<li>
+<p><strong>Optimized Time Complexity:</strong> Sliding window reduces the time complexity by avoiding redundant calculations. It's particularly beneficial for situations where brute-force solutions would require nested loops.</p>
+</li>
+<li>
+<p><strong>Space Efficiency:</strong> The technique doesn't require storing all individual subarrays or substrings, reducing memory usage.</p>
+</li>
+<li>
+<p><strong>Simplicity:</strong> Once understood, sliding window problems often become easier to solve compared to their naive counterparts.</p>
+</li>
+</ul>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Sliding window is best suited for problems that involve contiguous subarrays or substrings.</li>
+<li>The technique can have variations such as dynamic window size or two-pointer sliding.</li>
+<li>Be cautious of edge cases where the window size becomes important for efficiency or correctness.</li>
+</ul> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

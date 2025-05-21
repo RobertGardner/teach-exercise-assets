@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Sets - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Sets";
+      var mkdocs_page_input_path = "practice-exercises/06-07/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="sets">Sets</h1>
+<p>Now we are going to move on to <code>sets</code>. A set is a collection of unique values. A set can contain any data type. You can loop through a set in insertion order. Insertion order is the order in which the values were added to the set. A set is similar to an array, but a set is not indexed and does not contain duplicate values.</p>
+<h2 id="creating-a-set">Creating a Set</h2>
+<p>To create a set, we use the <code>new</code> keyword and the <code>Set()</code> constructor. Let's create a set called <code>nameSet</code>:</p>
+<pre><code class="language-js">const nameSet = new Set();
+</code></pre>
+<p>We can also pass an array to the <code>Set()</code> constructor. The values in the array will be added to the set. We can create a set with some values like this:</p>
+<pre><code class="language-js">const nameSet = new Set(['John', 'Jane', 'Joe']);
+</code></pre>
+<p>Let's log the set:</p>
+<pre><code class="language-js">console.log(nameSet); // Set { 'John', 'Jane', 'Joe' }
+</code></pre>
+<p>We can see that the set has three values. Let's create a set with some duplicate values:</p>
+<pre><code class="language-js">const nameSet = new Set(['John', 'Jane', 'Joe', 'Jane', 'Joe']);
+</code></pre>
+<p>Let's log the set:</p>
+<pre><code class="language-js">console.log(nameSet); // Set { 'John', 'Jane', 'Joe' }
+</code></pre>
+<p>We can see that even though we added duplicate values to the set, the set does not contain any duplicate values. The set only contains unique values, which can be very useful.</p>
+<h2 id="adding-data">Adding Data</h2>
+<p>To add data to a set, we use the <code>add()</code> method. Let's add some values to the <code>nameSet</code> set:</p>
+<pre><code class="language-js">nameSet.add('Jack');
+nameSet.add('Jill');
+</code></pre>
+<p>Let's log the set:</p>
+<pre><code class="language-js">console.log(nameSet); // Set { 'John', 'Jane', 'Joe', 'Jack', 'Jill' }
+</code></pre>
+<h2 id="check-for-a-value">Check for a Value</h2>
+<p>To check for a value in a set, we use the <code>has()</code> method. Let's check if the set contains the value <code>'Jack'</code>:</p>
+<pre><code class="language-js">console.log(nameSet.has('Jack')); // true
+</code></pre>
+<h2 id="deleting-data">Deleting Data</h2>
+<p>To delete data from a set, we use the <code>delete()</code> method. Let's delete the value <code>'Jack'</code> from the set:</p>
+<pre><code class="language-js">nameSet.delete('Jack');
+</code></pre>
+<p>Let's log the set:</p>
+<pre><code class="language-js">console.log(nameSet); // Set { 'John', 'Jane', 'Joe', 'Jill' }
+</code></pre>
+<h2 id="getting-the-size-of-a-set">Getting the Size of a Set</h2>
+<p>To get the size of a set, we use the <code>size</code> property. Let's log the size of the <code>nameSet</code> set:</p>
+<pre><code class="language-js">console.log(nameSet.size); // 4
+</code></pre>
+<h2 id="getting-all-values-from-a-set">Getting All Values from a Set</h2>
+<p>To get all values from a set, we use the <code>values()</code> method. Let's log all values from the <code>nameSet</code> set:</p>
+<pre><code class="language-js">console.log(nameSet.values()); // [Set Iterator] { 'John', 'Jane', 'Joe', 'Jill' }
+</code></pre>
+<p>We can see that the <code>values()</code> method returns a set iterator. A set iterator is an object that contains the values from the set. We can use a <code>for...of</code> loop to loop through the set iterator and log each value</p>
+<h2 id="looping-through-a-set">Looping Through a Set</h2>
+<p>To loop through a set, we can use the <code>for...of</code> loop. Let's loop through the <code>nameSet</code> set and log each value:</p>
+<pre><code class="language-js">for (const value of nameSet) {
+  console.log(value);
+}
+</code></pre>
+<h2 id="converting-a-set-to-an-array">Converting a Set to an Array</h2>
+<p>To convert a set to an array, we use the <code>Array.from()</code> method. Let's convert the <code>nameSet</code> set to an array:</p>
+<pre><code class="language-js">const nameArray = Array.from(nameSet);
+console.log(nameArray); // [ 'John', 'Jane', 'Joe', 'Jill' ]
+</code></pre>
+<h2 id="converting-an-array-to-a-set">Converting an Array to a Set</h2>
+<p>To convert an array to a set, we use the <code>Set()</code> constructor. Let's convert the <code>nameArray</code> array to a set:</p>
+<pre><code class="language-js">const nameSet = new Set(nameArray);
+console.log(nameSet); // Set { 'John', 'Jane', 'Joe', 'Jill' }
+</code></pre>
+<h2 id="deleting-all-data-from-a-set">Deleting All Data from a Set</h2>
+<p>To delete all data from a set, we use the <code>clear()</code> method. Let's delete all data from the <code>nameSet</code> set:</p>
+<pre><code class="language-js">nameSet.clear();
+</code></pre>
+<p>Let's try some exercises using sets.</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

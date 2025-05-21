@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Format Phone Number - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Format Phone Number";
+      var mkdocs_page_input_path = "practice-exercises/02-09/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-format-phone-number">Challenge: Format Phone Number</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>formatPhoneNumber</code> that takes in an array of numbers and returns a string representing the phone number formed by concatenating the numbers in the specified format.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns a string representing a phone number.
+ * @param numbers The numbers to use in the phone number.
+ * @returns The formatted phone number.
+ */
+function formatPhoneNumber(numbers: number[]): string;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">formatPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]); // =&gt; &quot;(123) 456-7890&quot;
+formatPhoneNumber([5, 1, 9, 5, 5, 5, 4, 4, 6, 8]); // =&gt; &quot;(519) 555-4468&quot;
+formatPhoneNumber([3, 4, 5, 5, 0, 1, 2, 5, 2, 7]); // =&gt; &quot;(345) 501-2527&quot;
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input array will always have 10 numbers</li>
+<li>The numbers can be any integer from 0 to 9</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can use the <code>Array.join</code> method to concatenate the numbers in the array.</li>
+<li>You can use the <code>Array.slice</code> method to get a subset of the array.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution 1</summary>
+<pre><code class="language-js">export function formatPhoneNumber(numbers: number[]): string {
+  const areaCode = numbers.slice(0, 3).join('');
+  const prefix = numbers.slice(3, 6).join('');
+  const lineNumber = numbers.slice(6).join('');
+
+  return `(${areaCode}) ${prefix}-${lineNumber}`;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Create 3 variables to store the area code, prefix, and line number.</li>
+<li>Use the <code>Array.slice</code> method to get a subset of the array.</li>
+<li>Use the <code>Array.join</code> method to concatenate the numbers in the array.</li>
+</ul>
+</details>
+<details>
+<summary>Click For Solution 2</summary>
+<pre><code class="language-js">export function formatPhoneNumber(numbers: number[]): string {
+  const formatted = numbers.join('');
+  return `(${formatted.substring(0, 3)}) ${formatted.substring(
+    3,
+    6
+  )}-${formatted.substring(6)}`;
+}
+</code></pre>
+<h3 id="explanation_1">Explanation</h3>
+<ul>
+<li>Creates a variable to store the numbers in the array concatenated together.</li>
+<li>Uses the <code>String.substring</code> method to get a subset of the string.</li>
+</ul>
+</details>
+<details>
+<summary>Click For Solution 3</summary>
+<p>One line arrow function:</p>
+<pre><code class="language-js">const formatPhoneNumber = (numbers) =&gt;
+  `(${numbers.slice(0, 3).join(&quot;&quot;)}) ${numbers.slice(3, 6).join(&quot;&quot;)}-${numbers
+    .slice(6)
+    .join(&quot;&quot;)}`;
+</code></pre>
+<h3 id="explanation_2">Explanation</h3>
+<p>This is similar to the first solution, but we used an arrow function and Array.slice method chaining.</p>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

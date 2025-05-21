@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Find Missing Letter - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Find Missing Letter";
+      var mkdocs_page_input_path = "practice-exercises/02-05/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-find-missing-letter">Challenge: Find Missing Letter</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>findMissingLetter</code> that takes in an array of consecutive (increasing) letters as input and returns the missing letter in the array.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns the missing letter in an array of consecutive letters.
+ * @param arr An array of consecutive letters.
+ * @returns The missing letter.
+ */
+function findMissingLetter(arr: string[]): string;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">findMissingLetter([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;f&quot;]); // =&gt; &quot;e&quot;
+findMissingLetter([&quot;O&quot;, &quot;Q&quot;, &quot;R&quot;, &quot;S&quot;]); // =&gt; &quot;P&quot;
+findMissingLetter([&quot;t&quot;, &quot;u&quot;, &quot;v&quot;, &quot;w&quot;, &quot;x&quot;, &quot;z&quot;]); // =&gt; &quot;y&quot;
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input array will only contain letters in one case (lower or upper)</li>
+<li>If no letters are in the array, return an empty string</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can put the alphabet in a string and use the <code>indexOf</code> method to get the index of a letter in the alphabet string.</li>
+<li>Another approach would be to use the <code>charCodeAt</code> method to get the unicode value of a letter.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution 1 </summary>
+<pre><code class="language-js">export function findMissingLetter(arr: string[]): string | undefined {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const startIndex = alphabet.indexOf(arr[0]);
+
+  for (let i = 0; i &lt; arr.length; i++) {
+    if (arr[i] !== alphabet[startIndex + i]) {
+      return alphabet[startIndex + i];
+    }
+  }
+
+  return '';
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Declare a variable <code>alphabet</code> and assign it a string of all the letters of the alphabet.</li>
+<li>Declare a variable <code>startIndex</code> and assigned it the index of the first letter of the input array in the <code>alphabet</code> string.</li>
+<li>Loop through the input array and check if the current letter in the input array is not equal to the letter at the current index in the <code>alphabet</code> string.</li>
+<li>If it is not equal, return the letter at the current index in the <code>alphabet</code> string.</li>
+<li>If we get to the end of the loop without returning anything, we return an empty string.</li>
+</ul>
+</details>
+<details>
+<summary>Click For Solution 2 </summary>
+<pre><code class="language-js">export function findMissingLetter(arr: string[]): string | undefined {
+  let start = arr[0].charCodeAt(0);
+  for (let i = 1; i &lt; arr.length; i++) {
+    const current = arr[i].charCodeAt(0);
+    if (current - start &gt; 1) {
+      return String.fromCharCode(start + 1);
+    }
+    start = current;
+  }
+  return '';
+}
+</code></pre>
+<h3 id="explanation_1">Explanation</h3>
+<ul>
+<li>Declare a variable <code>start</code> and assigned it the character code of the first letter of the input array.</li>
+<li>Loop through the input array and check if the character code of the current letter minus the character code of the previous letter is greater than 1.</li>
+<li>If it is, return the letter that is one greater than the previous letter.</li>
+<li>If we get to the end of the loop without returning anything, we return an empty string.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

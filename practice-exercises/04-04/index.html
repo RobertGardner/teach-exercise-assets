@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Fibonacci Sequence Using Recursion - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Fibonacci Sequence Using Recursion";
+      var mkdocs_page_input_path = "practice-exercises/04-04/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-fibonacci-sequence-using-recursion">Challenge: Fibonacci Sequence Using Recursion</h1>
+<p>We looked at a very simple example of recursion in the last lesson. Now I want to look at a very popular example that is often used with recursion: the Fibonacci sequence. This could very well be a question you get asked in an interview, so it's important to understand how it works. You can also use loops to solve this problem, but recursion is a more elegant solution. Later we will also look at using a binary tree to solve this problem.</p>
+<h2 id="what-is-the-fibonacci-sequence">What is the Fibonacci sequence?</h2>
+<p>The Fibonacci sequence is a series of numbers where the sequence starts with 0 and 1, and then each number is the sum of the previous two numbers. So the sequence would look like this:</p>
+<p><code>0, 1, 1, 2, 3, 5, 8, 13, 21, 34...</code></p>
+<p><code>F(n) = F(n-1) + F(n-2)</code> is the formula for the Fibonacci sequence.</p>
+<ul>
+<li><code>F(n)</code> is the number in the sequence.</li>
+<li><code>F(n-1)</code> is the number before it.</li>
+<li><code>F(n-2)</code> is the number before that.</li>
+</ul>
+<p>So if we wanted to find the 5th number in the sequence, we would do this:</p>
+<p><code>F(5) = F(4) + F(3)</code>
+<code>F(4) = F(3) + F(2)</code>
+<code>F(3) = F(2) + F(1)</code>
+<code>F(2) = F(1) + F(0)</code>
+<code>F(1) = 1</code>
+<code>F(0) = 0</code></p>
+<p>So we can see that <code>F(2) = 1 + 0 = 1</code>, <code>F(3) = 1 + 1 = 2</code>, <code>F(4) = 2 + 1 = 3</code>, and <code>F(5) = 3 + 2 = 5</code>. So the 5th number in the sequence is 5.</p>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>fibonacci</code> that takes in a number and returns the number at that index of the Fibonacci sequence.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns the number at the given index of the Fibonacci sequence.
+ * @param num The index of the Fibonacci sequence.
+ * @returns The number at the given index of the Fibonacci sequence.
+ */
+function fibonacci(num: number): number;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">fibonacci(4); // 3
+fibonacci(6); // 8
+fibonacci(10); // 55
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input number will always be a positive integer</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You know that the formula is <code>F(n) = F(n-1) + F(n-2)</code>. <code>F</code> is the function, and <code>n</code> is the number in the sequence.</li>
+<li>You know that the first two numbers in the sequence are <code>0</code> and <code>1</code>. So if the number is less than 2, you can return the number.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function fibonacci(num: number): number {
+  // Base case
+  if (num &lt; 2) return num;
+
+  // Recursive case
+  return fibonacci(num - 1) + fibonacci(num - 2);
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>We have what we call the <code>base case</code>, which is when the number is less than 2.</li>
+<li>If this is true, we return the number.</li>
+<li>If it is not true, we run the <code>recursive case</code>, which will return the sum of the previous two numbers. This will continue until the number is less than 2.</li>
+</ul>
+<p>Let's look at this step by step using an example where input num is 5:</p>
+<ol>
+<li>Initial Call: <code>fibonacci(5)</code> is called.</li>
+<li>Recursive Call 1: <code>fibonacci(5)</code> calls <code>fibonacci(4) + fibonacci(3)</code>.</li>
+<li>Recursive Call 2: <code>fibonacci(4)</code> calls <code>fibonacci(3) + fibonacci(2)</code>.</li>
+<li>Recursive Call 3: <code>fibonacci(3)</code> calls <code>fibonacci(2) + fibonacci(1)</code>.</li>
+<li>Base Case 1: <code>fibonacci(2)</code> returns 1.</li>
+<li>Base Case 2: <code>fibonacci(1)</code> returns 1.</li>
+<li>
+<p>Unwinding Process: As the recursive calls return, the function accumulates the results:</p>
+</li>
+<li>
+<p><code>fibonacci(1)</code> returns 1.</p>
+</li>
+<li><code>fibonacci(2)</code> returns 1.</li>
+<li><code>fibonacci(3)</code> returns <code>fibonacci(2) + fibonacci(1)</code> = <code>1 + 1</code> = <code>2</code>.</li>
+<li><code>fibonacci(4)</code> returns <code>fibonacci(3) + fibonacci(2)</code> = <code>2 + 1</code> = <code>3</code>.</li>
+<li><code>fibonacci(5)</code> returns <code>fibonacci(4) + fibonacci(3)</code> = <code>3 + 2</code> = <code>5</code>.</li>
+</ol>
+<p>So, <code>fibonacci(5)</code> returns <code>5</code>, which is the fifth number in the Fibonacci sequence.</p>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

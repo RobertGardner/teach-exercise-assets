@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Reverse String Recursion - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Reverse String Recursion";
+      var mkdocs_page_input_path = "practice-exercises/04-03/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-reverse-string-recursion">Challenge: Reverse String Recursion</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>reverseString</code> that takes in a string and returns the reversed version of the string. Be sure to use recursion in your solution.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns the reverse of a string.
+ * @param str The string to reverse.
+ * @returns The reverse of the string.
+ */
+function reverseString(str: string): string;
+</code></pre>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-js">reverseString(&quot;hello&quot;); // should return 'olleh'
+reverseString(&quot;world&quot;); // should return 'dlrow'
+reverseString(&quot;&quot;); // should return ''
+reverseString(&quot;a&quot;); // should return 'a'
+reverseString(&quot;racecar&quot;); // should return 'racecar'
+</code></pre>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>As a base case, you can check if the string is empty and return an empty string if so.</li>
+<li>You can use recursion to reverse the string by recursively calling the function with the substring starting from the second character and then concatenating the first character at the end.</li>
+<li>Remember how unwinding works and how function returns are added to the call stack in the reverse order of the function calls.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function reverseString(str: string): string {
+  if (str === '') {
+    return '';
+  }
+  return reverseString(str.substring(1)) + str.charAt(0);
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<p>The <code>reverseString</code> function uses recursion to reverse the string.</p>
+<ul>
+<li>If the input string is empty (<code>str === ''</code>), return an empty string (<code>''</code>). Otherwise, call itself with the substring starting from the second character (<code>str.substr(1)</code>) and concatenate the first character of the original string at the end (<code>str[0]</code>).</li>
+</ul>
+<p>For example, if the input is <code>'hello'</code>, the function first calls itself with <code>'ello'</code> and concatenates <code>'h'</code> at the end. Then it calls itself with <code>'llo'</code> and concatenates <code>'e'</code> at the end. This process continues until the input becomes an empty string, and then the function starts concatenating the characters in reverse order, resulting in the reversed string <code>'olleh'</code>.</p>
+<p>It is important to have that base case of an empty string, otherwise the function will continue to call itself with substrings of the original string until it runs out of memory and crashes.</p>
+<h4 id="more-explanation">More Explanation</h4>
+<p>Let's break it down a little more...</p>
+<ol>
+<li>When we call <code>reverseString('hello')</code>, it executes <code>reverseString('ello') + 'h'</code>.</li>
+<li>Now, <code>reverseString('ello')</code> calls <code>reverseString('llo') + 'e'</code>.</li>
+<li>Continuing, <code>reverseString('llo')</code> calls <code>reverseString('lo') + 'l'</code>.</li>
+<li>In the next call, <code>reverseString('lo')</code> calls <code>reverseString('o') + 'l'</code>.</li>
+<li>Finally, <code>reverseString('o')</code> returns <code>'o'</code>.</li>
+</ol>
+<p>Now, we can start "unwinding" the recursion and concatenating the characters to form the reversed string:</p>
+<ol>
+<li><code>'o' + 'l'</code> gives <code>'ol'</code>.</li>
+<li><code>'ol' + 'l'</code> gives <code>'oll'</code>.</li>
+<li><code>'oll' + 'e'</code> gives <code>'olle'</code>.</li>
+<li><code>'olle' + 'h'</code> gives <code>'olleh'</code>.</li>
+</ol>
+<p>So, the function concatenates the characters in reverse order as it "unwinds" the recursion, effectively reversing the original string.</p>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

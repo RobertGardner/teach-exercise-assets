@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Anagram Grouping - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Anagram Grouping";
+      var mkdocs_page_input_path = "practice-exercises/06-06/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-anagram-grouping">Challenge: Anagram Grouping</h1>
+<p>Anagrams are words or phrases formed by rearranging the letters of another word or phrase. For example, <code>cinema</code> is an anagram of <code>iceman</code>.</p>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>anagramGrouping</code> that takes an array of strings as input and returns an array of arrays, where each sub-array contains words that are anagrams of each other.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns an array of arrays, where each sub-array contains words that are anagrams of each other.
+ * @param words The input array of strings containing words.
+ * @returns The array of arrays with anagram groups.
+ */
+function anagramGrouping(words: string[]): string[][];
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">anagramGrouping([&quot;cat&quot;, &quot;act&quot;, &quot;dog&quot;, &quot;god&quot;, &quot;tac&quot;]);
+// Output: [['cat', 'act', 'tac'], ['dog', 'god']]
+
+anagramGrouping([&quot;listen&quot;, &quot;silent&quot;, &quot;enlist&quot;, &quot;hello&quot;, &quot;world&quot;]);
+// Output: [['listen', 'silent', 'enlist'], ['hello'], ['world']]
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input array <code>words</code> will contain only lowercase alphabetical characters.</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can use a map to store the anagram groups, where the key is the sorted characters of each word, and the value is an array of words that have the same sorted characters</li>
+<li>You can sort a string by splitting it into an array of chars and calling <code>.sort()</code> and then <code>join()</code> it back to a string</li>
+<li>You can use <code>Array.from()</code> to convert a map to an array</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function anagramGrouping(words: string[]): string[] {
+  const anagramGroups = new Map();
+
+  for (const word of words) {
+    const sortedChars = word.split('').sort().join('');
+    if (anagramGroups.has(sortedChars)) {
+      anagramGroups.get(sortedChars).push(word);
+    } else {
+      anagramGroups.set(sortedChars, [word]);
+    }
+  }
+
+  return Array.from(anagramGroups.values());
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Create a new map <code>anagramGroups</code> to store the anagram groups.</li>
+<li>Iterate through each word in the input array <code>words</code>. For each word, split its characters into an array, sort the array in ascending order, and then join the sorted characters back into a string. This sorted string becomes the key for our <code>anagramGroups</code> map.</li>
+<li>Check if the key already exists in the map. If it does, retrieve the corresponding array and add the word to it.</li>
+<li>If the key does not exist in the map, create a new array with the word as the first element and add it to the map with the key.</li>
+<li>After processing all the words, extract the arrays of anagram groups from the <code>anagramGroups</code> map using <code>Array.from(anagramGroups.values())</code> and return them as the final output.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

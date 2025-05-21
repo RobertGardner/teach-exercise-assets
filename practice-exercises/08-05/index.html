@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Breadth-First Traversal - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Breadth-First Traversal";
+      var mkdocs_page_input_path = "practice-exercises/08-05/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="breadth-first-traversal">Breadth-First Traversal</h1>
+<p>Now, let's explore another traversal algorithm for binary trees called <code>Breadth-First Traversal</code>. Unlike depth-first traversal, which explores as far as possible along each branch before backtracking, breadth-first traversal explores all the nodes at the current depth level before moving to the next level.</p>
+<p>To illustrate this algorithm, let's consider the same binary tree we used in the depth-first traversal example:</p>
+<p><img src="../images/breadth-first.png" width="500" alt="" /></p>
+<p>For breadth-first traversal, we start at the root node <code>a</code> and visit its children, <code>b</code> and <code>c</code>, in order. Then, we move down to the next level and visit the children of <code>b</code> and <code>c</code>, which are <code>d</code>, <code>e</code>, and <code>f</code>. We continue this pattern, visiting all nodes at the current level before moving to the next level.</p>
+<p>So the order of traversal in this example would be <code>a</code>, <code>b</code>, <code>c</code>, <code>d</code>, <code>e</code>, <code>f</code>.</p>
+<p>To implement the breadth-first traversal algorithm, we'll use a queue data structure. A queue is a <code>FIFO</code> (First In First Out) data structure, which means the first node we add to the queue will be the first node we remove from the queue. We'll start by pushing the root node onto the queue and then iterate through the queue, adding the children of each node to the queue as we visit them.</p>
+<p>Let's implement the breadth-first traversal in TypeScript:</p>
+<pre><code class="language-js">export class Node&lt;T&gt; {
+  data: T;
+  left: Node&lt;T&gt; | undefined = undefined;
+  right: Node&lt;T&gt; | undefined = undefined;
+
+  constructor(data: T) {
+    this.data = data;
+  }
+}
+
+export function breadthFirstTraversal&lt;T&gt;(root: Node&lt;T&gt; | undefined): T[] {
+  if (!root) {
+    return [];
+  }
+
+  const result: T[] = [];
+  const queue: Node&lt;T&gt;[] = [];
+
+  queue.push(root);
+
+  while (queue.length &gt; 0) {
+    const current = queue.shift();
+    current &amp;&amp; result.push(current.data);
+
+    if (current?.left) {
+      queue.push(current.left);
+    }
+
+    if (current?.right) {
+      queue.push(current.right);
+    }
+  }
+
+  return result;
+}
+</code></pre>
+<p>In this implementation, we first check if the <code>root</code> node exists. If it doesn't, we return an empty array.</p>
+<p>We then create a <code>result</code> array and a <code>queue</code> array. We push the <code>root</code> node onto the queue.</p>
+<p>We then start a <code>while</code> loop that runs as long as the <code>queue</code> array has a length greater than <code>0</code>.</p>
+<p>Inside the loop, we dequeue the first node from the queue (using <code>shift()</code>) and add it to the <code>result</code> array.</p>
+<p>We then enqueue the left and right children of the current node, if they exist. We continue this process until the <code>queue</code> array is empty, and then we return the <code>result</code> array.</p>
+<h2 id="using-the-queue-class">Using the Queue Class</h2>
+<p>Now, let's refactor this code to use the <code>Queue</code> class. You can do this as an exercise, or you can look at the code below.</p>
+<pre><code class="language-js">export class Node&lt;T&gt; {
+  data: T;
+  left: Node&lt;T&gt; | undefined = undefined;
+  right: Node&lt;T&gt; | undefined = undefined;
+
+  constructor(data: T) {
+    this.data = data;
+  }
+}
+
+export function breadthFirstTraversal&lt;T&gt;(root: Node&lt;T&gt; | undefined): T[] {
+  if (!root) {
+    return [];
+  }
+
+  const result = [];
+  const queue = new Queue();
+
+  queue.enqueue(root);
+
+  while (!queue.isEmpty()) {
+    const current = queue.dequeue();
+    result.push(current.data);
+
+    if (current.left) {
+      queue.enqueue(current.left);
+    }
+
+    if (current.right) {
+      queue.enqueue(current.right);
+    }
+  }
+
+  return result;
+}
+</code></pre>
+<p>In this refactored code, we used the <code>Queue</code> class instead of a standard array for the queue data structure. We also used the <code>isEmpty()</code> method instead of checking the length of the array. We then added tests to ensure that the breadth-first traversal algorithm works correctly.</p>
+<p>There is not really a straightforward way to solve this problem recursively without using a queue data structure. You could use a stack data structure, but you would have to keep track of the current level of the tree and the next level of the tree. This would make the code more complicated and less efficient. So this is likely the best way to do breadth-first traversal.</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

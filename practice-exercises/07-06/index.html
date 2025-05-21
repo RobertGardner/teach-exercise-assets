@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Queue Implementation - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Queue Implementation";
+      var mkdocs_page_input_path = "practice-exercises/07-06/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="queue-implementation">Queue Implementation</h1>
+<p>In the last lesson, we looked at how a queue data structure works. It is <code>First-in, First-out</code> or <code>FIFO</code>. The first element added to the queue will be the first element removed from the queue. We can use an array as a queue, but we can also create our own queue class and that's what we will do here.</p>
+<h2 id="queue-class-constructor">Queue Class &amp; Constructor</h2>
+<p>Let's start by creating a class named <code>Queue</code>. We'll add a property called <code>queue</code> and set it to an empty array. We'll also add a property called <code>head</code> and set it to 0. We'll add a property called <code>tail</code> and set it to 0. Finally, we'll add a property called <code>maxSize</code> and set it to 100 by default.</p>
+<pre><code class="language-js">export class Queue&lt;T&gt; {
+  maxSize = 100;
+  private queue: T[] = [];
+  private head = 0;
+  private tail = 0;
+}
+</code></pre>
+<h2 id="getlength-method"><code>getLength</code> Method</h2>
+<p>Create the <code>getLength</code> method and return the difference of the tail and head indexes.</p>
+<pre><code class="language-js">  getLength(): number {
+    return this.tail - this.head;
+  }
+</code></pre>
+<h2 id="isempty-method"><code>isEmpty</code> Method</h2>
+<p>Create the <code>isEmpty</code> method and return the boolean of the length of the queue being equal to 0.</p>
+<pre><code class="language-js">  isEmpty(): boolean {
+    return this.getLength() === 0;
+  }
+</code></pre>
+<h2 id="isfull-method"><code>isFull</code> Method</h2>
+<p>Create the <code>isFull</code> method and return the boolean of the length of the queue being equal to the maxSize.</p>
+<pre><code class="language-js">  isFull(): boolean {
+    return this.getLength() === this.maxSize;
+  }
+</code></pre>
+<h2 id="enqueue-method"><code>enqueue</code> Method</h2>
+<p>Create the <code>enqueue</code> method. It will take in a value (element). First, check if the queue is full. If it is, return false. Set the tail index of the queue to the value. Increment the tail index by 1. Return true.</p>
+<pre><code class="language-JS">  enqueue(item: T): boolean {
+    if (this.isFull()) {
+      return false;
+    }
+    this.queue[this.tail] = item;
+    this.tail++;
+    return true;
+  }
+</code></pre>
+<h2 id="dequeue-method"><code>dequeue</code> Method</h2>
+<p>Create the <code>dequeue</code> method. Get the item in the head index of the queue and store it in a variable. Increment the head by 1. Return the variable.</p>
+<pre><code class="language-js">  dequeue(): T {
+    const item = this.queue[this.head];
+    this.head++;
+    return item;
+  }
+</code></pre>
+<h2 id="peek-method"><code>peek</code> Method</h2>
+<p>Create the <code>peek</code> method and return the item in the head index of the queue.</p>
+<pre><code class="language-js">  peek(): T | undefined {
+    return this.queue[this.head];
+  }
+</code></pre>
+<p>Now you can run the test and/or test it yourself with the following code:</p>
+<pre><code class="language-js">const queue = new Queue();
+console.log(queue.isEmpty()); // true
+console.log(queue.isFull()); // false
+console.log(queue.enqueue(1)); // true
+console.log(queue.enqueue(2)); // true
+console.log(queue.enqueue(3)); // true
+console.log(queue.peek()); // 1
+console.log(queue.dequeue()); // 1
+console.log(queue.peek()); // 2
+console.log(queue.getLength()); // 2
+</code></pre> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

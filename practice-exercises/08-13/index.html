@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Graph Traversal - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Graph Traversal";
+      var mkdocs_page_input_path = "practice-exercises/08-13/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="graph-traversal">Graph Traversal</h1>
+<p>There are a few ways to traverse a graph. The two most common ways are <strong>depth-first traversal</strong> and <strong>breadth-first traversal</strong>.</p>
+<p>We have already looked at these using trees, but the same concepts apply to graphs.</p>
+<h2 id="depth-first-traversal">Depth-First Traversal</h2>
+<p>In depth-first traversal, we start at a vertex/node. In a tree, you would start at the root node. In a graph, you can start at any vertex. We then explore as far along each branch as possible before backtracking. We continue this process until we have visited all of the vertices in the graph.</p>
+<p>One common way to implement depth-first traversal is to use a <code>stack</code>. We start by pushing the starting vertex onto the stack. We then pop the vertex off the stack and visit it. We then push all of its neighbors onto the stack. We continue this process until the stack is empty.</p>
+<p>So take this graph for example:</p>
+<p><img src="../images/graph-depth-first.png"></p>
+<p>We have 5 vertices labeled <code>a</code> through <code>e</code> with 6 edges connecting them. We are going to traverse this graph using depth-first traversal. We could start at any vertex, but let's start at <code>a</code> and walk through the process.</p>
+<ul>
+<li>
+<p>We start at vertex <code>a</code> and put it on the stack and mark it as visited</p>
+</li>
+<li>
+<p>From here, we can go to vertex <code>b</code> or <code>c</code>. Let's go to <code>b</code>. We put <code>b</code> on the stack and mark it as visited</p>
+</li>
+<li>
+<p>From <code>b</code>, we can go to <code>e</code>. We put <code>e</code> on the stack and mark it as visited</p>
+</li>
+<li>
+<p>From <code>e</code>, let's go to <code>c</code>. We put <code>c</code> on the stack and mark it as visited</p>
+</li>
+<li>
+<p>At this point, in both our stack and in the visited table, we have <code>a</code>, <code>b</code>, <code>e</code>, and <code>c</code>. <code>c</code> does not have any neighbors that we haven't already visited, so we pop it off the stack</p>
+</li>
+<li>
+<p>We look at the top of the stack and see that <code>e</code> is next. Does <code>e</code> have any neighbors that we haven't already visited? Yes, <code>d</code>. We put <code>d</code> on the stack and mark it as visited</p>
+</li>
+<li>
+<p><code>d</code> is now at the top of the stack and does not have any neighbors that we haven't already visited, so we pop it off the stack</p>
+</li>
+<li>
+<p>Now <code>e</code> is on top of the stack. It has no neighbors that we have not visited, so we pop it off the stack</p>
+</li>
+<li>
+<p>Now <code>b</code> is on top of the stack. It has no neighbors that we have not visited, so we pop it off the stack</p>
+</li>
+<li>
+<p>Now <code>a</code> is on top of the stack. It has no neighbors that we have not visited, so we pop it off the stack</p>
+</li>
+<li>
+<p>The stack is now empty, so we are done</p>
+</li>
+</ul>
+<h2 id="breadth-first-traversal">Breadth-First Traversal</h2>
+<p>Now let's explore another graph traversal technique called breadth-first traversal. In contrast to depth-first traversal, which explores as far as possible along each branch before backtracking, breadth-first traversal visits all the vertices at the current level before moving on to the next level.</p>
+<p>In order to implement breadth-first traversal, we utilize a queue data structure. Starting from a given vertex, we enqueue it into the queue and mark it as visited. Then, while the queue is not empty, we perform the following steps:</p>
+<ul>
+<li>Dequeue a vertex from the front of the queue.</li>
+<li>Visit the dequeued vertex.</li>
+<li>Enqueue all its unvisited neighbors into the queue and mark them as visited.</li>
+</ul>
+<p>By following these steps, we will traverse the graph level by level until all vertices have been visited.</p>
+<p>Let's apply breadth-first traversal to the same graph we used for depth-first traversal:</p>
+<p><img src="../images/graph-breadth-first.png"></p>
+<ul>
+<li>
+<p>We start at vertex <code>a</code> and enqueue it into the queue</p>
+</li>
+<li>
+<p>Then we dequeue <code>a</code> from the front of the queue and mark it as visited.</p>
+</li>
+<li>
+<p>Now we enqueue all of <code>a</code>'s unvisited neighbors into the queue. <code>a</code> has three neighbors: <code>b</code>, <code>c</code>, and <code>d</code>. We enqueue them in that order. The queue now looks like this: <code>b</code>, <code>c</code>, <code>d</code>. With the <code>b</code> to the right because that is the start.</p>
+</li>
+<li>
+<p>Now we dequeue <code>b</code> from the front of the queue. We visit <code>b</code> and enqueue all of its unvisited neighbors into the queue.</p>
+</li>
+<li>
+<p><code>b</code> has one unvisited neighbor: <code>e</code>. We enqueue <code>e</code> into the queue. The queue now looks like this: <code>c</code>, <code>d</code>, <code>e</code>.</p>
+</li>
+<li>
+<p>We dequeue <code>c</code> from the front of the queue. We visit <code>c</code> and enqueue all of its unvisited neighbors into the queue. <code>c</code> has no unvisited neighbors, so we do not enqueue anything. The queue now looks like this: <code>d</code>, <code>e</code>.</p>
+</li>
+<li>
+<p>We dequeue <code>d</code> from the front of the queue. We visit <code>d</code> and enqueue all of its unvisited neighbors into the queue. <code>d</code> has no unvisited neighbors, so we do not enqueue anything. The queue now looks like this: <code>e</code>.</p>
+</li>
+<li>
+<p>We dequeue <code>e</code> from the front of the queue. We visit <code>e</code> and enqueue all of its unvisited neighbors into the queue. <code>e</code> has no unvisited neighbors, so we do not enqueue anything. The queue is now empty, so we are done.</p>
+</li>
+</ul>
+<p>The order in which we visited the vertices is: <code>a</code>, <code>b</code>, <code>c</code>, <code>d</code>, <code>e</code>.</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

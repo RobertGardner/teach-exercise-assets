@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Sum of Squares of Even Numbers - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Sum of Squares of Even Numbers";
+      var mkdocs_page_input_path = "practice-exercises/03-02/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-sum-of-squares-of-even-numbers">Challenge: Sum of Squares of Even Numbers</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Let's start off with a fairly simple challenge, but one that uses a few different array methods. Write a function called <code>sumOfEvenSquares</code> that takes an array of numbers and returns the sum of the squares of the even numbers in the array.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns the sum of the squares of the even numbers in the array.
+ * @param numbers The array of numbers.
+ * @returns The sum of the squares of even numbers.
+ */
+function sumOfEvenSquares(numbers: number[]): number;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">sumOfEvenSquares([1, 2, 3, 4, 5]); // 20 (2^2 + 4^2)
+sumOfEvenSquares([-1, 0, 1, 2, 3, 4]); // 20 (0^2 + 2^2 + 4^2)
+sumOfEvenSquares([]); // 0
+</code></pre>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Use the <code>filter</code> method to select the even numbers from the array.</li>
+<li>Then, use the <code>map</code> method to square each even number.</li>
+<li>Finally, use the <code>reduce</code> method to sum up the squared even numbers.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function sumOfEvenSquares(numbers: number[]): number {
+  const evenSquares = numbers
+    .filter((num) =&gt; num % 2 === 0)
+    .map((num) =&gt; num ** 2)
+    .reduce((sum, square) =&gt; sum + square, 0);
+  return evenSquares;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>
+<p>Create a variable called <code>evenSquares</code> and set it equal to the result of calling the <code>filter</code> method on the <code>numbers</code> array and then calling the <code>map</code> method on the result of that.</p>
+</li>
+<li>
+<p>For the <code>filter</code> method, pass in a callback function that takes in a number and returns <code>true</code> if the number is even and <code>false</code> otherwise. We used the modulo operator (<code>%</code>) to check if the number is even.</p>
+</li>
+<li>
+<p>For the <code>map</code> method, pass in a callback function that takes in a number and returns the square of that number. Now we have an array of the squares of the even numbers.</p>
+</li>
+<li>
+<p>Finally, call the <code>reduce</code> method on the <code>evenSquares</code> array and pass in a callback function that takes in a sum and a square and returns the sum plus the square. We set the initial value of the sum to <code>0</code>.</p>
+</li>
+<li>
+<p>We shorten this by chaining the methods together.</p>
+</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

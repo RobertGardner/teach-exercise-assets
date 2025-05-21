@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Array Sum Using Recursion - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Array Sum Using Recursion";
+      var mkdocs_page_input_path = "practice-exercises/04-07/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-array-sum-using-recursion">Challenge: Array Sum Using Recursion</h1>
+<h2 id="description">Description</h2>
+<p>Let's practice using recursion by creating a function that calculates the sum of an array of numbers. Write a function called <code>arraySum</code> that takes in an array of numbers and returns their sum using recursion.</p>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>arraySum</code> that takes in an array of numbers and returns their sum using recursion.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Calculates the sum of an array of numbers using recursion.
+ * @param arr The array of numbers.
+ * @returns The sum of the numbers.
+ */
+function arraySum(arr: number[]): number;
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input array can contain positive and/or negative integers.</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Think about what your base case might be with an array</li>
+<li>Think about how you can break down the problem of calculating the sum of an array into smaller sub-problems.</li>
+<li>You can use <code>arr.slice(1)</code> to create a new array excluding the first element.</li>
+</ul>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">arraySum([1, 2, 3, 4, 5]); // should return 15 (1 + 2 + 3 + 4 + 5 = 15)
+arraySum([-1, -2, -3, -4, -5]); // should return -15 (-1 + -2 + -3 + -4 + -5 = -15)
+arraySum([]); // should return 0 (empty array)
+</code></pre>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function arraySum(arr: number[]): number {
+  if (arr.length === 0) {
+    return 0;
+  }
+  return arr[0] + arraySum(arr.slice(1));
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>The <code>arraySum</code> function uses a recursive approach to calculate the sum of an array of numbers.</li>
+<li>The base case is when the array is empty. In this case, the function returns 0, as the sum of an empty array is 0.</li>
+<li>In the recursive case, the function adds the first element of the array (<code>arr[0]</code>) to the sum of the rest of the array (<code>arraySum(arr.slice(1))</code>).</li>
+<li>The recursion continues until the array becomes empty and the base case is reached.</li>
+</ul>
+<p>Here's a breakdown of how the recursion progresses when calculating the sum of <code>[1, 2, 3, 4, 5]</code>:</p>
+<ul>
+<li><code>arraySum([1, 2, 3, 4, 5])</code> returns <code>1 + arraySum([2, 3, 4, 5])</code></li>
+<li><code>arraySum([2, 3, 4, 5])</code> returns <code>2 + arraySum([3, 4, 5])</code></li>
+<li><code>arraySum([3, 4, 5])</code> returns <code>3 + arraySum([4, 5])</code></li>
+<li><code>arraySum([4, 5])</code> returns <code>4 + arraySum([5])</code></li>
+<li><code>arraySum([5])</code> returns <code>5 + arraySum([])</code></li>
+<li><code>arraySum([])</code> reaches the base case and returns <code>0</code></li>
+<li>
+<p>At this point, the recursive calls start "unwinding," and the values are added up:</p>
+</li>
+<li>
+<p><code>5 + 0 = 5</code> Returned from <code>arraySum([5])</code></p>
+</li>
+<li><code>4 + 5 = 9</code> Returned from <code>arraySum([4, 5])</code></li>
+<li><code>3 + 9 = 12</code> Returned from <code>arraySum([3, 4, 5])</code></li>
+<li><code>2 + 12 = 14</code> Returned from <code>arraySum([2, 3, 4, 5])</code></li>
+<li><code>1 + 14 = 15</code> Returned from <code>arraySum[1, 2, 3, 4, 5]</code></li>
+</ul>
+<p>So, the final result is 15, which is the sum of all the numbers in the original array <code>[1, 2, 3, 4, 5]</code>.</p>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

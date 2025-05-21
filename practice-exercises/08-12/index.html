@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Graph Implementation - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Graph Implementation";
+      var mkdocs_page_input_path = "practice-exercises/08-12/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="graph-implementation">Graph Implementation</h1>
+<p>We are now going to create a graph class in TypeScript. Again, you can do this in any language you want. We will use an adjacency list in the form of an object.</p>
+<h3 id="constructor">Constructor</h3>
+<pre><code class="language-js">export class Graph {
+  adjacencyList: Record&lt;string, string[]&gt; = {};
+}
+</code></pre>
+<h3 id="addvertex-method"><code>addVertex</code> Method</h3>
+<p>We will have a method called <code>addVertex</code> that takes a name of a vertex as a parameter. We will set the adjacency list at that vertex to be an empty array.</p>
+<pre><code class="language-js">  addVertex(vertex: string): void {
+    this.adjacencyList[vertex] = [];
+  }
+</code></pre>
+<h3 id="addedge-method"><code>addEdge</code> Method</h3>
+<p>We will also have a method called <code>addEdge</code> that takes two vertices as parameters. We will find in the adjacency list the key of <code>vertex1</code> and push <code>vertex2</code> to the array. Then we will find in the adjacency list the key of <code>vertex2</code> and push <code>vertex1</code> to the array.</p>
+<pre><code class="language-js">  addEdge(vertex1: string, vertex2: string): void {
+    this.adjacencyList[vertex1].push(vertex2);
+    this.adjacencyList[vertex2].push(vertex1);
+  }
+</code></pre>
+<h3 id="printadjacencylist-method"><code>printAdjacencyList</code> Method</h3>
+<p>Let's create a method to give us a visual representation of our adjacency list so that we can see all of the vertices and their edges/connections.</p>
+<pre><code class="language-js">  printAdjacencyList(): void {
+    for (const vertex in this.adjacencyList) {
+      console.log(`${vertex} -&gt; ${this.adjacencyList[vertex].join(', ')}`);
+    }
+  }
+</code></pre>
+<p>Let's try adding some vertices and edges.</p>
+<pre><code class="language-js">g.addVertex('Tokyo');
+g.addVertex('Dallas');
+g.addVertex('Aspen');
+
+g.addEdge('Tokyo', 'Dallas');
+g.addEdge('Dallas', 'Aspen');
+g.addEdge('Aspen', 'Tokyo');
+
+g.printAdjacencyList();
+</code></pre>
+<p>When you run you should see something like this:</p>
+<pre><code class="language-text">Tokyo -&gt; Dallas, Aspen
+Dallas -&gt; Tokyo, Aspen
+Aspen -&gt; Dallas, Tokyo
+</code></pre>
+<h3 id="removeedge-method"><code>removeEdge</code> Method</h3>
+<p>We will also have a method called <code>removeEdge</code> that takes two vertices as parameters. We will reassign the key of <code>vertex1</code> to be an array that does not contain <code>vertex2</code>. We will reassign the key of <code>vertex2</code> to be an array that does not contain <code>vertex1</code>.</p>
+<pre><code class="language-js">  removeEdge(vertex1: string, vertex2: string): void {
+    this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
+      (v) =&gt; v !== vertex2
+    );
+    this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(
+      (v) =&gt; v !== vertex1
+    );
+  }
+</code></pre>
+<h3 id="removevertex-method"><code>removeVertex</code> Method</h3>
+<p>We will also have a method called <code>removeVertex</code> that takes a vertex as a parameter. We will loop as long as there are any other vertices in the adjacency list for that vertex. Inside the loop, we will call <code>removeEdge</code> and pass in the vertex we are removing and any values in the adjacency list for that vertex. Then we will delete the key in the adjacency list for that vertex.</p>
+<pre><code class="language-js">removeVertex(vertex) {
+  removeVertex(vertex: string): void {
+    while (this.adjacencyList[vertex].length) {
+      const adjacentVertex = this.adjacencyList[vertex].pop();
+      adjacentVertex &amp;&amp; this.removeEdge(vertex, adjacentVertex);
+    }
+    delete this.adjacencyList[vertex];
+  }
+</code></pre>
+<h2 id="try-it-out">Try It Out</h2>
+<p>Let's test out our graph class.</p>
+<pre><code class="language-js">g.addVertex('Tokyo');
+g.addVertex('Dallas');
+g.addVertex('Aspen');
+g.addEdge('Tokyo', 'Dallas');
+g.addEdge('Dallas', 'Aspen');
+g.addEdge('Tokyo', 'Aspen');
+
+g.removeEdge('Dallas', 'Aspen');
+g.removeVertex('Aspen');
+
+g.printAdjacencyList();
+</code></pre>
+<p>We created a graph with three vertices. We added edges between Tokyo and Dallas, Dallas and Aspen, and Tokyo and Aspen. We removed the edge between Dallas and Aspen. We removed the vertex Aspen.</p>
+<p>You should see:</p>
+<pre><code class="language-text">Tokyo -&gt; Dallas
+Dallas -&gt; Tokyo
+</code></pre>
+<p>In the next lesson, we will look at graph traversal.</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

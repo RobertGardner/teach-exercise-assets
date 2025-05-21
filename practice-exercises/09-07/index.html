@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Selection Sort Implementation - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Selection Sort Implementation";
+      var mkdocs_page_input_path = "practice-exercises/09-07/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-selection-sort-implementation">Challenge: Selection Sort Implementation</h1>
+<p>You've learned about the Selection Sort algorithm. Now it's time to put your knowledge into practice and implement the Selection Sort algorithm in TypeScript.</p>
+<h2 id="instructions">Instructions</h2>
+<p>Implement a function called <code>selectionSort</code> that takes an array of numbers as an argument and returns a sorted array using the Selection Sort algorithm.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Sorts an array using the Selection Sort algorithm.
+ * @param {number[]} array The array to be sorted.
+ * @returns {number[]} The sorted array.
+ */
+function selectionSort(array: number[]): number[];
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">console.log(selectionSort([5, 4, 3, 2, 1])); // Output: [1, 2, 3, 4, 5]
+console.log(selectionSort([64, 34, 25, 12, 22, 11, 90])); // Output: [11, 12, 22, 25, 34, 64, 90]
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input array can contain any number of elements.</li>
+<li>The elements in the input array are unique and positive integers.</li>
+</ul>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>The Selection Sort algorithm works by repeatedly finding the minimum element from the unsorted part of the array and putting it at the beginning. This process continues until the whole array is sorted.</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Outer Loop: The main idea of this algorithm is to divide the array into two parts: the "sorted" part and the "unsorted" part. The outer loop will iterate through the unsorted part and select the minimum element in each iteration.</li>
+<li>Inner Loop: The inner loop will find the minimum element in the unsorted part and swap it with the first element in the unsorted part. This effectively moves the minimum element to the sorted part.</li>
+<li>Current Minimum: Keep track of the index of the current minimum element found in the inner loop. You will need this index to perform the swap.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function selectionSort(arr: number[]): number[] {
+  for (let i = 0; i &lt; arr.length - 1; i++) {
+    let minIndex = i;
+
+    for (let j = i + 1; j &lt; arr.length; j++) {
+      if (arr[j] &lt; arr[minIndex]) {
+        minIndex = j;
+      }
+    }
+
+    if (minIndex !== i) {
+      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+    }
+  }
+
+  return arr;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Start a <code>for-loop</code>. The condition of the <code>for-loop</code> is <code>i &lt; arr.length - 1</code>. This will loop through the entire array, except for the last element (since the last element will be sorted automatically).</li>
+<li>Inside the outer <code>for-loop</code>, declare a variable called <code>minIndex</code> and set it to <code>i</code>. This will keep track of the index of the minimum element found in the inner loop.</li>
+<li>Start an inner <code>for-loop</code>. The condition of the inner <code>for-loop</code> is <code>j = i + 1</code> and <code>j &lt; arr.length</code>. This will loop through the unsorted part of the array.</li>
+<li>Inside the inner <code>for-loop</code>, check if the element at index <code>j</code> is less than the element at index <code>minIndex</code>. If it is, update <code>minIndex</code> to <code>j</code>.</li>
+<li>After the inner <code>for-loop</code>, check if <code>minIndex</code> is not equal to <code>i</code>. If it's not equal, swap the elements at indices <code>i</code> and <code>minIndex</code>.</li>
+<li>Outside of both loops, return the sorted array.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

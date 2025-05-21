@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Find First Non-Repeating Character - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Find First Non-Repeating Character";
+      var mkdocs_page_input_path = "practice-exercises/02-07/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-find-first-non-repeating-character">Challenge: Find First Non-Repeating Character</h1>
+<p>This challenge is similar to the last. So if you understood that, you should be able to get this one on your own.</p>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>findFirstNonRepeatingCharacter</code> that takes in a string and returns the first non-repeating character in the string.</p>
+<p>If there are no non-repeating characters, the function should return <code>undefined</code>.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns the first non-repeating character in a string.
+ * @param str The string to search.
+ * @returns The first non-repeating character in the string or undefined if there are no non-repeating characters.
+ */
+function findFirstNonRepeatingCharacter(str: string): string | undefined;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">findFirstNonRepeatingCharacter(&quot;aabccdeff&quot;); // should return 'b'
+findFirstNonRepeatingCharacter(&quot;aabbcc&quot;); // should return undefined
+findFirstNonRepeatingCharacter(&quot;abcdef&quot;); // should return 'a'
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input string will only contain lowercase letters and spaces</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can use an object or a map to keep track of the number of times each character appears in the string.</li>
+<li>You can iterate through the string and check if the current character has only appeared once.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution 1</summary>
+<p>Using an object:</p>
+<pre><code class="language-js">export function findFirstNonRepeatingCharacter(
+  str: string
+): string | undefined {
+  const charCount: Record&lt;string, number&gt; = {};
+
+  for (const char of str) {
+    charCount[char] = (charCount[char] ?? 0) + 1;
+  }
+
+  for (const char of str) {
+    if (charCount[char] === 1) {
+      return char;
+    }
+  }
+
+  return undefined;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Initialize an empty object to keep track of the number of times each character appears in the string.</li>
+<li>Iterate through the string and add each character to the object. If the character is already in the object, we increment its count by 1. If it isn't, we set its count to 1.</li>
+<li>Iterate through the string again and check the object to see if the current character has a count of 1. If it does, return it because it's the first non-repeating character.</li>
+<li>If we make it through the entire string without returning a character, we return undefined because there are no non-repeating characters.</li>
+</ul>
+</details>
+<details>
+<summary>Click For Solution 2</summary>
+<p>Using a <code>Map</code>:</p>
+<pre><code class="language-js">export function findFirstNonRepeatingCharacter(
+  str: string
+): string | undefined {
+  const charCount = new Map();
+
+  for (const char of str) {
+    charCount.set(char, (charCount.get(char) ?? 0) + 1);
+  }
+
+  for (const char of str) {
+    if (charCount.get(char) === 1) {
+      return char;
+    }
+  }
+
+  return undefined;
+}
+</code></pre>
+<h3 id="explanation_1">Explanation</h3>
+<ul>
+<li>
+<p>Initialize a map to keep track of the number of times each character appears in the string.</p>
+</li>
+<li>
+<p>Iterate through the string and add each character to the map. If the character is already in the map, we increment its count by 1. If it isn't, we set its count to 1.</p>
+</li>
+<li>
+<p>Iterate through the string again and check the map to see if the current character has a count of 1. If it does, we return it because it's the first non-repeating character.</p>
+</li>
+<li>If we make it through the entire string without returning a character, we return undefined because there are no non-repeating characters.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

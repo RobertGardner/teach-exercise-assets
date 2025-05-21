@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: FizzBuzz Array - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: FizzBuzz Array";
+      var mkdocs_page_input_path = "practice-exercises/02-01/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-fizzbuzz-array">Challenge: FizzBuzz Array</h1>
+<h2 id="instructions">Instructions</h2>
+<p>FizzBuzz is probably the most common interview question for entry level developers. At least, it used to be. It may not be used as much because of how common it was. It's a simple problem that tests your ability to think logically and write clean code.</p>
+<p>Traditionally, you loop from 1 to 100 and print out each number. However, if the number is divisible by 3, you print out "Fizz" instead. If the number is divisible by 5, you print out "Buzz" instead. If the number is divisible by both 3 and 5, you print out "FizzBuzz" instead.</p>
+<p>In this challenge, you will write a function called <code>fizzBuzzArray</code> that takes in a number and returns an array. The array should contain all the numbers from 1 to the number passed in. However, if the number is divisible by 3, you should replace the number with "Fizz". If the number is divisible by 5, you should replace the number with "Buzz". If the number is divisible by both 3 and 5, you should replace the number with "FizzBuzz".</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns an array of numbers from 1 to the number passed in.
+ * @param num The number to loop up to.
+ * @returns The array of numbers.
+ */
+function fizzBuzzArray(num: number): (string | number)[];
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">fizzBuzzArray(5); // [1, 2, &quot;Fizz&quot;, 4, &quot;Buzz&quot;]
+fizzBuzzArray(15); // [1, 2, &quot;Fizz&quot;, 4, &quot;Buzz&quot;, &quot;Fizz&quot;, 7, 8, &quot;Fizz&quot;, &quot;Buzz&quot;, 11, &quot;Fizz&quot;, 13, 14, &quot;FizzBuzz&quot;]
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The number passed in will always be greater than 0</li>
+<li>The number passed in will always be an integer</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Instead of console logging each number, you will need to push each number into an array.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function fizzBuzzArray(num: number): (string | number)[] {
+  const arr = [];
+
+  for (let i = 1; i &lt;= num; i++) {
+    if (i % 3 === 0 &amp;&amp; i % 5 === 0) {
+      arr.push('FizzBuzz');
+    } else if (i % 3 === 0) {
+      arr.push('Fizz');
+    } else if (i % 5 === 0) {
+      arr.push('Buzz');
+    } else {
+      arr.push(i);
+    }
+  }
+
+  return arr;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Create an empty array to store our results.</li>
+<li>Loop from 1 to the number passed in.</li>
+<li>Check if the number is divisible by both 3 and 5 first. If it is, we push "FizzBuzz" into the array.</li>
+<li>If it's not, we check if the number is divisible by 3. If it is, we push "Fizz" into the array.</li>
+<li>If it's not, we check if the number is divisible by 5. If it is, we push "Buzz" into the array.</li>
+<li>If it's not, we push the number into the array.</li>
+<li>Return the array.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

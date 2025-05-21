@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Symmetric Difference - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Symmetric Difference";
+      var mkdocs_page_input_path = "practice-exercises/06-08/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-symmetric-difference">Challenge: Symmetric Difference</h1>
+<h2 id="instructions">Instructions</h2>
+<p>We'll start with a pretty simple challenge. Write a function called <code>symmetricDifference</code> that takes in two arrays and returns an array containing the symmetric difference of the two arrays. The symmetric difference of two arrays is a new array containing only the elements that are present in one of the arrays but not both, with no duplicates.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns an array containing the symmetric difference of two arrays.
+ * @param arr1 The first array of integers.
+ * @param arr2 The second array of integers.
+ * @returns The array containing the symmetric difference of the two arrays.
+ */
+function symmetricDifference(arr1: number[], arr2: number[]): number[];
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">symmetricDifference([1, 2, 3], [3, 4, 5]);
+// Output: [1, 2, 4, 5]
+
+symmetricDifference([1, 2, 2, 3, 4], [2, 3, 3, 4, 5]);
+// Output: [1, 5]
+
+symmetricDifference([1, 2, 3, 4, 5], [5, 4, 3, 2, 1]);
+// Output: []
+
+symmetricDifference([1, 2, 3], [4, 5, 6]);
+// Output: [1, 2, 3, 4, 5, 6]
+</code></pre>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can use two Sets to keep track of elements in both arrays and then find the elements that are present in only one of the sets.</li>
+<li>Be mindful of duplicate elements and handle them appropriately.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function symmetricDifference(
+  arr1: unknown[],
+  arr2: unknown[]
+): unknown[] {
+  const set1 = new Set(arr1);
+  const set2 = new Set(arr2);
+  const result = [];
+
+  for (const num of arr1) {
+    if (!set2.has(num)) {
+      result.push(num);
+    }
+  }
+
+  for (const num of arr2) {
+    if (!set1.has(num)) {
+      result.push(num);
+    }
+  }
+
+  return result;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>To find the symmetric difference, create two <code>Set</code> objects, <code>set1</code> and <code>set2</code>, from <code>arr1</code> and <code>arr2</code> respectively. The <code>Set</code> data structure allows us to efficiently check for the existence of an element.</li>
+<li>Initialize an empty array called <code>result</code> to store the symmetric difference.</li>
+<li>Iterate through each element in <code>arr1</code> using a <code>for...of</code> loop. For each element in <code>arr1</code>, we use the <code>has()</code> method of <code>set2</code> to check if the element exists in <code>set2</code>. If the element is not found in <code>set2</code>, it means it is present in <code>arr1</code> but not in <code>arr2</code>, and push it into the <code>result</code> array.</li>
+<li>Similarly, iterate through each element in <code>arr2</code> using another <code>for...of</code> loop. For each element in <code>arr2</code>, we use the <code>has()</code> method of <code>set1</code> to check if the element exists in <code>set1</code>. If the element is not found in <code>set1</code>, it means it is present in <code>arr2</code> but not in <code>arr1</code>, and push it into the <code>result</code> array.</li>
+<li>Return the <code>result</code> array, which contains the elements that are present in only one of the input arrays, with no duplicates.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

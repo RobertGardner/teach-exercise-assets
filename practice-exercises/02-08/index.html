@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Dice Game Simulation - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Dice Game Simulation";
+      var mkdocs_page_input_path = "practice-exercises/02-08/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-dice-game-simulation">Challenge: Dice Game Simulation</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>diceGameSimulation</code> that simulates a dice game. The function should take one argument:</p>
+<ul>
+<li><code>numSimulations</code>: The number of times to simulate the dice game.</li>
+</ul>
+<p>The game rules are if a 7 or 11 are rolled, the player wins and they get a result of <code>win</code>. If a 2, 3 or 12 are rolled they lose and get a result of <code>lose</code>. Anything else and they get a result of <code>roll again</code>.</p>
+<p>The function should return an array of objects, where each object represents a simulation result. Each object should contain the following properties:</p>
+<ul>
+<li><code>dice1</code>: The value of the first dice (a random number between 1 and 6).</li>
+<li><code>dice2</code>: The value of the second dice (a random number between 1 and 6).</li>
+<li><code>sum</code>: The sum of the two dice values.</li>
+<li><code>result</code>: The result of the roll, which can be "win", "lose", or "roll again".</li>
+</ul>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">export type DiceRoll = 1 | 2 | 3 | 4 | 5 | 6;
+export type Simulation = {
+  dice1: DiceRoll;
+  dice2: DiceRoll;
+  sum: number;
+  result: 'win' | 'lose' | 'roll again';
+};
+
+/**
+ * Simulates the dice game.
+ * @param numSimulations The number of times to simulate the dice game.
+ * @returns An array of simulation result objects.
+ */
+function diceGameSimulation(numSimulations: number): Simulation[];
+</code></pre>
+<h3 id="example">Example</h3>
+<pre><code class="language-js">console.log(diceGameSimulation(3));
+/*
+  { dice1: 1, dice2: 5, sum: 6, result: 'roll again' },
+  { dice1: 5, dice2: 6, sum: 11, result: 'win' },
+  { dice1: 1, dice2: 1, sum: 2, result: 'lose' }
+*/
+</code></pre>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can use the <code>Math.random()</code> function to simulate rolling a die. It returns a random number between 0 (inclusive) and 1 (exclusive).</li>
+</ul>
+<h2 id="solution">Solution</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">function rollDice(): DiceRoll {
+  return (Math.floor(Math.random() * 6) + 1) as DiceRoll;
+}
+
+export function diceGameSimulation(numSimulations: number): Simulation[] {
+  const results = [];
+
+  for (let i = 0; i &lt; numSimulations; i++) {
+    const dice1 = rollDice();
+    const dice2 = rollDice();
+    const sum = dice1 + dice2;
+
+    let result: Simulation['result'];
+    if (sum === 7 || sum === 11) {
+      result = 'win';
+    } else if (sum === 2 || sum === 3 || sum === 12) {
+      result = 'lose';
+    } else {
+      result = 'roll again';
+    }
+
+    results.push({ dice1, dice2, sum, result });
+  }
+
+  return results;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>The <code>rollDice</code> function simulates rolling a single die. It uses <code>Math.random()</code> to generate a random decimal between 0 (inclusive) and 1 (exclusive), multiplies it by 6, rounds down, and adds 1 to get a random integer between 1 and 6.</li>
+<li>The <code>diceGameSimulation</code> function simulates the dice game for the specified number of simulations. It uses the <code>rollDice</code> function to generate random dice values and calculates the sum of the two dice.</li>
+<li>Depending on the sum, the <code>result</code> property is determined according to the game rules.</li>
+<li>The results of each simulation are stored in an array of objects.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

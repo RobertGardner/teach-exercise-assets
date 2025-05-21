@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Index - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Index";
+      var mkdocs_page_input_path = "practice-exercises/09-09/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h2 id="challenge-merge-sort-implementation">Challenge: Merge Sort Implementation</h2>
+<p>Now that you're familiar with the Merge Sort algorithm, it's time to implement it in TypeScript. This algorithm is particularly efficient for large datasets, as it employs a divide-and-conquer strategy.</p>
+<h2 id="instructions">Instructions</h2>
+<p>Implement a function called <code>mergeSort</code> that takes an array of numbers as an argument and returns a sorted array using the Merge Sort algorithm.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Sorts an array using the Merge Sort algorithm.
+ * @param array The array to be sorted.
+ * @returns The sorted array.
+ */
+function mergeSort(array: number[]): number[];
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">console.log(mergeSort([5, 4, 3, 2, 1])); // Output: [1, 2, 3, 4, 5]
+console.log(mergeSort([64, 34, 25, 12, 22, 11, 90])); // Output: [11, 12, 22, 25, 34, 64, 90]
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input array can contain any number of elements.</li>
+<li>The elements in the input array are unique and positive integers.</li>
+</ul>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>The Merge Sort algorithm divides the input array into smaller sub-arrays, sorts them separately, and then merges them back together in the correct order.</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Divide &amp; Conquer: The key idea behind this algorithm is to recursively divide the array into two halves until the base case is reached (when the array has only one or zero elements). Then, merge the smaller arrays back together while sorting them.</li>
+<li>Merge Function: Implement a helper function called <code>merge</code> that takes two sorted arrays and merges them into a single sorted array. This function is crucial for the merge step of the algorithm.</li>
+<li>Recursive Sorting: In the main <code>mergeSort</code> function, divide the array into two halves and recursively sort each half. Then, use the <code>merge</code> function to merge the sorted halves.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function mergeSort(arr: number[]): number[] {
+  if (arr.length &lt;= 1) {
+    return arr;
+  }
+
+  const mid = Math.floor(arr.length / 2);
+  const left = mergeSort(arr.slice(0, mid));
+  const right = mergeSort(arr.slice(mid));
+
+  return merge(left, right);
+}
+
+function merge(left: number[], right: number[]): number[] {
+  const merged = [];
+  let leftIndex = 0;
+  let rightIndex = 0;
+
+  while (leftIndex &lt; left.length &amp;&amp; rightIndex &lt; right.length) {
+    if (left[leftIndex] &lt; right[rightIndex]) {
+      merged.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      merged.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }
+
+  return merged.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>The <code>mergeSort</code> function is the main sorting function that implements the merge sort algorithm.</li>
+<li>If the length of the array is 1 or less, it is already sorted, so we return the array as is.</li>
+<li>Otherwise, we calculate the midpoint of the array using <code>Math.floor(arr.length / 2)</code>.</li>
+<li>We recursively call <code>mergeSort</code> on the left half and the right half of the array.</li>
+<li>
+<p>Finally, we merge the sorted left and right halves using the <code>merge</code> function.</p>
+</li>
+<li>
+<p>The <code>merge</code> function takes two sorted arrays as input and merges them into a single sorted array.</p>
+</li>
+<li>We initialize an empty array called <code>merged</code> to store the merged elements.</li>
+<li>We also initialize two indices: <code>leftIndex</code> for the left array and <code>rightIndex</code> for the right array.</li>
+<li>We iterate through both arrays while comparing the elements at the current indices.</li>
+<li>If the element from the left array is smaller, we push it into the <code>merged</code> array and increment <code>leftIndex</code>.</li>
+<li>If the element from the right array is smaller, we push it into the <code>merged</code> array and increment <code>rightIndex</code>.</li>
+<li>After the loop, we concatenate any remaining elements from both arrays (if any).</li>
+<li>We return the merged array.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

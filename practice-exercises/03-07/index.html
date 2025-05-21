@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Valid IPv4 Addresses - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Valid IPv4 Addresses";
+      var mkdocs_page_input_path = "practice-exercises/03-07/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-valid-ipv4-addresses">Challenge: Valid IPv4 Addresses</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>isValidIPv4</code> that takes a string as input and returns <code>true</code> if the input is a valid IPv4 address in dot-decimal format, and <code>false</code> otherwise. An IPv4 address should consist of four octets, with values between 0 and 255, inclusive.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Checks if a given string is a valid IPv4 address.
+ * @param input The input string to check.
+ * @returns True if the input is a valid IPv4 address, false otherwise.
+ */
+function isValidIPv4(input: string): boolean;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">isValidIPv4(&quot;1.2.3.4&quot;); // true
+isValidIPv4(&quot;123.45.67.89&quot;); // true
+isValidIPv4(&quot;1.2.3&quot;); // false
+isValidIPv4(&quot;1.2.3.4.5&quot;); // false
+isValidIPv4(&quot;123.456.78.90&quot;); // false
+isValidIPv4(&quot;123.045.067.089&quot;); // false
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input will be a single string.</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can use the <code>split()</code> method to break the string into parts based on the dot character.</li>
+<li>You can use <code>every()</code> to check if all octets are within the valid range of 0 to 255.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function isValidIPv4(input: string): boolean {
+  const octets = input.split('.');
+  if (octets.length !== 4) {
+    return false;
+  }
+  return octets.every((octet) =&gt; {
+    const num = parseInt(octet);
+    return num &gt;= 0 &amp;&amp; num &lt;= 255 &amp;&amp; octet === num.toString();
+  });
+}
+</code></pre>
+<h2 id="explanation">Explanation</h2>
+<ul>
+<li>Split the input string into an array of strings using the <code>split()</code> method.</li>
+<li>Check if the array has exactly four elements. If not, return <code>false</code>.</li>
+<li>Use the <code>every()</code> method to check if all octets are valid.</li>
+<li>Convert the octet to a number using <code>parseInt()</code>.</li>
+<li>Check if the number is between 0 and 255, inclusive.</li>
+<li>Check if the octet is equal to the number converted back to a string. This is to check for leading zeros.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

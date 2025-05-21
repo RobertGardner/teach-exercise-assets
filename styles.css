@@ -1,0 +1,31 @@
+.wy-nav-content {
+  max-width: 100%;
+}
+.wy-nav-content-wrap {
+  margin-left: 0;
+}
+
+header {
+  background-color: rgb(49,133,252);
+}
+
+header div {
+  color: white;
+  padding: 1.618em 3.236em;
+}
+
+header p {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  header div {
+    padding: 1.618em
+  }
+}
+
+summary {
+  cursor: pointer;
+  margin-bottom: 1rem;
+}

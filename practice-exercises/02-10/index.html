@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Validate Email - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Validate Email";
+      var mkdocs_page_input_path = "practice-exercises/02-10/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-validate-email">Challenge: Validate Email</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>validateEmail</code> that takes in a string and returns whether the string is a valid email address. For the purposes of this challenge, a valid email address is defined as a string that contains an <code>@</code> symbol and a <code>.</code> symbol.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns whether the string is a valid email address.
+ * @param email The email address to validate.
+ * @returns Whether the email address is valid.
+ */
+function validateEmail(email: string): boolean;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">validateEmail(&quot;john@gmail.com&quot;); // true
+validateEmail(&quot;john@gmail&quot;); // false
+</code></pre>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>If you know regular expressions, this is a great place to use them. Two solutions will be provided. One uses regular expressions and one doesn't.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution 1</summary>
+<p>Not using regular expression:</p>
+<pre><code class="language-js">export function validateEmail(email: string): boolean {
+  if (email.indexOf('@') === -1) {
+    return false;
+  }
+
+  const [localPart, domain] = email.split('@');
+
+  if (localPart.length === 0 || domain.length &lt; 3) {
+    return false;
+  }
+
+  const domainExtension = domain.split('.');
+  if (
+    domainExtension.length &lt; 2 ||
+    domainExtension[domainExtension.length - 1].length &lt; 2
+  ) {
+    return false;
+  }
+
+  return true;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<p>This solution is a bit complicated, but it doesn't use regular expressions.</p>
+<ul>
+<li>Use the <code>indexOf</code> method to check if the email address contains the "@" symbol. If it doesn't, it returns <code>false</code>.</li>
+<li>Use the <code>split</code> method to split the email address into two parts: the local part and the domain. We use destructuring to assign the two parts to variables.</li>
+<li>Check if the local part is empty or if the domain is less than three characters long. If either of these conditions is true, we return <code>false</code>.
+  Split the domain into parts using the <code>split</code> method. We check if the domain has at least two parts and if the last part is at least two characters long.</li>
+<li>If either of these conditions is false, return <code>false</code>.</li>
+</ul>
+<p>Finally, if none of the conditions are false, we return <code>true</code>.</p>
+</details>
+<details>
+<summary>Click For Solution 2</summary>
+<p>Using a regular expression:</p>
+<pre><code class="language-js">export function validateEmail(email: string): boolean {
+  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+  return emailRegex.test(email);
+}
+</code></pre>
+<h3 id="explanation_1">Explanation</h3>
+<p>The regular expression is a bit complicated, but it is a good example of how powerful regular expressions can be. Let's break it down:</p>
+<ul>
+<li><code>^</code> asserts the start of the string.</li>
+<li><code>[A-Za-z0-9._%+-]+</code> matches one or more occurrences of letters (both uppercase and lowercase), digits, dots, underscores, percent signs, plus signs, and hyphens. This represents the local part of the email address before the "@" symbol.</li>
+<li><code>@</code> matches the "@" symbol.</li>
+<li><code>[A-Za-z0-9.-]+</code> matches one or more occurrences of letters, digits, dots, and dashes. This represents the domain name of the email address.</li>
+<li><code>\.</code> matches the dot (".") character. It needs to be escaped with a backslash because the dot has a special meaning in regular expressions.</li>
+<li><code>[A-Za-z]{2,}</code> matches two or more occurrences of letters. This represents the top-level domain (TLD) of the email address.</li>
+<li><code>$</code> asserts the end of the string.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

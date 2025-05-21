@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Reverse String - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Reverse String";
+      var mkdocs_page_input_path = "practice-exercises/01-07/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-reverse-string">Challenge: Reverse String</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>reverseString</code> that takes in a string and returns the reverse of that string. In this section, we are really focusing on loops without using any built-in methods, so try that first. If you get stuck, you can always use the built-in methods to solve the problem.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns the reverse of a string.
+ * @param str The string to reverse.
+ * @returns The reverse of the string.
+ */
+function reverseString(str: string): string;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-JS">reverseString('hello') // 'olleh'
+reverseString('world') // 'dlrow'
+reverseString('') // ''
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input string will only contain lowercase letters and spaces</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can do this without using any of the built-in methods and just use a for loop.</li>
+<li>You could also use the methods <code>split</code>, <code>reverse</code>, and <code>join</code> to solve this problem.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution 1</summary>
+<p>This solution uses a for loop to reverse the string.</p>
+<pre><code class="language-js">export function reverseString(str: string): string {
+  let reversed = '';
+
+  for (let i = str.length - 1; i &gt;= 0; i--) {
+    reversed += str[i];
+  }
+
+  return reversed;
+}
+</code></pre>
+<h2 id="explanation">Explanation</h2>
+<ul>
+<li>Create a variable called <code>reversed</code> and set it equal to an empty string.</li>
+<li>Create a for loop that starts at the last index of <code>str</code> and decrements by 1 until it reaches 0.</li>
+<li>Add the character at the current index to the <code>reversed</code> variable.</li>
+<li>Return the <code>reversed</code> variable.</li>
+</ul>
+</details>
+<details>
+<summary>Click For Solution 2</summary>
+<p>This solution uses built-in methods to reverse the string.</p>
+<pre><code class="language-js">export function reverseString(str: string): string {
+  return str.split('').reverse().join('');
+}
+</code></pre>
+<h3 id="explanation_1">Explanation</h3>
+<p>We created a function called <code>reverseString</code> that takes in a string called <code>str</code>. We then return the result of chaining the <code>split</code>, <code>reverse</code>, and <code>join</code> methods on <code>str</code>.</p>
+<p>The <code>split</code> function takes in a string and turns it into an array. We passed in an empty string as an argument to <code>split</code> so that it will split the string into an array of characters.(["h", "e", "l", "l", "o"])</p>
+<p>The <code>reverse</code> function takes in an array and reverses it. (["o", "l", "l", "e", "h"])</p>
+<p>The <code>join</code> function takes in an array and turns it into a string. We passed in an empty string as an argument to <code>join</code> so that it will join the array of characters into a string. ('olleh')</p>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

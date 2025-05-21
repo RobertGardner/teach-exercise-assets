@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Car Mileage Analysis - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Car Mileage Analysis";
+      var mkdocs_page_input_path = "practice-exercises/03-08/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-car-mileage-analysis">Challenge: Car Mileage Analysis</h1>
+<h2 id="instructions">Instructions</h2>
+<p>You are given an array of car objects, each containing information about a car's make, model, year, and mileage. Your goal is to perform some analysis on the car mileage data using high order array methods.</p>
+<p>Implement a function called <code>analyzeCarMileage</code> which takes in an array of car objects and performs the following tasks:</p>
+<ol>
+<li>Calculate the average mileage of all cars.</li>
+<li>Find the car with the highest mileage.</li>
+<li>Find the car with the lowest mileage.</li>
+<li>Calculate the total mileage of all cars combined.</li>
+</ol>
+<p>The function should return an object containing the calculated values as properties.</p>
+<p>Here is an object that you can use to test your function:</p>
+<pre><code class="language-js">const cars = [
+  { make: &quot;Toyota&quot;, model: &quot;Camry&quot;, year: 2020, mileage: 30800 },
+  { make: &quot;Honda&quot;, model: &quot;Civic&quot;, year: 2019, mileage: 32000 },
+  { make: &quot;Chevrolet&quot;, model: &quot;Impala&quot;, year: 2021, mileage: 17500 },
+  { make: &quot;Audi&quot;, model: &quot;R8&quot;, year: 2020, mileage: 13000 },
+  { make: &quot;Tesla&quot;, model: &quot;Model 3&quot;, year: 2018, mileage: 50000 },
+];
+</code></pre>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">type Car = {
+  make: string;
+  model: string;
+  year: number;
+  mileage: number;
+};
+type Mileage = {
+  averageMileage: number;
+  highestMileageCar: Car;
+  lowestMileageCar: Car;
+  totalMileage: number;
+};
+
+/**
+ * Analyzes car mileage data using high order array methods.
+ * @param cars An array of car objects.
+ * @returns An object containing calculated mileage values.
+ */
+function analyzeCarMileage(cars: Car[]): Mileage;
+</code></pre>
+<p>Each car object will have the following properties:</p>
+<ul>
+<li><code>make</code>: The make of the car (string).</li>
+<li><code>model</code>: The model of the car (string).</li>
+<li><code>year</code>: The year the car was manufactured (number).</li>
+<li><code>mileage</code>: The mileage of the car (number).</li>
+</ul>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">const cars = [
+  { make: &quot;Toyota&quot;, model: &quot;Corolla&quot;, year: 2020, mileage: 25000 },
+  { make: &quot;Honda&quot;, model: &quot;Civic&quot;, year: 2019, mileage: 30000 },
+  { make: &quot;Ford&quot;, model: &quot;Mustang&quot;, year: 2021, mileage: 15000 },
+];
+
+const analysis = analyzeCarMileage(cars);
+console.log(analysis);
+// Output:
+// {
+//   averageMileage: 23333.33,
+//   highestMileageCar: { make: &quot;Honda&quot;, model: &quot;Civic&quot;, year: 2019, mileage: 30000 },
+//   lowestMileageCar: { make: &quot;Ford&quot;, model: &quot;Mustang&quot;, year: 2021, mileage: 15000 },
+//   totalMileage: 70000
+// }
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input array <code>cars</code> will contain at most 100 car objects.</li>
+<li>Each car object's <code>mileage</code> property will be a positive integer.</li>
+<li>Result should be rounded to 2 decimal places.</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can use the <code>reduce</code> method for most of the calculations.</li>
+</ul>
+<h2 id="solution">Solution</h2>
+<details>
+<summary>Click to view solution</summary>
+<pre><code class="language-js">type Car = {
+  make: string,
+  model: string,
+  year: number,
+  mileage: number,
+};
+type Mileage = {
+  averageMileage: number,
+  highestMileageCar: Car,
+  lowestMileageCar: Car,
+  totalMileage: number,
+};
+
+export function analyzeCarMileage(cars: Car[]): Mileage {
+  const totalMileage = cars.reduce((sum, car) =&gt; sum + car.mileage, 0);
+  const averageMileage = totalMileage / cars.length;
+  const highestMileageCar = cars.reduce(
+    (highest, car) =&gt; (car.mileage &gt; highest.mileage ? car : highest),
+    cars[0]
+  );
+  const lowestMileageCar = cars.reduce(
+    (lowest, car) =&gt; (car.mileage &lt; lowest.mileage ? car : lowest),
+    cars[0]
+  );
+
+  return {
+    averageMileage: parseFloat(averageMileage.toFixed(2)),
+    highestMileageCar,
+    lowestMileageCar,
+    totalMileage,
+  };
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Create a variable <code>totalMileage</code> and initialize it to the result of calling the <code>reduce</code> method on the <code>cars</code> array. The accumulator should be the sum of the accumulator and the car's mileage. The initial value of <code>0</code> will be used as the initial value of the accumulator.</li>
+<li>Create a variable <code>averageMileage</code> and initialize it to the result of dividing <code>totalMileage</code> by the length of the <code>cars</code> array.</li>
+<li>Create a variable <code>highestMileageCar</code> and initialize it to the result of calling the <code>reduce</code> method on the <code>cars</code> array. The accumulator should be the car with the highest mileage. The initial value of <code>cars[0]</code> will be used as the initial value of the accumulator.</li>
+<li>Create a variable <code>lowestMileageCar</code> and initialize it to the result of calling the <code>reduce</code> method on the <code>cars</code> array. The accumulator should be the car with the lowest mileage. The initial value of <code>cars[0]</code> will be used as the initial value of the accumulator.</li>
+<li>Return an object containing the calculated values. Round the <code>averageMileage</code> to 2 decimal places using the <code>toFixed</code> method and convert it to a number using the <code>parseFloat</code> method.</li>
+</ul>
+<p>The <code>reduce</code> method can be a little tough to understand, so let's break it down for the <code>highestMileageCar</code> variable. Here is the code again for reference:</p>
+<pre><code class="language-js">const highestMileageCar = cars.reduce(
+  (highest, car) =&gt; (car.mileage &gt; highest.mileage ? car : highest),
+  cars[0]
+);
+</code></pre>
+<ol>
+<li><code>reduce</code> takes two main arguments: a function and an initial value. The initial value is set to <code>cars[0]</code>, which is the first car in the list.</li>
+<li>The function takes two parameters: <code>highest</code> and <code>car</code>. <code>highest</code> initially holds the first car, and car is the next car in the list.</li>
+<li>For each car, the function compares the mileage of the current car <code>car.mileage</code> with the mileage of the car that was thought to be the highest so far <code>highest.mileage</code>.</li>
+<li>If the current car's mileage is greater, we replace the value of <code>highest</code> with the current car.</li>
+<li>If the current car's mileage is not greater, we stick with the car we thought was the best so far (highest).</li>
+<li>This process repeats for each car in the list.</li>
+</ol>
+<p>Whatever we return from the callback for the <code>reduce</code> method will be the new value of the accumulator.</p>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

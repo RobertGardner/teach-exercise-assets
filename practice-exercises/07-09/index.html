@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Linked List - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Linked List";
+      var mkdocs_page_input_path = "practice-exercises/07-09/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="linked-list">Linked List</h1>
+<p>A <code>linked list</code> is a linear data structure that is made up of a series of nodes. Each node contains a <code>value</code> and a <code>pointer</code>. A pointer can mean a lot of different things in programming, in the case of a linked list, it is a reference to another node in the list.</p>
+<p>The first node in the list is called the <code>head</code>. The last node in the list is called the <code>tail</code>. The tail's pointer will be <code>undefined</code> to indicate that it is the last node in the list. We looked at a queue, which also has a head and a tail, but they serve different purposes. In a queue, the head refers to the front of the queue, where elements are <code>dequeued</code> (removed) from and the tail is where elements are <code>enqueued</code> (added). In a linked list, the head refers to the first node in the list and the tail refers to the last node and its pointer is always <code>undefined</code>. Elements can be added or removed from both the head and the tail.</p>
+<p><img src="../images/linked-list1.png" alt="" width="500" /></p>
+<p>As you can see in this image, we have a linked list with 4 nodes. Each node has a number as the value and a pointer that points to the next node. The last node or the <code>tail</code> has a pointer that is <code>undefined</code>.</p>
+<p>Unlike arrays, linked lists do not store elements in contiguous memory locations. Instead, each node in a linked list contains a pointer to the next node. This can be very efficient in certain ways, such as inserting and deleting data. It just involves changing a few pointers and can have an O(1) time complexity. However, there are also use cases where they're not very efficient.</p>
+<p>Just know that the basic building block of a linked list is the node, which typically contains two parts:</p>
+<ol>
+<li><strong>Data</strong>: It holds the value or payload that represents the information being stored in the linked list.</li>
+<li><strong>Next</strong>: It is a reference to the next node in the sequence. This reference connects one node to the next, forming the link between nodes.</li>
+</ol>
+<h2 id="advantages-of-linked-lists">Advantages of Linked Lists</h2>
+<p>Linked lists offer several advantages and use cases:</p>
+<ul>
+<li><strong>Dynamic Size</strong>: Linked lists can easily grow or shrink in size as elements are added or removed, as they do not require contiguous memory allocation.</li>
+<li><strong>Insertion and Deletion</strong>: Inserting or deleting elements at the beginning or end of a linked list is efficient, as it involves updating the references in the affected nodes.</li>
+<li><strong>Flexible Memory Allocation</strong>: Linked lists can be used when the memory allocation is not known in advance or needs to be managed dynamically.</li>
+<li><strong>Implementation of Other Data Structures</strong>: Linked lists serve as a foundation for implementing other complex data structures, such as stacks, queues, and graphs.</li>
+</ul>
+<h2 id="drawbacks-of-linked-lists">Drawbacks of Linked Lists</h2>
+<ul>
+<li><strong>Sequential Access</strong>: Unlike arrays, linked lists do not offer direct random access to elements. Accessing a specific element requires traversing the list from the beginning until the desired node is reached.</li>
+<li><strong>Additional Memory Overhead</strong>: Linked lists require additional memory to store the references between nodes, which can result in higher memory usage compared to arrays for the same number of elements.</li>
+<li><strong>Reverse Traversal</strong>: While singly linked lists (with references to the next node only) can be traversed in one direction, reverse traversal or accessing the previous node requires a doubly linked list (with references to both the next and previous nodes).</li>
+</ul>
+<p>In the next lesson, we will implement a linked list in TypeScript.</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

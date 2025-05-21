@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Hashtag Generator - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Hashtag Generator";
+      var mkdocs_page_input_path = "practice-exercises/03-06/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-hashtag-generator">Challenge: Hashtag Generator</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>generateHashtag</code> that takes a string as input and returns a hashtag-generated string according to the rules below. If the generated hashtag string is longer than 140 characters or the input/result is an empty string, the function should return <code>undefined</code>.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Generates a hashtag from the input string.
+ * @param {string} str - The input string.
+ * @returns {string|boolean} - The generated hashtag string or undefined.
+ */
+function generateHashtag(str: string): string | boolean;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-JS">generateHashtag(&quot;JavaScript is awesome&quot;); // &quot;#JavaScriptIsAwesome&quot;
+generateHashtag(&quot;hello world&quot;); // &quot;#HelloWorld&quot;
+generateHashtag(&quot;This is a very very very very very very very very very very very very very very long input that should result in a false hashtag because it exceeds the character limit of 140&quot;); // undefined
+generateHashtag(&quot;&quot;); // undefined
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>Return <code>undefined</code> if the input string is empty or contains only whitespace characters.</li>
+<li>Return <code>undefined</code> if the generated hashtag string is longer than 140 characters.</li>
+<li>Every word in the hashtag should start with a capital letter.</li>
+<li>The input string may contain leading/trailing whitespace characters.</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can use the string manipulation methods <code>trim()</code>, <code>split()</code>, and <code>join()</code> to work with the input string.</li>
+<li>You can use the string method <code>charAt()</code> to get the character at a specific index.</li>
+<li>Use string methods to capitalize the first letter of each word.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution 1</summary>
+<pre><code class="language-js">export function generateHashtag(str: string): string | undefined {
+  if (str.trim() === '') {
+    return undefined;
+  }
+  const words = str.trim().split(/\s+/);
+  const capitalizedWords = words.map(
+    (word) =&gt; word.charAt(0).toLocaleUpperCase() + word.slice(1)
+  );
+
+  const hashtag = '#' + capitalizedWords.join('');
+  return hashtag.length &gt; 140 ? undefined : hashtag;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Check if the input string is empty or contains only whitespace characters. If so, return <code>undefined</code>.</li>
+<li>Split the input string into an array of words using the <code>split()</code> method. The <code>split()</code> method accepts a regular expression as an argument. The regular expression <code>/\s+/</code> matches one or more whitespace characters.</li>
+<li>Use the <code>map()</code> method to create a new array of capitalized words. The <code>map()</code> method accepts a callback function as an argument. The callback function is called for each element in the array. The callback function accepts the current element as an argument. The callback function returns the capitalized word.</li>
+<li>Join the capitalized words into a string using the <code>join()</code> method. The <code>join()</code> method accepts a string as an argument. The string is used to join the elements of the array. In this case, we want to join the elements of the array without any characters between them.</li>
+<li>Check if the generated hashtag string is longer than 140 characters. If so, return <code>undefined</code>.</li>
+<li>Return the generated hashtag string.</li>
+</ul>
+</details>
+<details>
+<summary>Click For Solution 2</summary>
+<pre><code class="language-js">export function generateHashtag(str: string): string | undefined {
+  const hashtag = str.split(' ').reduce(function (tag, word) {
+    return tag + word.charAt(0).toLocaleUpperCase() + word.substring(1);
+  }, '#');
+
+  return hashtag.length === 1 || hashtag.length &gt; 140 ? undefined : hashtag;
+}
+</code></pre>
+<h3 id="explanation_1">Explanation</h3>
+<ul>
+<li>Split the input string into an array of words using the <code>split()</code> method.</li>
+<li>Use the <code>reduce()</code> method to create the hashtag string. We are passing the <code>#</code> character as the initial value of the accumulator. Then we are concatenating the accumulator with the capitalized word and then concatenating that with the rest of the word. We do this for each word in the array.</li>
+<li>Check if the generated hashtag string is longer than 140 characters. If so, return <code>undefined</code>.</li>
+<li>Return the generated hashtag string.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

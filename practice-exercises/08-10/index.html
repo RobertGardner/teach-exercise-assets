@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Graph - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Graph";
+      var mkdocs_page_input_path = "practice-exercises/08-10/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="graph">Graph</h1>
+<p>A <code>graph</code> is a versatile data structure that is similar to a tree. It consists of nodes (also called vertices) and edges (also called links). Each node represents an entity, and each edge represents a connection or relationship between two nodes. Graphs are used to represent many real-world applications: social networks, maps, routing algorithms, and more.</p>
+<p>You may hear the phrase "graph theory" in computer science. Graph theory is the study of graphs and their properties. It's a vast field of study with many applications in computer science and other fields.</p>
+<h2 id="visual-representation-of-a-graph">Visual Representation of a Graph</h2>
+<p>Here is a visual representation of a few graphs:</p>
+<p><img src="../images/graph.png"  alt="" /></p>
+<p>The circles represent <code>nodes</code>, also called <code>vertex</code> or <code>vertices</code> (plural) and the lines connecting the nodes represent <code>edges</code>. If you think of a social network, you can think of the users as nodes and the connections or friendships between users as edges.</p>
+<h2 id="types-of-graphs">Types of Graphs</h2>
+<p>Graphs can be categorized into several types based on their properties:</p>
+<ul>
+<li>
+<p><strong>Undirected Graph</strong>: In an undirected graph, the edges have no direction. If there is an edge between node A and node B, it implies a connection between both nodes in both directions. The top one is an undirected graph.</p>
+</li>
+<li>
+<p><strong>Directed Graph (Digraph)</strong>: In a directed graph, each edge has a specific direction. An edge from node A to node B indicates a one-way connection from A to B. The bottom one is a directed graph.</p>
+</li>
+<li>
+<p><strong>Weighted Graph</strong>: In a weighted graph, each edge has a weight or cost associated with it. These weights represent the strength of the relationship or the distance between nodes.</p>
+</li>
+<li>
+<p><strong>Cyclic Graph</strong>: A cyclic graph contains at least one cycle, which means there is a closed path in the graph. (See below for an example.)</p>
+</li>
+<li>
+<p><strong>Acyclic Graph</strong>: An acyclic graph is a graph that does not contain any cycles.</p>
+</li>
+<li>
+<p><strong>Connected Graph</strong>: A connected graph is one where there is a path between any two nodes. In other words, every node in the graph can be reached from any other node.</p>
+</li>
+<li>
+<p><strong>Disconnected Graph</strong>: A disconnected graph is one that consists of two or more separate subgraphs, and there is no path between nodes in different subgraphs.</p>
+</li>
+</ul>
+<h2 id="graph-cycles">Graph cycles</h2>
+<p>A cycle is a closed path in a graph. In other words, a cycle is a path that starts and ends at the same node. Here is an example of a cycle in a graph:</p>
+<p><img src="../images/graph-cycle.png"  alt="" /></p>
+<p>A cycle starts and ends at the same node. In this example, the cycle is <code>b -&gt; c -&gt; e -&gt; d -&gt; b</code>. The cycle can be of any length, and it can contain any number of nodes.</p>
+<p>So that is the gist of a graph. In the next lesson, we will learn about 2 ways to represent a graph and those are an adjacency matrix and adjacency list.</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

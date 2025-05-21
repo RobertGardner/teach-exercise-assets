@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Graph Depth-First Traversal - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Graph Depth-First Traversal";
+      var mkdocs_page_input_path = "practice-exercises/08-14/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-graph-depth-first-traversal">Challenge: Graph Depth-First Traversal</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>depthFirstTraversal</code> that performs a Depth First Traversal of a graph starting from a specified vertex and returns an array containing the vertices visited in the order they were traversed. Use the <code>Graph</code> class as well as the <code>Stack</code> class from the previous lessons.</p>
+<h2 id="function-signature">Function Signature</h2>
+<pre><code class="language-js">/**
+ * Returns an array containing the vertices visited in the order they were traversed.
+ * @param graph The graph to traverse.
+ * @param startingVertex The vertex to start the traversal from.
+ * @returns The vertices visited in the order they were traversed.
+ */
+function depthFirstTraversal(graph: Graph, startingVertex: string): string[];
+</code></pre>
+<h2 id="example">Example</h2>
+<pre><code class="language-js">// Example Graph
+// A --- B
+// |     |
+// |     |
+// C --- D
+// |     |
+// |     |
+// E --- F
+
+const graph = new Graph();
+
+// Add vertices
+graph.addVertex(&quot;A&quot;);
+graph.addVertex(&quot;B&quot;);
+graph.addVertex(&quot;C&quot;);
+graph.addVertex(&quot;D&quot;);
+graph.addVertex(&quot;E&quot;);
+graph.addVertex(&quot;F&quot;);
+
+// Add edges
+graph.addEdge(&quot;A&quot;, &quot;B&quot;);
+graph.addEdge(&quot;A&quot;, &quot;C&quot;);
+graph.addEdge(&quot;B&quot;, &quot;D&quot;);
+graph.addEdge(&quot;C&quot;, &quot;D&quot;);
+graph.addEdge(&quot;C&quot;, &quot;E&quot;);
+graph.addEdge(&quot;D&quot;, &quot;F&quot;);
+graph.addEdge(&quot;E&quot;, &quot;F&quot;);
+
+depthFirstTraversal(g, &quot;A&quot;);
+// ['A', 'C', 'E', 'F', 'D', 'B'];
+</code></pre>
+<h2 id="hints">Hints</h2>
+<ul>
+<li>The <code>Graph</code> class has an <code>adjacencyList</code> property that stores the vertices and their neighbors.</li>
+<li>The <code>Stack</code> class has a <code>push</code> method that adds an element to the top of the stack and a <code>pop</code> method that removes the top element from the stack.</li>
+<li>Use a results array to store the vertices visited in the order they were traversed</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<h4 id="using-an-adjacency-list">Using an adjacency list:</h4>
+<pre><code class="language-js">export function depthFirstTraversal(
+  graph: Graph,
+  startingVertex: string
+): string[] {
+  if (!graph.adjacencyList[startingVertex]) {
+    return [];
+  }
+
+  const visited: Record&lt;string, boolean&gt; = {};
+  const stack = new Stack&lt;string&gt;();
+  const result: string[] = [];
+
+  stack.push(startingVertex);
+
+  visited[startingVertex] = true;
+
+  while (!stack.isEmpty()) {
+    const currentVertex = stack.pop();
+    if (!currentVertex) break;
+    result.push(currentVertex);
+
+    graph.adjacencyList[currentVertex].forEach((neighbor) =&gt; {
+      if (!visited[neighbor]) {
+        visited[neighbor] = true;
+        stack.push(neighbor);
+      }
+    });
+  }
+
+  return result;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Check if the starting vertex exists in the graph's adjacency list. If it doesn't, return an empty array.</li>
+<li>Initialize an empty object called <code>visited</code> to store the vertices visited.</li>
+<li>Initialize a stack with the starting vertex.</li>
+<li>Initialize an empty array called <code>result</code> to store the vertices visited in the order they were traversed.</li>
+<li>Mark the starting vertex as visited.</li>
+<li>While the stack is not empty:</li>
+<li>Pop a vertex from the stack and push it to the <code>result</code> array.</li>
+<li>For each neighbor of the vertex:<ul>
+<li>If the neighbor has not been visited:</li>
+<li>Mark the neighbor as visited.</li>
+<li>Push the neighbor to the stack.</li>
+</ul>
+</li>
+<li>Return the <code>result</code> array.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

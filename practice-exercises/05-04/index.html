@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Linear Time Complexity O(n) - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Linear Time Complexity O(n)";
+      var mkdocs_page_input_path = "practice-exercises/05-04/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="linear-time-complexity-on">Linear Time Complexity <code>O(n)</code></h1>
+<p>We have established that linear time complexity is when the runtime scales linearly with the input. As the input size increases, the runtime of the algorithm also increases in a linear fashion. This behavior is denoted by Big O notation as O(n), where n represents the size of the input.</p>
+<p>Let's look at an example of a linear time O(n) function.</p>
+<pre><code class="language-js">function sumArray(arr: number[]): number {
+  let sum = 0;
+  for (let i = 0; i &lt; arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+</code></pre>
+<p>This function takes in an array and adds the numbers together. For each number in the array, it will run one step. If the array has 2 numbers, it will run 2 steps. If the array has 1 million numbers, it will run 1 million steps, which obviously takes longer.</p>
+<p>Let's try it out.</p>
+<pre><code class="language-js">function sumArray(arr: number[]): number {
+  let sum = 0;
+  for (let i = 0; i &lt; arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+
+const arr1 = [1, 2, 3, 4, 5];
+console.time('Sum Array 1');
+sumArray(arr1);
+console.timeEnd('Sum Array 1');
+
+const arr2 = Array.from({ length: 10000 }, (_, index) =&gt; index + 1);
+
+console.time('Sum Array 2');
+sumArray(arr2);
+console.timeEnd('Sum Array 2');
+</code></pre>
+<p>In <code>Sum Array 1</code>, we have an array with 5 numbers. In <code>Sum Array 2</code>, we have an array with 10,000 numbers. Let's run this code and see how long it takes.</p>
+<p>Your results will be different, but I get the following:</p>
+<pre><code class="language-js">Sum Array 1: 0.039ms
+Sum Array 2: 0.152ms
+</code></pre>
+<p>Let's increase the size of the array in <code>Sum Array 2</code> to 100,000.</p>
+<pre><code class="language-js">const arr2 = Array.from({ length: 100000 }, (_, index) =&gt; index + 1);
+</code></pre>
+<p>Now, run the code again. I get something pretty similar</p>
+<pre><code class="language-js">Sum Array 1: 0.042ms
+Sum Array 2: 1.565ms
+</code></pre>
+<p>Let's add two more zeros and make the array 10 million.</p>
+<p>Now I get this:</p>
+<pre><code class="language-js">Sum Array 1: 0.039ms
+Sum Array 2: 9.09ms
+</code></pre>
+<p>So a huge jump there.</p>
+<p>This is an example of linear time complexity. The runtime scales linearly with the input.</p>
+<p>Most of the challenges that we have done are <code>O(n)</code> because they have to iterate over the input.</p>
+<p>Even something like this:</p>
+<pre><code class="language-js">function reverseString(str: string): string {
+  return str.split('').reverse().join('');
+}
+</code></pre>
+<p>is <code>O(n)</code> because it has to iterate over the string. We did not write a loop, but the <code>split</code>, <code>reverse</code>, and <code>join</code> methods all have to iterate over the string.</p>
+<p>There are other complexities that we will look at later, but for now, we will focus on <code>O(1)</code> and <code>O(n)</code>.</p>
+<h2 id="dice-game-complexity">Dice Game Complexity</h2>
+<p>Remember the dice game that we made? Let's look at the complexity of that. Here is the function:</p>
+<pre><code class="language-js">function diceGameSimulation(): void {
+  const rollDice = () =&gt; Math.floor(Math.random() * 6) + 1;
+
+  const initialSum = rollDice() + rollDice();
+
+  if (initialSum === 7 || initialSum === 11) {
+    return 'Win';
+  } else if (initialSum === 2 || initialSum === 3 || initialSum === 12) {
+    return 'Lose';
+  }
+
+  while (true) {
+    const newSum = rollDice() + rollDice();
+    if (newSum === 7 || newSum === 11) {
+      return 'Win';
+    } else if (newSum === initialSum) {
+      return 'Lose';
+    }
+  }
+}
+</code></pre>
+<p>This function has a few different parts. Let's look at each one.</p>
+<pre><code class="language-js">const rollDice = () =&gt; Math.floor(Math.random() * 6) + 1;
+</code></pre>
+<p>This function is <code>O(1)</code> because it does not depend on the input. It will always run in the same amount of time.</p>
+<pre><code class="language-js">const initialSum = rollDice() + rollDice();
+
+if (initialSum === 7 || initialSum === 11) {
+  return 'Win';
+} else if (initialSum === 2 || initialSum === 3 || initialSum === 12) {
+  return 'Lose';
+}
+</code></pre>
+<p>This part is also <code>O(1)</code> because it does not depend on the input. It will always run in the same amount of time.</p>
+<pre><code class="language-js">while (true) {
+  const newSum = rollDice() + rollDice();
+  if (newSum === 7 || newSum === 11) {
+    return 'Win';
+  } else if (newSum === initialSum) {
+    return 'Lose';
+  }
+}
+</code></pre>
+<p>This part is <code>O(n)</code> because it depends on the input. The more times the loop runs, the longer it will take.</p>
+<p>So the overall complexity of the function is <code>O(n)</code> because the <code>O(1)</code> parts are insignificant compared to the <code>O(n)</code> part.</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

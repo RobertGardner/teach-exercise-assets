@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Doubly Linked List - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Doubly Linked List";
+      var mkdocs_page_input_path = "practice-exercises/07-14/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="doubly-linked-list">Doubly Linked List</h1>
+<p>So we've talked about a linked list and what we have been dealing with is the most common type of linked list and that is a <code>singly linked list</code>. Where each node points to the next. There are other types of linked lists as well such as the <code>doubly linked list</code>. This lesson will introduce you to the concept of a doubly linked list.</p>
+<p>Like a linked list, a <code>doubly linked list</code> is a linear data structure made up of a sequence of nodes, but in a doubly linked list, each node contains two pointers: one to the next node and one to the previous node in the sequence. This bidirectional linking allows for more flexibility in traversal and manipulation of the list.</p>
+<h2 id="structure-of-a-doubly-linked-list">Structure of a Doubly Linked List</h2>
+<p>Each node in a doubly linked list contains three parts:</p>
+<ol>
+<li><strong>Previous</strong>: A pointer to the previous node in the sequence, enabling traversal in reverse order.</li>
+<li><strong>Data</strong>: It holds the value or payload representing the information stored in the node.</li>
+<li><strong>Next</strong>: A pointer to the next node in the sequence, facilitating forward traversal.</li>
+</ol>
+<p>The first node in the list is the <code>head</code>, and the last node is the <code>tail</code>. Both the <code>head</code> and <code>tail</code> pointers can be used to efficiently access the beginning and end of the list.</p>
+<p><img src="../images/doubly-linked-list.png" alt="" width="500" /></p>
+<p>This image depicts a doubly linked list with four nodes. Each node has pointers to the previous and next nodes. The <code>head</code> node's <code>prev</code> pointer is <code>undefined</code> because there is no previous node. Similarly, the <code>tail</code> node's <code>next</code> pointer is <code>undefined</code>.</p>
+<h2 id="advantages-of-doubly-linked-lists">Advantages of Doubly Linked Lists</h2>
+<p>Doubly linked lists offer several advantages, building upon the features of a singly linked list:</p>
+<ul>
+<li><strong>Bidirectional Traversal</strong>: Doubly linked lists allow traversing in both forward and reverse directions efficiently, as each node has pointers to both the next and previous nodes.</li>
+<li><strong>Efficient Insertion and Deletion</strong>: Insertion or deletion of nodes at the beginning, end, or middle of the list can be more efficient than with singly linked lists, as both the previous and next pointers need to be updated.</li>
+<li><strong>Reverse Traversal</strong>: Accessing nodes in reverse order becomes possible without the need to reconstruct the list.</li>
+</ul>
+<h2 id="drawbacks-of-doubly-linked-lists">Drawbacks of Doubly Linked Lists</h2>
+<ul>
+<li><strong>Memory Overhead</strong>: Each node in a doubly linked list requires extra memory to store two pointers instead of one. This can lead to increased memory consumption compared to both arrays and singly linked lists.</li>
+<li><strong>Code Complexity</strong>: The bidirectional pointers increase the complexity of implementation and maintenance compared to singly linked lists. When inserting or deleting a node in a doubly linked list, you need to update both the previous and next pointers of the affected nodes. This is necessary to maintain the integrity of the list.</li>
+</ul>
+<p>In the next lesson, we will implement a doubly linked list in TypeScript and explore how its features can be utilized.</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

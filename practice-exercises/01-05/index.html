@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Find Max Number - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Find Max Number";
+      var mkdocs_page_input_path = "practice-exercises/01-05/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-find-max-number">Challenge: Find Max Number</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>findMaxNumber</code> that takes in an array of numbers and returns the largest number in the array.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns the largest number in an array.
+ * @param arr The array of numbers.
+ * @returns The largest number in the array.
+ */
+function findMaxNumber(arr: number[]): number;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">findMaxNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]); // 10
+findMaxNumber([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]); // 10
+findMaxNumber([1, 2, 3, 4, 5, 10, 9, 8, 7, 6]); // 10
+</code></pre>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>There is a very easy way to do this using a specific built-in method. You should not do it that way. Solve this problem using a <code>for</code> loop.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution 1</summary>
+<p>Here is a solution using a <code>for</code> loop.</p>
+<pre><code class="language-js">export function findMaxNumber(arr: number[]): number {
+  let max = arr[0];
+
+  for (let i = 1; i &lt; arr.length; i++) {
+    if (arr[i] &gt; max) {
+      max = arr[i];
+    }
+  }
+
+  return max;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Create a variable called <code>max</code> and setting it equal to the first element in the array.</li>
+<li>Loop through the array starting at the second element.</li>
+<li>Check if the current element is greater than the current value of <code>max</code>. If it is, we set <code>max</code> equal to the current element.</li>
+<li>Return <code>max</code> after the loop is finished.</li>
+</ul>
+</details>
+<details>
+<summary>Click For Solution 2</summary>
+<p>This is the easy way to do it. There is a method called <code>Math.max()</code> that will return the largest number in an array. This is not a good solution for practicing, but it is good to know that this method exists.</p>
+<pre><code class="language-js">export function findMaxNumber(arr: number[]): number {
+  return Math.max(...arr);
+}
+</code></pre>
+<h3 id="explanation_1">Explanation</h3>
+<p>There is not too much explanation needed here.</p>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

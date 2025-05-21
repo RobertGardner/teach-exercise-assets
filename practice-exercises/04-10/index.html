@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Permutations - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Permutations";
+      var mkdocs_page_input_path = "practice-exercises/04-10/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-permutations">Challenge: Permutations</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>permutations</code> that takes in a string as a parameter and returns an array of all possible permutations of the characters in the string.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns all possible permutations of the characters in a string.
+ * @param str The string to permute.
+ * @returns An array of all possible permutations of the characters in the string.
+ */
+function permutations(str: string): string[];
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">permutations(&quot;abc&quot;); // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+permutations(&quot;dog&quot;); // ['dog', 'dgo', 'odg', 'ogd', 'gdo', 'god']
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input string will only contain lowercase letters</li>
+<li>The input string will not contain any duplicate characters</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Think about how you can break down the problem of generating permutations using recursion.</li>
+<li>Consider what the base case for your recursion should be.</li>
+<li>You can use the <code>slice</code> method to remove a character from a string.</li>
+<li>You can use a for-loop to iterate over the characters in the string and another for-loop to iterate over the sub-permutations.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function permutations(str: string): string[] {
+  const result = [];
+
+  if (str.length === 0) {
+    result.push('');
+    return result;
+  }
+
+  for (let i = 0; i &lt; str.length; i++) {
+    const firstChar = str[i];
+    const restOfString = str.slice(0, i) + str.slice(i + 1);
+    const subPermutations = permutations(restOfString);
+
+    for (let j = 0; j &lt; subPermutations.length; j++) {
+      result.push(firstChar + subPermutations[j]);
+    }
+  }
+  return result;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Initialize an empty array result to store the permutations.</li>
+<li>The base case is checked at the beginning. If the input string <code>str</code> is empty (length is 0), it means there are no characters to permute. In this case, an empty string is added to the result array, representing the only permutation for an empty string. The function then returns the result array.</li>
+<li>If the input string is not empty, the function proceeds to generate permutations using recursion and a loop.</li>
+<li>The outer loop iterates through each character of the input string str.</li>
+<li>Inside the loop, it extracts the current character (<code>firstChar</code>) from the input string.</li>
+<li>Create the <code>restOfString</code> by removing the current character from the input string. This <code>restOfString</code> will be used for generating permutations of the remaining characters.</li>
+<li>The function recursively calls itself with the <code>restOfString</code> to get all possible permutations of the remaining characters.</li>
+<li>The inner loop iterates through each permutation obtained from the recursive call (<code>subPermutations</code>).</li>
+<li>In the inner loop, the function appends the current character <code>firstChar</code> to each permutation obtained from the recursive call. This creates new permutations by inserting the current character in different positions.</li>
+<li>The new permutations are added to the result array.</li>
+<li>After the outer loop finishes, the function has generated all possible permutations of the input string.</li>
+<li>Finally, the result array containing all permutations is returned as the output of the function.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

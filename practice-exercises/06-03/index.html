@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Maps - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Maps";
+      var mkdocs_page_input_path = "practice-exercises/06-03/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="maps">Maps</h1>
+<p>Maps were added as a data structure to JavaScript in the <code>ES2015</code> update. In JavaScript, a <code>map</code> is a collection of key-value pairs. Maps are also known as dictionaries, hashmaps, and associative arrays in other programming languages. Maps are used to store data in a way that uniquely identifies each element in the collection. This is done by using a key, which is a unique identifier for a single element in the collection. The key is used to retrieve the associated value.</p>
+<h2 id="maps-vs-objects">Maps vs Objects</h2>
+<p>Maps are similar to objects in that both let you associate a value with a key, retrieve those values, delete keys, and detect whether something is stored at a key. Objects are used more because they have been around longer, but maps are preferred in certain cases. The biggest difference between maps and objects is that maps allow keys of any type, while objects only allow strings, numbers, and symbols as keys. This means that maps can use functions, objects, and any primitive type as a key.</p>
+<p>Maps can also have better performance in scenarios involving frequent additions and removals of key-value pairs. On the other hand, objects have better performance for the case of looking up key-value pairs.</p>
+<h2 id="creating-a-map">Creating a Map</h2>
+<p>To create a map, we use the <code>new</code> keyword and the <code>Map()</code> constructor. Let's create a map called <code>nameMap</code>:</p>
+<pre><code class="language-js">const nameMap = new Map();
+</code></pre>
+<p>We can also pass an array of arrays to the <code>Map()</code> constructor. The first element in each sub-array will be the key, and the second element will be the value. We can create a map with some key-value pairs like this:</p>
+<pre><code class="language-js">const nameMap = new Map([
+  [1, 'John'],
+  [2, 'Jane'],
+  [3, 'Joe'],
+]);
+</code></pre>
+<p>Let's log the map:</p>
+<pre><code class="language-js">console.log(nameMap);
+</code></pre>
+<p>We can see that the map has three key-value pairs. The keys are the numbers 1, 2, and 3, and the values are the strings 'John', 'Jane', and 'Joe'. Notice that this example uses numbers as keys. We can use any type of data as a key, including objects and functions. Let's create a map with some different types of keys:</p>
+<pre><code class="language-js">const myFunction = (): void =&gt; {};
+const emptyObj = {};
+
+const map2 = new Map([
+  ['name', 'John'],
+  [1, 'number one'],
+  [true, 'really true'],
+  [null, 'null'],
+  [myFunction, 'some function'],
+  [emptyObj, 'empty object'],
+]);
+</code></pre>
+<h2 id="retrieving-data">Retrieving Data</h2>
+<p>To retrieve data from a map, we use the <code>get()</code> method. Let's retrieve the value associated with the key <code>1</code> from the <code>nameMap</code> map:</p>
+<pre><code class="language-js">console.log(nameMap.get(1)); // John
+</code></pre>
+<p>Let's get the function and the object values from the <code>map2</code> map:</p>
+<pre><code class="language-js">console.log(map2.get(myFunction));
+console.log(map2.get(emptyObj));
+</code></pre>
+<h2 id="setting-data">Setting Data</h2>
+<p>To set data in a map, we use the <code>set()</code> method. Let's set some new key-value pairs in the <code>nameMap</code> map:</p>
+<pre><code class="language-js">nameMap.set(4, 'Jack');
+nameMap.set(5, 'Jill');
+</code></pre>
+<p>Let's log the map:</p>
+<pre><code class="language-js">console.log(nameMap); // Map(5) { 1 =&gt; 'John', 2 =&gt; 'Jane', 3 =&gt; 'Joe', 4 =&gt; 'Jack', 5 =&gt; 'Jill' }
+</code></pre>
+<h2 id="checking-if-a-key-exists">Checking if a Key Exists</h2>
+<p>To check if a key exists in a map, we use the <code>has()</code> method. Let's check if the key <code>1</code> exists in the <code>nameMap</code> map:</p>
+<pre><code class="language-js">console.log(nameMap.has(1)); // true
+console.log(nameMap.has(6)); // false
+</code></pre>
+<h2 id="deleting-data">Deleting Data</h2>
+<p>To delete data from a map, we use the <code>delete()</code> method. Let's delete the key-value pair with the key <code>1</code> from the <code>nameMap</code> map:</p>
+<pre><code class="language-js">nameMap.delete(1);
+console.log(nameMap.has(1)); // false
+</code></pre>
+<h2 id="getting-the-size-of-a-map">Getting the Size of a Map</h2>
+<p>To get the size of a map, we use the <code>size</code> property. Let's log the size of the <code>nameMap</code> map:</p>
+<pre><code class="language-js">console.log(nameMap.size); // 4
+</code></pre>
+<h2 id="iterating-through-a-map">Iterating Through a Map</h2>
+<p>To iterate/loop through a map, we can use the <code>for...of</code> loop. Let's loop through the <code>nameMap</code> map and log each key-value pair:</p>
+<pre><code class="language-js">for (const [key, value] of nameMap) {
+  console.log(key, value);
+}
+</code></pre>
+<p>You can also use the <code>forEach()</code> method to loop through a map. Let's log each key-value pair using the <code>forEach()</code> method:</p>
+<pre><code class="language-js">nameMap.forEach((value, key) =&gt; {
+  console.log(key, value);
+});
+</code></pre>
+<p>You can also get all of the keys or values from a map using the <code>keys()</code> and <code>values()</code> methods. Let's log all of the keys and values from the <code>nameMap</code> map:</p>
+<pre><code class="language-js">console.log(nameMap.keys()); // MapIterator { 2, 3, 4, 5 }
+console.log(nameMap.values()); // MapIterator { 'Jane', 'Joe', 'Jack', 'Jill' }
+</code></pre>
+<h2 id="clearing-a-map">Clearing a Map</h2>
+<p>To clear a map, we use the <code>clear()</code> method. Let's clear the <code>nameMap</code> map:</p>
+<pre><code class="language-js">nameMap.clear();
+console.log(nameMap.size);
+</code></pre>
+<p>Now let's try some exercises!</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

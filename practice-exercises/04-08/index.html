@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Number Range Using Recursion - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Number Range Using Recursion";
+      var mkdocs_page_input_path = "practice-exercises/04-08/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-number-range-using-recursion">Challenge: Number Range Using Recursion</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>numberRange</code> that takes in a <code>startNum</code> and an <code>endNum</code> and returns an array of numbers from <code>startNum</code> to <code>endNum</code>, inclusive. Be sure to use recursion in your solution.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns an array of numbers from startNum to endNum, inclusive.
+ * @param startNum The starting number.
+ * @param endNum The ending number.
+ * @returns An array of numbers.
+ */
+function numberRange(startNum: number, endNum: number): number[];
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">numberRange(1, 5); // should return [1, 2, 3, 4, 5]
+numberRange(3, 10); // should return [3, 4, 5, 6, 7, 8, 9, 10]
+numberRange(7, 7); // should return [7] (only one number)
+</code></pre>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can construct the array by first calling <code>numberRange</code> on a smaller range and then adding the <code>endNum</code> to the array.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function numberRange(startNum: number, endNum: number): number[] {
+  if (startNum === endNum) {
+    return [startNum];
+  }
+
+  const numbers = numberRange(startNum, endNum - 1);
+  numbers.push(endNum);
+  return numbers;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>We first add our base case and check if the <code>startNum</code> is equal to the <code>endNum</code>. If so, we return the <code>startNum</code> in an array.</li>
+<li>For the recursive case, we set the variable <code>numbers</code> to the function with the startNum and one less than the <code>endNum</code>.</li>
+<li>Then we add the <code>endNum</code> to the <code>numbers</code> array and return it.</li>
+</ul>
+<p>That is the gist of it, but let's go step by step for <code>numberRange(1, 5)</code></p>
+<p>Step 1: Since <code>startNum(1)</code> is not equal to <code>endNum(5)</code>, we move to the recursive block.</p>
+<p>Step 2: We make a recursive call to <code>numberRange(1, 4)</code>, which will further call <code>numberRange(1, 3)</code> and so on, until we reach the base case.</p>
+<p>Step 3: The base case is reached when <code>startNum(1)</code> becomes equal to <code>endNum(1)</code>. At this point, the function returns an array containing just the number 1.</p>
+<p>Step 4: The unwinding begins. The result of <code>numberRange(1, 2)</code> is now an array <code>[1, 2]</code>. Then, the result of <code>numberRange(1, 3)</code> is <code>[1, 2, 3]</code>, and so on, until we finally get the result of <code>numberRange(1, 5)</code> as <code>[1, 2, 3, 4, 5]</code>.</p>
+<p>The function follows the same recursive process to build the array of numbers, starting with the base case and adding numbers one by one as it unwinds the recursive calls.</p>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

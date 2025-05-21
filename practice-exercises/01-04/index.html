@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Count Occurrences - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Count Occurrences";
+      var mkdocs_page_input_path = "practice-exercises/01-04/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-count-occurrences">Challenge: Count Occurrences</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>countOccurrences()</code> that takes in a string and a character and returns the number of occurrences of that character in the string.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns the number of occurrences of a character in a string.
+ * @param str The string to search.
+ * @param char The character to search for.
+ * @returns The number of occurrences of the character in the string.
+ */
+function countOccurrences(str: string, char: string): number;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">countOccurrences(&quot;hello&quot;, &quot;l&quot;); // 2
+countOccurrences(&quot;hello&quot;, &quot;z&quot;); // 0
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>Lowercase and uppercase characters are considered different characters. If you want, you can make the function case insensitive (and add a test to check it).</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can loop through a string just like you can loop through an array.</li>
+<li>You can use the <code>++</code> operator to increment a variable.</li>
+<li>You could take another approach and use the <code>split()</code> method to split the string into an array of substrings based on the given character.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution 1</summary>
+<pre><code class="language-js">export function countOccurrences(str: string, char: string): number {
+  let count = 0;
+
+  for (let i = 0; i &lt; str.length; i++) {
+    if (str[i] === char) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+// Case insensitive version
+// function countOccurrences(str: string, char: string): number {
+//   const lowerStr = str.toLocaleLowerCase();
+//   const lowerChar = char.toLocaleLowerCase();
+
+//   let count = 0;
+
+//   for (let i = 0; i &lt; lowerStr.length; i++) {
+//     if (lowerStr[i] === lowerChar) {
+//       count++;
+//     }
+//   }
+
+//   return count;
+// }
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>
+<p>Initialize a <code>count</code> variable to 0.</p>
+</li>
+<li>
+<p>Iterate through the string and check if the current character is equal to the character we're looking for. If it is, we increment the <code>count</code> variable.</p>
+</li>
+<li>
+<p>After the loop, we return the <code>count</code> variable.</p>
+</li>
+<li>
+<p>To make the function case insensitive, we can convert the string and character to lowercase before looping through the string.</p>
+</li>
+</ul>
+</details>
+<details>
+<summary>Click For Solution 2</summary>
+<pre><code class="language-JavaScript">export function countOccurrences(str: string, char: string): number {
+  return str.split(char).length - 1;
+}
+</code></pre>
+<h3 id="explanation_1">Explanation</h3>
+<ul>
+<li>
+<p>Utilize the split method of the string to split it into an array of substrings based on the given character.</p>
+</li>
+<li>
+<p>Since splitting the string removes the character, the resulting array will have one less element than the number of occurrences of the character. Therefore, we can simply subtract 1 from the length of the array to get the count of occurrences.</p>
+</li>
+</ul>
+<p>This solution may be prettier, but it actually is not as efficient as the loop. The for-loop solution directly counts the occurrences while iterating through the string, whereas the split solution involves splitting the string into an array and performing additional operations. The difference is negligible, but it is still good to be aware of.</p>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

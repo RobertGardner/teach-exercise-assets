@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Find The Missing Number - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Find The Missing Number";
+      var mkdocs_page_input_path = "practice-exercises/02-04/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-find-the-missing-number">Challenge: Find The Missing Number</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>findMissingNumber</code> that takes in an array of unique numbers from 1 to n (inclusive), where one number is missing. It should return the missing number.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns the missing number in an array of unique numbers from 1 to n (inclusive).
+ * @param arr The array of numbers.
+ * @returns The missing number or undefined if none is missing.
+ */
+function findMissingNumber(arr: number[]): number | undefined;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">findMissingNumber([1, 2, 3, 4, 6, 7, 8, 9, 10]); // 5
+findMissingNumber([10, 8, 6, 7, 5, 4, 2, 3, 1]); // 9
+findMissingNumber([10, 5, 1, 2, 4, 6, 8, 3, 9]); // 7
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>If an empty array is passed in, it should return <code>1</code></li>
+<li>If nothing is passed in, it should return <code>undefined</code></li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Calculate the sum of the numbers from 1 to n (inclusive). The formula for this is <code>n * (n + 1) / 2</code>, where <code>n</code> is the length of the array plus 1.</li>
+<li>Calculate the sum of the numbers in the array.</li>
+<li>Subtract the sum of the numbers in the array from the sum of the numbers from 1 to n (inclusive). The difference is the missing number.</li>
+<li>You could use a for loop or the reduce method to calculate the sum of the numbers in the array. We will be focusing on methods like reduce in the next section, but both solutions are included here.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function findMissingNumber(arr: number[]): number | undefined {
+  if (!arr || arr.length === 0) {
+    return undefined;
+  }
+
+  const n = arr.length + 1;
+  const expectedSum = (n * (n + 1)) / 2;
+
+  let actualSum = 0;
+  for (let i = 0; i &lt; arr.length; i++) {
+    actualSum += arr[i];
+  }
+
+  return expectedSum - actualSum;
+}
+
+// Using reduce
+export function findMissingNumber(arr: number[]): number | undefined {
+  if (!arr || arr.length === 0) {
+    return undefined;
+  }
+
+  const n = arr.length + 1;
+  const expectedSum = (n * (n + 1)) / 2;
+
+  const actualSum = arr.reduce((sum, num) =&gt; sum + num, 0);
+
+  return expectedSum - actualSum;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<p>The <code>findMissingNumber</code> function takes in an array of unique numbers from 1 to n (inclusive), where one number is missing, and returns the missing number.</p>
+<p>We first calculate the sum of the numbers from 1 to n (inclusive) using the formula <code>n * (n + 1) / 2</code>. This is called the gauss formula. We store this value in a variable called <code>expectedSum</code>.</p>
+<p>To be more clear, let's look at an example. If we have an array of numbers from 1 to 10, the sum of those numbers is 55. We can calculate this using the gauss formula. <code>10 * (10 + 1) / 2 = 55</code>. We can also calculate this using a for loop or the reduce method.</p>
+<p>Next, we calculate the sum of the numbers in the array. We store this value in a variable called <code>actualSum</code>.</p>
+<p>We then return the difference between the expected sum and the actual sum. This will be the missing number.</p>
+<p>Again, you can use a for loop or the reduce method to calculate the sum of the numbers in the array.</p>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Logarithmic Time Complexity O(log n) - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Logarithmic Time Complexity O(log n)";
+      var mkdocs_page_input_path = "practice-exercises/05-06/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="logarithmic-time-complexity-olog-n">Logarithmic Time Complexity <code>O(log n)</code></h1>
+<p>Logarithmic time complexity is when the runtime grows logarithmically with the input size. As the input size increases, the runtime of the algorithm increases, but at a much slower rate compared to linear or quadratic time complexities. In a logarithmic time algorithm, the number of operations scales logarithmically with the input size.</p>
+<p>Logarithmic time complexity is denoted by Big O notation as O(log n) or "O of log n", where n represents the size of the input.</p>
+<h2 id="example-logarithmic-time-complexity-function">Example: Logarithmic Time Complexity Function</h2>
+<p>Consider a function called <code>findPower</code> that calculates the power of a number using recursion. The function takes two parameters:</p>
+<ul>
+<li><code>base</code> - the base number.</li>
+<li><code>exponent</code> - the exponent to which the base is raised.</li>
+</ul>
+<p>We will be using recursion in this example, which we learned about in the last section.</p>
+<pre><code class="language-js">function findPower(base: number, exponent: number): number {
+  if (exponent === 0) {
+    return 1;
+  }
+
+  if (exponent % 2 === 0) {
+    const halfPower = findPower(base, exponent / 2);
+    return halfPower * halfPower;
+  } else {
+    const halfPower = findPower(base, (exponent - 1) / 2);
+    return base * halfPower * halfPower;
+  }
+}
+</code></pre>
+<p>In the <code>findPower</code> function, we use recursion to efficiently calculate the power of a number. The function exploits the property that any number raised to an even exponent can be split into two halves, and the result is the square of the number raised to half the exponent. For odd exponents, the function reduces the exponent by 1 and repeats the process.</p>
+<h2 id="efficiency-and-best-use-cases">Efficiency and Best Use Cases</h2>
+<p>Logarithmic time complexity is highly efficient and desirable for large datasets or problems that can be divided into smaller sub-problems. It is often encountered in algorithms that utilize divide-and-conquer strategies or binary search, which we will talk about soon when we get to data structures and algorithms.</p>
+<p>In the example of <code>findPower</code>, the algorithm efficiently computes the power of a number by reducing the number of multiplications required, making it ideal for calculations with large exponents.</p>
+<h2 id="testing-the-runtime">Testing the Runtime</h2>
+<p>Testing the runtime of logarithmic time algorithms can be done with larger input sizes and observing the relatively slow growth of runtime compared to linear or quadratic algorithms. However, keep in mind that logarithmic time algorithms are already highly efficient, and the difference in runtime for moderately large input sizes may not be significant.</p>
+<p>Try running this code:</p>
+<pre><code class="language-js">console.time('Find Power 1');
+findPower(2, 100);
+console.timeEnd('Find Power 1');
+
+console.time('Find Power 2');
+findPower(2, 1000000000);
+console.timeEnd('Find Power 2');
+</code></pre>
+<p>The result that I got is:</p>
+<pre><code class="language-sh">Find Power 1: 0.048ms
+Find Power 2: 0.005ms
+</code></pre>
+<p>The runtime for <code>findPower</code> with an exponent of 1 billion is slightly faster than the runtime for an exponent of 100. This is because the algorithm is already highly efficient, and the difference in runtime is not significant. Remember, there are many other factors that can affect the runtime of an algorithm, such as the hardware and software environment.</p> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

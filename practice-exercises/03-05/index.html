@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Valid Anagrams - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Valid Anagrams";
+      var mkdocs_page_input_path = "practice-exercises/03-05/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-valid-anagrams">Challenge: Valid Anagrams</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>validAnagrams</code> that takes in two strings and determines whether they are valid anagrams of each other. An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Determines whether two strings are valid anagrams.
+ * @param str1 The first string.
+ * @param str2 The second string.
+ * @returns True if the strings are valid anagrams, false otherwise.
+ */
+function validAnagrams(str1: string, str2: string): boolean;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">validAnagrams(&quot;listen&quot;, &quot;silent&quot;); // true
+validAnagrams(&quot;hello&quot;, &quot;world&quot;); // false
+validAnagrams(&quot;astronomer&quot;, &quot;moonstarer&quot;); // true
+</code></pre>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Split the strings into arrays of characters, then reduce each array into an object of character frequencies for the strings</li>
+<li>Compare the frequencies</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function validAnagrams(str1: string, str2: string): boolean {
+  const freqCount1 = str1.split('').reduce((acc, char) =&gt; {
+    acc[char] = (acc[char] || 0) + 1;
+    return acc;
+  }, {} as Record&lt;string, number&gt;);
+
+  const freqCount2 = str2.split('').reduce((acc, char) =&gt; {
+    acc[char] = (acc[char] || 0) + 1;
+    return acc;
+  }, {} as Record&lt;string, number&gt;);
+
+  return (
+    Object.keys(freqCount1).every(
+      (char) =&gt; freqCount1[char] === freqCount2[char]
+    ) &amp;&amp;
+    Object.keys(freqCount2).every(
+      (char) =&gt; freqCount1[char] === freqCount2[char]
+    )
+  );
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Create a variable <code>freqCount1</code> and assign it to the result of calling <code>reduce</code> on <code>str1.split('')</code>. This will create an object that contains the frequency count of each character in <code>str1</code>. For example, <code>validAnagrams('listen', 'silent')</code> will return <code>{ l: 1, i: 1, s: 1, t: 1, e: 1, n: 1 }</code> for <code>freqCount1</code>.</li>
+<li>Do the same for <code>freqCount2</code> and assign it to the result of calling <code>reduce</code> on <code>str2.split('')</code>. This will create an object that contains the frequency count of each character in <code>str2</code>.</li>
+<li>Use <code>Object.keys</code> and <code>every</code> to check if every character in <code>freqCount1</code> has the same frequency count in <code>freqCount2</code>. If all of the frequency counts are equal, <code>every</code> will return <code>true</code>. If any of the frequency counts are not equal, <code>every</code> will return <code>false</code> and we will know that the strings are not valid anagrams.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

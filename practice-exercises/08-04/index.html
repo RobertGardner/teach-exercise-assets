@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Recursive Depth First Traversal - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Recursive Depth First Traversal";
+      var mkdocs_page_input_path = "practice-exercises/08-04/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-recursive-depth-first-traversal">Challenge: Recursive Depth First Traversal</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>recDepthFirstTraversal</code> that takes the root node of a binary tree as input and returns an array containing the nodes visited in depth-first order. You can use the last lesson as a reference, but you must use recursion to solve this problem.</p>
+<p>Depth-first traversal is an algorithm that starts at the root node and explores as far as possible along each branch before backtracking. The nodes are visited in the order they are encountered during the traversal.</p>
+<p>The <code>Node</code> class is provided for you:</p>
+<pre><code class="language-js">export class Node&lt;T&gt; {
+  data: T;
+  left: Node&lt;T&gt; | undefined = undefined;
+  right: Node&lt;T&gt; | undefined = undefined;
+
+  constructor(data: T) {
+    this.data = data;
+  }
+}
+</code></pre>
+<p>You can assume that the binary tree is not empty.</p>
+<h3 id="example">Example</h3>
+<pre><code class="language-js">const root = new Node(&quot;a&quot;);
+root.left = new Node(&quot;b&quot;);
+root.right = new Node(&quot;c&quot;);
+root.left.left = new Node(&quot;d&quot;);
+root.left.right = new Node(&quot;e&quot;);
+root.right.left = new Node(&quot;f&quot;);
+
+depthFirstTraversal(root); // should return ['a', 'b', 'd', 'e', 'c', 'f']
+</code></pre>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>You can implement the depth-first traversal recursively using a helper function that is called on the left and right subtrees of the current node.</li>
+<li>The base case is when the node is <code>undefined</code>, in which case we simply return from the function.</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export class Node&lt;T&gt; {
+  data: T;
+  left: Node&lt;T&gt; | undefined = undefined;
+  right: Node&lt;T&gt; | undefined = undefined;
+
+  constructor(data: T) {
+    this.data = data;
+  }
+}
+
+export function recDepthFirstTraversal&lt;T&gt;(root: Node&lt;T&gt;): T[] {
+  const result: T[] = [];
+
+  function traverse(node: Node&lt;T&gt; | undefined): void {
+    if (node !== undefined) {
+      result.push(node.data);
+      traverse(node.left);
+      traverse(node.right);
+    }
+  }
+
+  traverse(root);
+  return result;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Initialize an empty array called <code>result</code> to store the nodes visited in depth-first order.</li>
+<li>Define a helper function called <code>traverse</code> that takes in a node as input.</li>
+<li>If the node is not <code>undefined</code>, push the node's data to the <code>result</code> array.</li>
+<li>Call <code>traverse</code> on the left subtree of the current node.</li>
+<li>Call <code>traverse</code> on the right subtree of the current node.</li>
+<li>Call <code>traverse</code> on the root node to start the traversal.</li>
+<li>Return the <code>result</code> array.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

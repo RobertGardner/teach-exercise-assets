@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Is Palindrome Using Queue and Stack - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Is Palindrome Using Queue and Stack";
+      var mkdocs_page_input_path = "practice-exercises/07-08/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-is-palindrome-using-queue-and-stack">Challenge: Is Palindrome Using Queue and Stack</h1>
+<h2 id="instructions">Instructions</h2>
+<p>We are going to revisit the Palindrome challenge, but we are going to use BOTH the <code>Queue</code> and <code>Stack</code> data structures to solve it.</p>
+<p>Create a function called <code>isPalindromeQueueStack</code> that takes in a string and checks if it is a palindrome.</p>
+<p>The function should return <code>true</code> if the string is a palindrome, and <code>false</code> if it is not. Again, use the <code>Queue</code> and <code>Stack</code> data structures to solve this problem. If you don't get it on your own, that's fine. This is a tough one. Just make sure you understand the solution.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Checks if a string is a palindrome.
+ * @param str The string to check.
+ * @returns True if the string is a palindrome, false if it is not.
+ */
+function isPalindromeQueueStack(str: string): boolean;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">isPalindromeQueueStack(&quot;racecar&quot;); // true
+isPalindromeQueueStack(&quot;hello&quot;); // false
+isPalindromeQueueStack(&quot;A man, a plan, a canal: Panama&quot;); // true
+</code></pre>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>Remove all non-alphanumeric characters from the string</li>
+<li>Enqueue and push the characters of the string into the queue and stack respectively</li>
+<li>Dequeue and pop the characters from the queue and stack respectively</li>
+<li>Compare the characters from the queue and stack</li>
+</ul>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution</summary>
+<pre><code class="language-js">export function isPalindromeQueueStack(str: string): boolean {
+  const formattedStr = str.replace(/[^a-zA-Z0-9]/g, '').toLocaleLowerCase();
+
+  const charQueue = new Queue();
+  const charStack = new Stack();
+
+  for (let i = 0; i &lt; formattedStr.length; i++) {
+    const char = formattedStr.charAt(i);
+    charQueue.enqueue(char);
+    charStack.push(char);
+  }
+
+  while (!charQueue.isEmpty()) {
+    if (charQueue.dequeue() !== charStack.pop()) {
+      return false;
+    }
+  }
+
+  return true;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Remove all non-alphanumeric characters from the string and convert it to lowercase.</li>
+<li>Create a <code>Queue</code> and a <code>Stack</code> to hold the characters of the string.</li>
+<li>Iterate through the string and enqueue and push each character into the queue and stack respectively.</li>
+<li>Check if the queue is empty. If it is not, dequeue and pop the characters from the queue and stack respectively and compare them. If they are not equal, return <code>false</code>.</li>
+<li>If we make it through the entire string without returning <code>false</code>, return <code>true</code>.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

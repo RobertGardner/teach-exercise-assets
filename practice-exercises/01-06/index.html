@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Title Case - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Title Case";
+      var mkdocs_page_input_path = "practice-exercises/01-06/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-title-case">Challenge: Title Case</h1>
+<h2 id="instructions">Instructions</h2>
+<p>Write a function called <code>titleCase</code> that takes in a string and returns the string with the first letter of each word capitalized.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Returns a string with the first letter of each word capitalized.
+ * @param str The string to capitalize.
+ * @returns The string with the first letter of each word capitalized.
+ */
+function titleCase(str: string): string;
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">titleCase(&quot;I'm a little tea pot&quot;); // I'm A Little Tea Pot
+titleCase(&quot;sHoRt AnD sToUt&quot;); // Short And Stout
+titleCase(&quot;HERE IS MY HANDLE HERE IS MY SPOUT&quot;); // Here Is My Handle Here Is My Spout
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>You may assume that each word consists of only letters and spaces</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<h2 id="solutions">Solutions</h2>
+<details>
+<summary>Click For Solution 1</summary>
+<pre><code class="language-php">export function titleCase(str: string): string {
+  const words = str.toLocaleLowerCase().split(' ');
+
+  for (let i = 0; i &lt; words.length; i++) {
+    words[i] = words[i][0].toLocaleUpperCase() + words[i].slice(1);
+  }
+
+  return words.join(' ');
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Split the string into an array of words and put them all in lowercase.</li>
+<li>Iterate through the array and capitalize the first letter of each word by using the 0 index of the word and concatenating it with the rest of the word.</li>
+<li>Join the array back into a string and return it.</li>
+</ul>
+</details>
+<details>
+<summary>Click For Solution 2</summary>
+<pre><code class="language-js">export function titleCase(str: string): string {
+  return str.replace(/\b\w/g, (match) =&gt; match.toLocaleUpperCase());
+}
+</code></pre>
+<h2 id="explanation_1">Explanation</h2>
+<p>In this example, we are using the replace method to find the first letter of each word and replace it with the uppercase version of itself.</p>
+<p>The regex <code>/\b\w/g</code> matches the first letter of each word.</p>
+<ul>
+<li><code>\b</code> matches the word boundary</li>
+<li><code>\w</code> matches the first letter of each word</li>
+<li>The <code>g</code> flag is used to replace all occurrences of the regex in the string</li>
+</ul>
+<p>The second argument is a callback function that returns the uppercase version of the matched letter.</p>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>

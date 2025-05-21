@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>
+      Challenge: Bubble Sort Implementation - Exercise Assets
+    </title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+    />
+    <link href="../../styles.css" rel="stylesheet" /> 
+    <script>
+      // Current page data
+      var mkdocs_page_name = "Challenge: Bubble Sort Implementation";
+      var mkdocs_page_input_path = "practice-exercises/09-03/index.md";
+      var mkdocs_page_url = null;
+    </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script> 
+  </head>
+  <body class="wy-body-for-nav" role="document">
+    <div class="wy-grid-for-nav">
+      <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+        <header>
+          <div><p>Practice Exercises</p></div>
+        </header>
+        <div class="wy-nav-content">
+          <div class="rst-content">
+            <div
+              role="main"
+              class="document"
+              itemscope="itemscope"
+              itemtype="http://schema.org/Article"
+            >
+              <div class="section" itemprop="articleBody">
+                 <h1 id="challenge-bubble-sort-implementation">Challenge: Bubble Sort Implementation</h1>
+<p>You've learned about a simple sorting algorithm called Bubble Sort. Let's put your knowledge to the test and implement the Bubble Sort algorithm in TypeScript. Obviously if you have never done anything like this and all you have to go on is the last lesson, then you may have an issue doing this on your own. That's fine. You can either try and come back or just follow along. Either way, you will learn something.</p>
+<h2 id="instructions">Instructions</h2>
+<p>Implement a function called <code>bubbleSort</code> that takes an array of numbers as an argument and returns a sorted array using the Bubble Sort algorithm.</p>
+<h3 id="function-signature">Function Signature</h3>
+<pre><code class="language-js">/**
+ * Sorts an array using the Bubble Sort algorithm.
+ * @param array The array to be sorted.
+ * @returns The sorted array.
+ */
+function bubbleSort(array: number[]): number[];
+</code></pre>
+<h3 id="examples">Examples</h3>
+<pre><code class="language-js">console.log(bubbleSort([5, 4, 3, 2, 1])); // Output: [1, 2, 3, 4, 5]
+console.log(bubbleSort([64, 34, 25, 12, 22, 11, 90])); // Output: [11, 12, 22, 25, 34, 64, 90]
+</code></pre>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>The input array can contain any number of elements.</li>
+<li>The elements in the input array are unique and positive integers.</li>
+</ul>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>The Bubble Sort algorithm works by repeatedly stepping through the list of elements, comparing each pair of adjacent items, and swapping them if they are in the wrong order. This process is repeated for each element in the list until no swaps are needed.</li>
+</ul>
+<h3 id="hints">Hints</h3>
+<ul>
+<li>There are a ton of ways to do this, but one is to use 2 loops — one to iterate the array and one to do the swap. You can set the current element as a temp variable, assign the next element to the current and then assign the temp value to the next element</li>
+</ul>
+<h1 id="solutions">Solutions</h1>
+<details>
+<summary>Click For Solution 1</summary>
+<pre><code class="language-js">export function bubbleSort(arr: number[]): number[] {
+  for (let i = 0; i &lt; arr.length; i++) {
+    for (let j = 0; j &lt; arr.length - i - 1; j++) {
+      if (arr[j] &gt; arr[j + 1]) {
+        const temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+}
+</code></pre>
+<h3 id="explanation">Explanation</h3>
+<ul>
+<li>Start a <code>for-loop</code>. The condition of the <code>for-loop</code> is <code>i &lt; arr.length</code>. This will loop through the entire array.</li>
+<li>Inside the <code>for-loop</code>, start another <code>for-loop</code>. The condition of the <code>for-loop</code> is <code>j &lt; arr.length - i - 1</code>. This will loop through the array, but it will stop before the last element. This is because the last element will be sorted after the first pass through the array.</li>
+<li>Inside the inner <code>for-loop</code>, check if the current element is greater than the next element. If it is, then swap the elements.</li>
+<li>We swap the elements by creating a temporary variable called <code>temp</code> and setting it to the current element. Then we set the current element to the next element. Finally, we set the next element to <code>temp</code>.</li>
+<li>Outside of the inner <code>for-loop</code>, return the sorted array.</li>
+</ul>
+<p>To have this make a bit more sense, put this console log inside the inner <code>for-loop</code>:</p>
+<pre><code class="language-js">console.log(arr[j], arr[j + 1]);
+</code></pre>
+<p>Run this code and look at the console.</p>
+<pre><code class="language-js">const array = [5, 4, 2, 1];
+
+const result = bubbleSort(array);
+
+console.log(result);
+</code></pre>
+<p>This will display every comparison that is made. You can see that the largest element will "bubble" to the top of the array. It should look something like this:</p>
+<pre><code class="language-text">5 4
+5 2
+5 1
+4 2
+4 1
+2 1
+</code></pre>
+</details>
+<details>
+<summary>Click For Solution 2</summary>
+<p>This solution is similar, but it uses a <code>while</code> loop instead of a <code>for-loop</code>. It also uses a variable called <code>swapped</code> to keep track of whether or not we have swapped any elements. This variable will be used to determine when we can stop looping.</p>
+<pre><code class="language-js">export function bubbleSort(arr: number[]): number[] {
+  let swapped = false;
+
+  while (!swapped) {
+    swapped = true;
+
+    for (let i = 0; i &lt; arr.length; i++) {
+      if (arr[i] &gt; arr[i + 1]) {
+        const temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        swapped = false;
+      }
+    }
+  }
+
+  return arr;
+}
+</code></pre>
+<h3 id="explanation_1">Explanation</h3>
+<ul>
+<li>Declare a variable called <code>swapped</code> and setting it to <code>false</code>. This variable will keep track of whether or not we have swapped any elements. We will use this variable to determine when we can stop looping.</li>
+<li>Start a <code>while</code> loop. The condition of the <code>while</code> loop is <code>!swapped</code>. This means that the loop will continue to run as long as <code>swapped</code> is <code>false</code>. This is the same as saying that the loop will continue to run as long as we have swapped any elements.</li>
+<li>Inside the <code>while</code> loop, set <code>swapped</code> to <code>true</code>. This will ensure that the loop will run at least once.</li>
+<li>Start a <code>for-loop</code>. The condition of the <code>for-loop</code> is <code>i &lt; arr.length</code>. This means that the loop will continue to run as long as <code>i</code> is less than the length of the array.</li>
+<li>Inside the <code>for-loop</code>, check if the current element is greater than the next element. If it is, then swap the elements and set <code>swapped</code> to <code>false</code>. This will ensure that the loop will run again.</li>
+<li>Outside of the <code>for-loop</code>, return the sorted array.</li>
+</ul>
+</details> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>
+      var base_url = "../..";
+    </script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script> <script src="../../search/main.js"></script>
+    <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+    </script>
+  </body>
+</html>
